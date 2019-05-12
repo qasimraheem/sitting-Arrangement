@@ -21,7 +21,7 @@ namespace Project_1.Data_Layer
         
 
     // con = new SqlConnection(conStr);
-    con = new SqlConnection("Data Source=DESKTOP-2PU6R1E\\QASIM;Initial Catalog=Seating-Arrangement;Integrated Security=True");
+    con = new SqlConnection("Data Source=DESKTOP-2PU6R1E\\QASIM;Initial Catalog=Seating_Arrangement;Integrated Security=True");
 
         con.Open();
     }

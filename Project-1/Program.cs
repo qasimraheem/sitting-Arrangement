@@ -16,7 +16,7 @@ namespace Project_1
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Dsasboard());
+            Application.Run(new Login());
         }
     }
 }

@@ -180,6 +180,8 @@
             this.txtid.Text = "Email ID";
             this.txtid.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.txtid.OnValueChanged += new System.EventHandler(this.txtid_OnValueChanged);
+            this.txtid.Enter += new System.EventHandler(this.txtid_Enter);
+            this.txtid.Leave += new System.EventHandler(this.txtid_Leave);
             // 
             // txtpassword
             // 
@@ -201,6 +203,8 @@
             this.txtpassword.TabIndex = 8;
             this.txtpassword.Text = "Password";
             this.txtpassword.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.txtpassword.Enter += new System.EventHandler(this.txtpassword_Enter);
+            this.txtpassword.Leave += new System.EventHandler(this.txtpassword_Leave);
             // 
             // Login
             // 

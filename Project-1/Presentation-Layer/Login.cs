@@ -79,5 +79,36 @@ namespace Project_1.Presentation_Layer
         {
 
         }
+
+        private void txtid_Enter(object sender, EventArgs e)
+        {
+            if (txtid.Text=="Email ID") {
+                txtid.Text = "";
+            }
+        }
+
+        private void txtid_Leave(object sender, EventArgs e)
+        {
+            if (txtid.Text == "")
+            {
+                txtid.Text = "Email ID";
+            }
+        }
+
+        private void txtpassword_Enter(object sender, EventArgs e)
+        {
+            if (txtpassword.Text == "Password")
+            {
+                txtpassword.Text = "";
+            }
+        }
+
+        private void txtpassword_Leave(object sender, EventArgs e)
+        {
+            if (txtpassword.Text == "")
+            {
+                txtpassword.Text = "Password";
+            }
+        }
     }
 }
