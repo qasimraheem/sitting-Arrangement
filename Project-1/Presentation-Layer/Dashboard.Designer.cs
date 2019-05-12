@@ -29,8 +29,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Dashboard));
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
@@ -82,6 +84,8 @@
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.txtroompath = new ns1.BunifuMaterialTextbox();
             this.comboroomdrop = new System.Windows.Forms.ComboBox();
+            this.datagridroom = new ns1.BunifuCustomDataGrid();
+            this.btnroomclear = new Bunifu.Framework.UI.BunifuFlatButton();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panelarrangement.SuspendLayout();
@@ -96,6 +100,7 @@
             this.panel6.SuspendLayout();
             this.panel7.SuspendLayout();
             this.panelsetting.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.datagridroom)).BeginInit();
             this.SuspendLayout();
             // 
             // bunifuElipse1
@@ -478,7 +483,7 @@
             this.panelstudent.Controls.Add(this.panel9);
             this.panelstudent.Controls.Add(this.panel10);
             this.panelstudent.Controls.Add(this.droparrangement);
-            this.panelstudent.Location = new System.Drawing.Point(349, 266);
+            this.panelstudent.Location = new System.Drawing.Point(267, 171);
             this.panelstudent.Name = "panelstudent";
             this.panelstudent.Padding = new System.Windows.Forms.Padding(50);
             this.panelstudent.Size = new System.Drawing.Size(600, 420);
@@ -606,19 +611,19 @@
             // grideviewsheet
             // 
             this.grideviewsheet.AllowUserToAddRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.grideviewsheet.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.grideviewsheet.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
             this.grideviewsheet.BackgroundColor = System.Drawing.Color.Gainsboro;
             this.grideviewsheet.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.grideviewsheet.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.DarkOrange;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(93)))), ((int)(((byte)(0)))));
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.grideviewsheet.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.DarkOrange;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(93)))), ((int)(((byte)(0)))));
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.grideviewsheet.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.grideviewsheet.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.grideviewsheet.Dock = System.Windows.Forms.DockStyle.Top;
             this.grideviewsheet.DoubleBuffered = true;
@@ -770,13 +775,15 @@
             // panalroom
             // 
             this.panalroom.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(61)))), ((int)(((byte)(69)))));
+            this.panalroom.Controls.Add(this.btnroomclear);
+            this.panalroom.Controls.Add(this.btnsaverooms);
             this.panalroom.Controls.Add(this.comboroomdrop);
             this.panalroom.Controls.Add(this.txtroompath);
             this.panalroom.Controls.Add(this.btnroomload);
             this.panalroom.Controls.Add(this.panel6);
             this.panalroom.Controls.Add(this.panel7);
             this.panalroom.Controls.Add(this.txtroomnumber);
-            this.panalroom.Location = new System.Drawing.Point(217, 36);
+            this.panalroom.Location = new System.Drawing.Point(214, 36);
             this.panalroom.Name = "panalroom";
             this.panalroom.Padding = new System.Windows.Forms.Padding(50);
             this.panalroom.Size = new System.Drawing.Size(600, 420);
@@ -817,14 +824,15 @@
             this.btnroomload.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnroomload.Textcolor = System.Drawing.Color.White;
             this.btnroomload.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnroomload.Click += new System.EventHandler(this.btnroomload_Click);
             // 
             // panel6
             // 
-            this.panel6.Controls.Add(this.btnsaverooms);
+            this.panel6.Controls.Add(this.datagridroom);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel6.Location = new System.Drawing.Point(50, 317);
+            this.panel6.Location = new System.Drawing.Point(50, 240);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(500, 53);
+            this.panel6.Size = new System.Drawing.Size(500, 130);
             this.panel6.TabIndex = 14;
             // 
             // btnsaverooms
@@ -837,7 +845,6 @@
             this.btnsaverooms.ButtonText = "Save";
             this.btnsaverooms.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnsaverooms.DisabledColor = System.Drawing.Color.Goldenrod;
-            this.btnsaverooms.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnsaverooms.Iconcolor = System.Drawing.Color.Transparent;
             this.btnsaverooms.Iconimage = ((System.Drawing.Image)(resources.GetObject("btnsaverooms.Iconimage")));
             this.btnsaverooms.Iconimage_right = null;
@@ -850,7 +857,7 @@
             this.btnsaverooms.IconVisible = true;
             this.btnsaverooms.IconZoom = 90D;
             this.btnsaverooms.IsTab = false;
-            this.btnsaverooms.Location = new System.Drawing.Point(0, 0);
+            this.btnsaverooms.Location = new System.Drawing.Point(416, 372);
             this.btnsaverooms.Margin = new System.Windows.Forms.Padding(30, 3, 3, 3);
             this.btnsaverooms.Name = "btnsaverooms";
             this.btnsaverooms.Normalcolor = System.Drawing.Color.DarkOrange;
@@ -858,7 +865,7 @@
             this.btnsaverooms.OnHoverTextColor = System.Drawing.Color.White;
             this.btnsaverooms.Padding = new System.Windows.Forms.Padding(200, 0, 0, 0);
             this.btnsaverooms.selected = false;
-            this.btnsaverooms.Size = new System.Drawing.Size(500, 53);
+            this.btnsaverooms.Size = new System.Drawing.Size(134, 30);
             this.btnsaverooms.TabIndex = 11;
             this.btnsaverooms.Text = "Save";
             this.btnsaverooms.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -970,7 +977,7 @@
             this.txtroomnumber.Padding = new System.Windows.Forms.Padding(0, 0, 0, 10);
             this.txtroomnumber.Size = new System.Drawing.Size(500, 55);
             this.txtroomnumber.TabIndex = 16;
-            this.txtroomnumber.Text = "RoomNumber";
+            this.txtroomnumber.Text = "Room Number";
             this.txtroomnumber.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.txtroomnumber.OnValueChanged += new System.EventHandler(this.txtroomnumber_OnValueChanged);
             this.txtroomnumber.Enter += new System.EventHandler(this.txtroomnumber_Enter);
@@ -1149,6 +1156,7 @@
             // txtroompath
             // 
             this.txtroompath.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtroompath.Enabled = false;
             this.txtroompath.Font = new System.Drawing.Font("Century Gothic", 9.75F);
             this.txtroompath.ForeColor = System.Drawing.Color.White;
             this.txtroompath.HintForeColor = System.Drawing.Color.Empty;
@@ -1174,6 +1182,75 @@
             this.comboroomdrop.Name = "comboroomdrop";
             this.comboroomdrop.Size = new System.Drawing.Size(157, 21);
             this.comboroomdrop.TabIndex = 20;
+            this.comboroomdrop.SelectedIndexChanged += new System.EventHandler(this.comboroomdrop_SelectedIndexChanged);
+            this.comboroomdrop.SelectionChangeCommitted += new System.EventHandler(this.comboroomdrop_SelectionChangeCommitted);
+            this.comboroomdrop.Leave += new System.EventHandler(this.comboroomdrop_Leave);
+            // 
+            // datagridroom
+            // 
+            this.datagridroom.AllowUserToAddRows = false;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.datagridroom.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
+            this.datagridroom.BackgroundColor = System.Drawing.Color.Gainsboro;
+            this.datagridroom.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.datagridroom.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.DarkOrange;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(93)))), ((int)(((byte)(0)))));
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.datagridroom.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
+            this.datagridroom.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.datagridroom.Dock = System.Windows.Forms.DockStyle.Top;
+            this.datagridroom.DoubleBuffered = true;
+            this.datagridroom.EnableHeadersVisualStyles = false;
+            this.datagridroom.HeaderBgColor = System.Drawing.Color.DarkOrange;
+            this.datagridroom.HeaderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(93)))), ((int)(((byte)(0)))));
+            this.datagridroom.Location = new System.Drawing.Point(0, 0);
+            this.datagridroom.Name = "datagridroom";
+            this.datagridroom.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.datagridroom.Size = new System.Drawing.Size(500, 126);
+            this.datagridroom.TabIndex = 20;
+            // 
+            // btnroomclear
+            // 
+            this.btnroomclear.Active = false;
+            this.btnroomclear.Activecolor = System.Drawing.Color.DarkOrange;
+            this.btnroomclear.BackColor = System.Drawing.Color.DarkOrange;
+            this.btnroomclear.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnroomclear.BorderRadius = 0;
+            this.btnroomclear.ButtonText = "Clear";
+            this.btnroomclear.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnroomclear.DisabledColor = System.Drawing.Color.Goldenrod;
+            this.btnroomclear.Iconcolor = System.Drawing.Color.Transparent;
+            this.btnroomclear.Iconimage = ((System.Drawing.Image)(resources.GetObject("btnroomclear.Iconimage")));
+            this.btnroomclear.Iconimage_right = null;
+            this.btnroomclear.Iconimage_right_Selected = null;
+            this.btnroomclear.Iconimage_Selected = null;
+            this.btnroomclear.IconMarginLeft = 0;
+            this.btnroomclear.IconMarginRight = 0;
+            this.btnroomclear.IconRightVisible = true;
+            this.btnroomclear.IconRightZoom = 0D;
+            this.btnroomclear.IconVisible = true;
+            this.btnroomclear.IconZoom = 90D;
+            this.btnroomclear.IsTab = false;
+            this.btnroomclear.Location = new System.Drawing.Point(50, 372);
+            this.btnroomclear.Margin = new System.Windows.Forms.Padding(30, 3, 3, 3);
+            this.btnroomclear.Name = "btnroomclear";
+            this.btnroomclear.Normalcolor = System.Drawing.Color.DarkOrange;
+            this.btnroomclear.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(93)))), ((int)(((byte)(0)))));
+            this.btnroomclear.OnHoverTextColor = System.Drawing.Color.White;
+            this.btnroomclear.Padding = new System.Windows.Forms.Padding(200, 0, 0, 0);
+            this.btnroomclear.selected = false;
+            this.btnroomclear.Size = new System.Drawing.Size(134, 30);
+            this.btnroomclear.TabIndex = 21;
+            this.btnroomclear.Text = "Clear";
+            this.btnroomclear.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnroomclear.Textcolor = System.Drawing.Color.White;
+            this.btnroomclear.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnroomclear.Click += new System.EventHandler(this.btnroomclear_Click);
             // 
             // Dashboard
             // 
@@ -1204,6 +1281,7 @@
             this.panel6.ResumeLayout(false);
             this.panel7.ResumeLayout(false);
             this.panelsetting.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.datagridroom)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1260,5 +1338,7 @@
         private Bunifu.Framework.UI.BunifuFlatButton btnroomload;
         private ns1.BunifuMaterialTextbox txtroompath;
         private System.Windows.Forms.ComboBox comboroomdrop;
+        private ns1.BunifuCustomDataGrid datagridroom;
+        private Bunifu.Framework.UI.BunifuFlatButton btnroomclear;
     }
 }

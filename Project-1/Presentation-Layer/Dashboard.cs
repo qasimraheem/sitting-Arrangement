@@ -223,21 +223,50 @@ namespace Project_1.Presentation_Layer
 
         private void btnsaverooms_Click(object sender, EventArgs e)
         {
-            Room room = new Room();
-            room.rows = Int32.Parse(txtrow.Text);
-            room.cols = Int32.Parse(txtcol.Text);
-            room.totalSeats = Int32.Parse(txttotal.Text);
-            room.adminID = admin.id;
-            room.roomNumber = txtroomnumber.Text;
+            if (txtroomnumber.Enabled)
+            {
 
-            DBConnection dbcon2 = new DBConnection();
-            dbcon2.SqlQuery("INSERT INTO RoomsTable (Rows,Cols,TotalSeats,AdminID,RoomNumber) VALUES ( @rows, @cols, @totalSeats, @adminID, @roomNumber)");
-            dbcon2.cmd.Parameters.AddWithValue("@rows", room.rows);
-            dbcon2.cmd.Parameters.AddWithValue("@cols", room.cols);
-            dbcon2.cmd.Parameters.AddWithValue("@totalSeats", room.totalSeats);
-            dbcon2.cmd.Parameters.AddWithValue("@adminID", room.adminID);
-            dbcon2.cmd.Parameters.AddWithValue("@roomNumber", room.roomNumber);
-            int val = dbcon2.ExNonQuery();
+                Room room = new Room();
+                room.rows = Int32.Parse(txtrow.Text);
+                room.cols = Int32.Parse(txtcol.Text);
+                room.totalSeats = Int32.Parse(txttotal.Text);
+                room.adminID = admin.id;
+                room.roomNumber = txtroomnumber.Text;
+
+                DBConnection dbcon2 = new DBConnection();
+                dbcon2.SqlQuery("INSERT INTO RoomsTable (Rows,Cols,TotalSeats,AdminID,RoomNumber) VALUES ( @rows, @cols, @totalSeats, @adminID, @roomNumber)");
+                dbcon2.cmd.Parameters.AddWithValue("@rows", room.rows);
+                dbcon2.cmd.Parameters.AddWithValue("@cols", room.cols);
+                dbcon2.cmd.Parameters.AddWithValue("@totalSeats", room.totalSeats);
+                dbcon2.cmd.Parameters.AddWithValue("@adminID", room.adminID);
+                dbcon2.cmd.Parameters.AddWithValue("@roomNumber", room.roomNumber);
+                int val = dbcon2.ExNonQuery();
+
+                txtroomnumber.Text = "Room Number";
+                txtrow.Text = "Rows";
+                txtcol.Text = "Cols";
+                txttotal.Text = "Total Seats";
+            }
+            else if ((!txtroomnumber.Enabled) && (datagridroom.Rows.Count > 0))
+            {
+                foreach (DataGridViewRow row in datagridroom.Rows)
+                {
+                    DBConnection dbcon2 = new DBConnection();
+                    dbcon2.SqlQuery("INSERT INTO RoomsTable (Rows,Cols,TotalSeats,AdminID,RoomNumber) VALUES ( @rows, @cols, @totalSeats, @adminID, @roomNumber)");
+                    dbcon2.cmd.Parameters.AddWithValue("@rows", row.Cells["TotalRows"].Value);
+                    dbcon2.cmd.Parameters.AddWithValue("@cols", row.Cells["TotalCols"].Value);
+                    dbcon2.cmd.Parameters.AddWithValue("@totalSeats", row.Cells["TotalSeats"].Value);
+                    dbcon2.cmd.Parameters.AddWithValue("@adminID", admin.id);
+                    dbcon2.cmd.Parameters.AddWithValue("@roomNumber", row.Cells["RoomNumber"].Value);
+                    int val = dbcon2.ExNonQuery();
+                }
+
+                grideviewsheet.Rows.Clear();
+            }
+            else
+            {
+                MessageBox.Show("Data not set");
+            }
             
         }
 
@@ -321,7 +350,7 @@ namespace Project_1.Presentation_Layer
 
         private void txtroomnumber_Enter(object sender, EventArgs e)
         {
-            if (txtroomnumber.Text == "RoomNumber")
+            if (txtroomnumber.Text == "Room Number")
             {
                 txtroomnumber.Text = "";
             }
@@ -331,7 +360,7 @@ namespace Project_1.Presentation_Layer
         {
             if (txtroomnumber.Text == "")
             {
-                txtroomnumber.Text = "RoomNumber";
+                txtroomnumber.Text = "Room Number";
             }
         }
 
@@ -383,6 +412,81 @@ namespace Project_1.Presentation_Layer
             {
                 txttotal.Text = "";
             }
+        }
+
+        private void btnroomload_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                OpenFileDialog openFileDialog = new OpenFileDialog();
+                openFileDialog.Filter = "Excel File | *.xlsx; *.xls; *.xlsm";
+                if (openFileDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                {
+                    this.txtroompath.Text = openFileDialog.FileName;
+                }
+                string constr = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + txtroompath.Text + ";Extended Properties = \"Excel 12.0; HDR=Yes;\" ; ";
+                OleDbConnection con = new OleDbConnection(constr);
+                con.Open();
+                comboroomdrop.DataSource = con.GetOleDbSchemaTable(OleDbSchemaGuid.Tables, null);
+                comboroomdrop.DisplayMember = "TABLE_NAME";
+                comboroomdrop.ValueMember = "TABLE_NAME";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void comboroomdrop_SelectedIndexChanged(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void comboroomdrop_Leave(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void comboroomdrop_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            try
+            {
+                string constr = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + txtroompath.Text + ";Extended Properties = \"Excel 12.0; HDR=Yes;\" ; ";
+                OleDbConnection con = new OleDbConnection(constr);
+                OleDbDataAdapter sda = new OleDbDataAdapter("Select RoomNumber,TotalRows,TotalCols,TotalSeats from [" + comboroomdrop.SelectedValue + "]", con);
+                DataTable dt = new DataTable();
+                sda.Fill(dt);
+                foreach (DataRow row in dt.Rows)
+                {
+                    datagridroom.DataSource = dt;
+                }
+                txtroomnumber.Enabled = false;
+                txtrow.Enabled = false;
+                txtcol.Enabled = false;
+                txttotal.Enabled = false;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void btnroomclear_Click(object sender, EventArgs e)
+        {
+            txtroomnumber.Enabled = true;
+            txtrow.Enabled = true;
+            txtcol.Enabled = true;
+            txttotal.Enabled = true;
+            txtroomnumber.Text="Room Number";
+            txtrow.Text="Rows";
+            txtcol.Text="Cols";
+            txttotal.Text="Total Seats";
+            datagridroom.DataSource = null;
+            comboroomdrop.DataSource = null;
+            txtroompath.Text = "";
+            comboroomdrop.Items.Clear();
+            datagridroom.Rows.Clear();
+            datagridroom.Refresh();
         }
     }
 }
