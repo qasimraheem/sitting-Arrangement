@@ -15,10 +15,13 @@ namespace Project_1.Presentation_Layer
 {
     public partial class Login : Form
     {
+        string password;
         public Login()
         {
             InitializeComponent();
+            string password="";
         }
+        
 
         private void label3_Click(object sender, EventArgs e)
         {
@@ -100,6 +103,7 @@ namespace Project_1.Presentation_Layer
             if (txtpassword.Text == "Password")
             {
                 txtpassword.Text = "";
+                txtpassword.isPassword = true;
             }
         }
 
@@ -108,7 +112,19 @@ namespace Project_1.Presentation_Layer
             if (txtpassword.Text == "")
             {
                 txtpassword.Text = "Password";
+                txtpassword.isPassword = false;
             }
+        }
+
+
+        private void txtpassword_OnValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

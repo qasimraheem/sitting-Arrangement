@@ -137,6 +137,8 @@
             this.txtlname.TabIndex = 3;
             this.txtlname.Text = "Last Name";
             this.txtlname.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.txtlname.Enter += new System.EventHandler(this.txtlname_Enter);
+            this.txtlname.Leave += new System.EventHandler(this.txtlname_Leave);
             // 
             // txtemail
             // 
@@ -158,6 +160,8 @@
             this.txtemail.TabIndex = 4;
             this.txtemail.Text = "Email";
             this.txtemail.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.txtemail.Enter += new System.EventHandler(this.txtemail_Enter);
+            this.txtemail.Leave += new System.EventHandler(this.txtemail_Leave);
             // 
             // txtpassword
             // 
@@ -179,6 +183,9 @@
             this.txtpassword.TabIndex = 5;
             this.txtpassword.Text = "Password";
             this.txtpassword.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.txtpassword.OnValueChanged += new System.EventHandler(this.txtpassword_OnValueChanged);
+            this.txtpassword.Enter += new System.EventHandler(this.txtpassword_Enter);
+            this.txtpassword.Leave += new System.EventHandler(this.txtpassword_Leave);
             // 
             // txtrepassord
             // 
@@ -200,6 +207,8 @@
             this.txtrepassord.TabIndex = 6;
             this.txtrepassord.Text = "Re-Enter Password";
             this.txtrepassord.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.txtrepassord.Enter += new System.EventHandler(this.txtrepassord_Enter);
+            this.txtrepassord.Leave += new System.EventHandler(this.txtrepassord_Leave);
             // 
             // bunifuCheckbox1
             // 

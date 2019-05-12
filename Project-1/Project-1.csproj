@@ -75,11 +75,11 @@
     <Compile Include="Presentation-Layer\Dashboard2.Designer.cs">
       <DependentUpon>Dashboard2.cs</DependentUpon>
     </Compile>
-    <Compile Include="Presentation-Layer\Dsasboard.cs">
+    <Compile Include="Presentation-Layer\Dashboard.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Presentation-Layer\Dsasboard.Designer.cs">
-      <DependentUpon>Dsasboard.cs</DependentUpon>
+    <Compile Include="Presentation-Layer\Dashboard.Designer.cs">
+      <DependentUpon>Dashboard.cs</DependentUpon>
     </Compile>
     <Compile Include="Presentation-Layer\Login.cs">
       <SubType>Form</SubType>
@@ -98,8 +98,8 @@
     <EmbeddedResource Include="Presentation-Layer\Dashboard2.resx">
       <DependentUpon>Dashboard2.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Presentation-Layer\Dsasboard.resx">
-      <DependentUpon>Dsasboard.cs</DependentUpon>
+    <EmbeddedResource Include="Presentation-Layer\Dashboard.resx">
+      <DependentUpon>Dashboard.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Presentation-Layer\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>

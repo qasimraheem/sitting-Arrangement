@@ -41,6 +41,7 @@
             this.bunifuElipse1 = new ns1.BunifuElipse(this.components);
             this.txtid = new ns1.BunifuMaterialTextbox();
             this.txtpassword = new ns1.BunifuMaterialTextbox();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -121,6 +122,7 @@
             this.label1.Size = new System.Drawing.Size(128, 16);
             this.label1.TabIndex = 4;
             this.label1.Text = "Forget Password";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // lblsignup
             // 
@@ -203,6 +205,7 @@
             this.txtpassword.TabIndex = 8;
             this.txtpassword.Text = "Password";
             this.txtpassword.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.txtpassword.OnValueChanged += new System.EventHandler(this.txtpassword_OnValueChanged);
             this.txtpassword.Enter += new System.EventHandler(this.txtpassword_Enter);
             this.txtpassword.Leave += new System.EventHandler(this.txtpassword_Leave);
             // 
@@ -245,5 +248,6 @@
         private ns1.BunifuElipse bunifuElipse1;
         private ns1.BunifuMaterialTextbox txtpassword;
         private ns1.BunifuMaterialTextbox txtid;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
     }
 }

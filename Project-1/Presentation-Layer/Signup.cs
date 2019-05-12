@@ -96,6 +96,7 @@ namespace Project_1.Presentation_Layer
             if(txtfname.Text=="First Name")
             {
                 txtfname.Text = "";
+
             }
         }
 
@@ -104,6 +105,79 @@ namespace Project_1.Presentation_Layer
             if (txtfname.Text == "")
             {
                 txtfname.Text = "First Name";
+            }
+        }
+
+        private void txtpassword_OnValueChanged(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void txtpassword_Enter(object sender, EventArgs e)
+        {
+            if (txtpassword.Text == "Password")
+            {
+                txtpassword.Text = "";
+                txtpassword.isPassword = true;
+            }
+        }
+
+        private void txtpassword_Leave(object sender, EventArgs e)
+        {
+            if (txtpassword.Text == "")
+            {
+                txtpassword.Text = "Password";
+                txtpassword.isPassword = false;
+            }
+        }
+
+        private void txtrepassord_Enter(object sender, EventArgs e)
+        {
+            if (txtrepassord.Text == "Re-Enter Password")
+            {
+                txtrepassord.Text = "";
+                txtrepassord.isPassword = true;
+            }
+        }
+
+        private void txtrepassord_Leave(object sender, EventArgs e)
+        {
+            if (txtrepassord.Text == "")
+            {
+                txtrepassord.Text = "Re-Enter Password";
+                txtrepassord.isPassword = false;
+            }
+        }
+
+        private void txtlname_Enter(object sender, EventArgs e)
+        {
+            if (txtlname.Text == "Last Name")
+            {
+                txtlname.Text = "";
+            }
+        }
+
+        private void txtlname_Leave(object sender, EventArgs e)
+        {
+            if (txtlname.Text == "")
+            {
+                txtlname.Text = "Last Name";
+            }
+        }
+
+        private void txtemail_Enter(object sender, EventArgs e)
+        {
+            if (txtemail.Text == "Email")
+            {
+                txtemail.Text = "";
+            }
+        }
+
+        private void txtemail_Leave(object sender, EventArgs e)
+        {
+            if (txtemail.Text == "")
+            {
+                txtemail.Text = "Email";
             }
         }
     }
