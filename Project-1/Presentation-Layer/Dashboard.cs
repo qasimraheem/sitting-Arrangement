@@ -20,8 +20,9 @@ namespace Project_1.Presentation_Layer
     public partial class Dashboard : Form
     {
         Admin admin = new Admin();
-        public Dashboard()
+        public Dashboard(Admin currentAdmin)
         {
+            this.admin = currentAdmin;
             InitializeComponent();
             panelsetting.Dock = DockStyle.Fill;
             panelsetting.TabIndex = 0;
@@ -29,6 +30,9 @@ namespace Project_1.Presentation_Layer
             panelstudent.Visible = false;
             panalroom.Visible = false;
             panelarrangement.Visible = false;
+            txtfname.Text = admin.first_name;
+            txtlname.Text = admin.last_name;
+            txtemail.Text = admin.email;
         }
         //public void setAdmin(Admin admin) {
 
@@ -116,7 +120,7 @@ namespace Project_1.Presentation_Layer
 
         private void txtfname_OnValueChanged_1(object sender, EventArgs e)
         {
-
+            
         }
 
         private void txtlname_OnValueChanged_1(object sender, EventArgs e)
@@ -223,15 +227,13 @@ namespace Project_1.Presentation_Layer
             room.rows = Int32.Parse(txtrow.Text);
             room.cols = Int32.Parse(txtcol.Text);
             room.totalSeats = Int32.Parse(txttotal.Text);
-            room.allowedSeats = Int32.Parse(txtallowedseats.Text);
             room.adminID = admin.id;
             room.roomNumber = txtroomnumber.Text;
 
             DBConnection dbcon2 = new DBConnection();
-            dbcon2.SqlQuery("INSERT INTO RoomsTable (Rows,Cols,AllowedSeats,TotalSeats,AdminID,RoomNumber) VALUES ( @rows, @cols, @allowedSeats, @totalSeats, @adminID, @roomNumber)");
+            dbcon2.SqlQuery("INSERT INTO RoomsTable (Rows,Cols,TotalSeats,AdminID,RoomNumber) VALUES ( @rows, @cols, @totalSeats, @adminID, @roomNumber)");
             dbcon2.cmd.Parameters.AddWithValue("@rows", room.rows);
             dbcon2.cmd.Parameters.AddWithValue("@cols", room.cols);
-            dbcon2.cmd.Parameters.AddWithValue("@allowedSeats", room.allowedSeats);
             dbcon2.cmd.Parameters.AddWithValue("@totalSeats", room.totalSeats);
             dbcon2.cmd.Parameters.AddWithValue("@adminID", room.adminID);
             dbcon2.cmd.Parameters.AddWithValue("@roomNumber", room.roomNumber);
@@ -310,6 +312,77 @@ namespace Project_1.Presentation_Layer
         private void btnArrange_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void txtroomnumber_OnValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtroomnumber_Enter(object sender, EventArgs e)
+        {
+            if (txtroomnumber.Text == "RoomNumber")
+            {
+                txtroomnumber.Text = "";
+            }
+        }
+
+        private void txtroomnumber_Leave(object sender, EventArgs e)
+        {
+            if (txtroomnumber.Text == "")
+            {
+                txtroomnumber.Text = "RoomNumber";
+            }
+        }
+
+        private void txtrow_Enter(object sender, EventArgs e)
+        {
+            if (txtrow.Text == "Rows")
+            {
+                txtrow.Text = "";
+            }
+        }
+
+        private void txtrow_Leave(object sender, EventArgs e)
+        {
+            if (txtrow.Text == "")
+            {
+                txtrow.Text = "Rows";
+            }
+        }
+
+        private void txtcol_Enter(object sender, EventArgs e)
+        {
+            if (txtcol.Text == "Cols")
+            {
+                txtcol.Text = "";
+            }
+        }
+
+        private void txtcol_Leave(object sender, EventArgs e)
+        {
+            if (txtcol.Text == "")
+            {
+                txtcol.Text = "Cols";
+            }
+        }
+
+     
+
+        private void txttotal_Leave(object sender, EventArgs e)
+        {
+            if (txttotal.Text == "")
+            {
+                txttotal.Text = "Total Seats";
+            }
+        }
+
+        private void txttotal_Enter(object sender, EventArgs e)
+        {
+            if (txttotal.Text == "Total Seats")
+            {
+                txttotal.Text = "";
+            }
         }
     }
 }

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Project_1.Presentation_Layer;
+using Project_1.Common_Layer;
 namespace Project_1
 {
     static class Program
@@ -16,7 +17,13 @@ namespace Project_1
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Dashboard());
+            Admin admin = new Admin();
+            admin.email = "qasimmehmood13936@gmail.com";
+            admin.last_name = "raheem";
+            admin.first_name = "qasim";
+            admin.password = "Allahis1!";
+            admin.id = 1;
+            Application.Run(new Dashboard(admin));
         }
     }
 }

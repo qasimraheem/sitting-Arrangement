@@ -58,7 +58,7 @@ namespace Project_1.Presentation_Layer
             if (currentAdmin != null)
             {
                 //MessageBox.Show(currentAdmin.email + currentAdmin.first_name);
-                Dashboard2 dashboard = new Dashboard2();
+                Dashboard dashboard = new Dashboard(currentAdmin);
                 this.Hide();
                 dashboard.Show();
                 

@@ -64,7 +64,7 @@
             this.txtsubject = new ns1.BunifuMaterialTextbox();
             this.droparrangement = new Bunifu.Framework.UI.BunifuDropdown();
             this.panalroom = new System.Windows.Forms.Panel();
-            this.txtallowedseats = new ns1.BunifuMaterialTextbox();
+            this.btnroomload = new Bunifu.Framework.UI.BunifuFlatButton();
             this.panel6 = new System.Windows.Forms.Panel();
             this.btnsaverooms = new Bunifu.Framework.UI.BunifuFlatButton();
             this.panel7 = new System.Windows.Forms.Panel();
@@ -80,6 +80,8 @@
             this.txtlname = new ns1.BunifuMaterialTextbox();
             this.txtfname = new ns1.BunifuMaterialTextbox();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.txtroompath = new ns1.BunifuMaterialTextbox();
+            this.comboroomdrop = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panelarrangement.SuspendLayout();
@@ -230,7 +232,7 @@
             this.btnadmin.BackColor = System.Drawing.Color.Black;
             this.btnadmin.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnadmin.BorderRadius = 1;
-            this.btnadmin.ButtonText = "Setting";
+            this.btnadmin.ButtonText = "User Setting ";
             this.btnadmin.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnadmin.DisabledColor = System.Drawing.Color.Gray;
             this.btnadmin.Iconcolor = System.Drawing.Color.Transparent;
@@ -253,7 +255,7 @@
             this.btnadmin.selected = false;
             this.btnadmin.Size = new System.Drawing.Size(200, 42);
             this.btnadmin.TabIndex = 7;
-            this.btnadmin.Text = "Setting";
+            this.btnadmin.Text = "User Setting ";
             this.btnadmin.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnadmin.Textcolor = System.Drawing.Color.White;
             this.btnadmin.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -476,7 +478,7 @@
             this.panelstudent.Controls.Add(this.panel9);
             this.panelstudent.Controls.Add(this.panel10);
             this.panelstudent.Controls.Add(this.droparrangement);
-            this.panelstudent.Location = new System.Drawing.Point(356, 238);
+            this.panelstudent.Location = new System.Drawing.Point(349, 266);
             this.panelstudent.Name = "panelstudent";
             this.panelstudent.Padding = new System.Windows.Forms.Padding(50);
             this.panelstudent.Size = new System.Drawing.Size(600, 420);
@@ -768,38 +770,53 @@
             // panalroom
             // 
             this.panalroom.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(61)))), ((int)(((byte)(69)))));
-            this.panalroom.Controls.Add(this.txtallowedseats);
+            this.panalroom.Controls.Add(this.comboroomdrop);
+            this.panalroom.Controls.Add(this.txtroompath);
+            this.panalroom.Controls.Add(this.btnroomload);
             this.panalroom.Controls.Add(this.panel6);
             this.panalroom.Controls.Add(this.panel7);
             this.panalroom.Controls.Add(this.txtroomnumber);
-            this.panalroom.Location = new System.Drawing.Point(271, 358);
+            this.panalroom.Location = new System.Drawing.Point(217, 36);
             this.panalroom.Name = "panalroom";
             this.panalroom.Padding = new System.Windows.Forms.Padding(50);
             this.panalroom.Size = new System.Drawing.Size(600, 420);
             this.panalroom.TabIndex = 12;
             this.panalroom.Visible = false;
             // 
-            // txtallowedseats
+            // btnroomload
             // 
-            this.txtallowedseats.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtallowedseats.Dock = System.Windows.Forms.DockStyle.Top;
-            this.txtallowedseats.Font = new System.Drawing.Font("Century Gothic", 9.75F);
-            this.txtallowedseats.ForeColor = System.Drawing.Color.White;
-            this.txtallowedseats.HintForeColor = System.Drawing.Color.Empty;
-            this.txtallowedseats.HintText = "";
-            this.txtallowedseats.isPassword = false;
-            this.txtallowedseats.LineFocusedColor = System.Drawing.Color.Blue;
-            this.txtallowedseats.LineIdleColor = System.Drawing.Color.DarkOrange;
-            this.txtallowedseats.LineMouseHoverColor = System.Drawing.Color.Blue;
-            this.txtallowedseats.LineThickness = 3;
-            this.txtallowedseats.Location = new System.Drawing.Point(50, 176);
-            this.txtallowedseats.Margin = new System.Windows.Forms.Padding(0);
-            this.txtallowedseats.Name = "txtallowedseats";
-            this.txtallowedseats.Padding = new System.Windows.Forms.Padding(0, 0, 0, 10);
-            this.txtallowedseats.Size = new System.Drawing.Size(500, 55);
-            this.txtallowedseats.TabIndex = 17;
-            this.txtallowedseats.Text = "Allowed Seats";
-            this.txtallowedseats.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnroomload.Active = false;
+            this.btnroomload.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
+            this.btnroomload.BackColor = System.Drawing.Color.DarkOrange;
+            this.btnroomload.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnroomload.BorderRadius = 0;
+            this.btnroomload.ButtonText = "Load from Sheet";
+            this.btnroomload.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnroomload.DisabledColor = System.Drawing.Color.Gray;
+            this.btnroomload.Iconcolor = System.Drawing.Color.Transparent;
+            this.btnroomload.Iconimage = ((System.Drawing.Image)(resources.GetObject("btnroomload.Iconimage")));
+            this.btnroomload.Iconimage_right = null;
+            this.btnroomload.Iconimage_right_Selected = null;
+            this.btnroomload.Iconimage_Selected = null;
+            this.btnroomload.IconMarginLeft = 0;
+            this.btnroomload.IconMarginRight = 0;
+            this.btnroomload.IconRightVisible = true;
+            this.btnroomload.IconRightZoom = 0D;
+            this.btnroomload.IconVisible = true;
+            this.btnroomload.IconZoom = 90D;
+            this.btnroomload.IsTab = false;
+            this.btnroomload.Location = new System.Drawing.Point(50, 196);
+            this.btnroomload.Name = "btnroomload";
+            this.btnroomload.Normalcolor = System.Drawing.Color.DarkOrange;
+            this.btnroomload.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(93)))), ((int)(((byte)(0)))));
+            this.btnroomload.OnHoverTextColor = System.Drawing.Color.White;
+            this.btnroomload.selected = false;
+            this.btnroomload.Size = new System.Drawing.Size(144, 31);
+            this.btnroomload.TabIndex = 18;
+            this.btnroomload.Text = "Load from Sheet";
+            this.btnroomload.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnroomload.Textcolor = System.Drawing.Color.White;
+            this.btnroomload.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             // 
             // panel6
             // 
@@ -877,11 +894,13 @@
             this.txttotal.Location = new System.Drawing.Point(337, 0);
             this.txttotal.Margin = new System.Windows.Forms.Padding(0);
             this.txttotal.Name = "txttotal";
-            this.txttotal.Padding = new System.Windows.Forms.Padding(10, 0, 10, 10);
+            this.txttotal.Padding = new System.Windows.Forms.Padding(15, 15, 0, 15);
             this.txttotal.Size = new System.Drawing.Size(163, 71);
             this.txttotal.TabIndex = 7;
             this.txttotal.Text = "Total Seats";
             this.txttotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.txttotal.Enter += new System.EventHandler(this.txttotal_Enter);
+            this.txttotal.Leave += new System.EventHandler(this.txttotal_Leave);
             // 
             // txtcol
             // 
@@ -899,11 +918,13 @@
             this.txtcol.Location = new System.Drawing.Point(161, 0);
             this.txtcol.Margin = new System.Windows.Forms.Padding(0);
             this.txtcol.Name = "txtcol";
-            this.txtcol.Padding = new System.Windows.Forms.Padding(10, 0, 0, 10);
-            this.txtcol.Size = new System.Drawing.Size(176, 71);
+            this.txtcol.Padding = new System.Windows.Forms.Padding(0, 15, 15, 15);
+            this.txtcol.Size = new System.Drawing.Size(191, 71);
             this.txtcol.TabIndex = 6;
             this.txtcol.Text = "Cols";
             this.txtcol.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.txtcol.Enter += new System.EventHandler(this.txtcol_Enter);
+            this.txtcol.Leave += new System.EventHandler(this.txtcol_Leave);
             // 
             // txtrow
             // 
@@ -922,11 +943,13 @@
             this.txtrow.Location = new System.Drawing.Point(0, 0);
             this.txtrow.Margin = new System.Windows.Forms.Padding(0);
             this.txtrow.Name = "txtrow";
-            this.txtrow.Padding = new System.Windows.Forms.Padding(10, 0, 0, 10);
+            this.txtrow.Padding = new System.Windows.Forms.Padding(0, 15, 15, 15);
             this.txtrow.Size = new System.Drawing.Size(161, 71);
             this.txtrow.TabIndex = 5;
             this.txtrow.Text = "Rows";
             this.txtrow.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.txtrow.Enter += new System.EventHandler(this.txtrow_Enter);
+            this.txtrow.Leave += new System.EventHandler(this.txtrow_Leave);
             // 
             // txtroomnumber
             // 
@@ -949,6 +972,9 @@
             this.txtroomnumber.TabIndex = 16;
             this.txtroomnumber.Text = "RoomNumber";
             this.txtroomnumber.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.txtroomnumber.OnValueChanged += new System.EventHandler(this.txtroomnumber_OnValueChanged);
+            this.txtroomnumber.Enter += new System.EventHandler(this.txtroomnumber_Enter);
+            this.txtroomnumber.Leave += new System.EventHandler(this.txtroomnumber_Leave);
             // 
             // panelsetting
             // 
@@ -959,7 +985,7 @@
             this.panelsetting.Controls.Add(this.txtemail);
             this.panelsetting.Controls.Add(this.txtlname);
             this.panelsetting.Controls.Add(this.txtfname);
-            this.panelsetting.Location = new System.Drawing.Point(557, 82);
+            this.panelsetting.Location = new System.Drawing.Point(217, 388);
             this.panelsetting.Name = "panelsetting";
             this.panelsetting.Padding = new System.Windows.Forms.Padding(50);
             this.panelsetting.Size = new System.Drawing.Size(604, 420);
@@ -1120,20 +1146,49 @@
             this.txtfname.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.txtfname.OnValueChanged += new System.EventHandler(this.txtfname_OnValueChanged_1);
             // 
-            // Dsasboard
+            // txtroompath
+            // 
+            this.txtroompath.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtroompath.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            this.txtroompath.ForeColor = System.Drawing.Color.White;
+            this.txtroompath.HintForeColor = System.Drawing.Color.Empty;
+            this.txtroompath.HintText = "";
+            this.txtroompath.isPassword = false;
+            this.txtroompath.LineFocusedColor = System.Drawing.Color.Blue;
+            this.txtroompath.LineIdleColor = System.Drawing.Color.DarkOrange;
+            this.txtroompath.LineMouseHoverColor = System.Drawing.Color.Blue;
+            this.txtroompath.LineThickness = 3;
+            this.txtroompath.Location = new System.Drawing.Point(200, 186);
+            this.txtroompath.Margin = new System.Windows.Forms.Padding(0);
+            this.txtroompath.Name = "txtroompath";
+            this.txtroompath.Padding = new System.Windows.Forms.Padding(0, 0, 0, 10);
+            this.txtroompath.Size = new System.Drawing.Size(189, 51);
+            this.txtroompath.TabIndex = 19;
+            this.txtroompath.Text = "File Path";
+            this.txtroompath.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            // 
+            // comboroomdrop
+            // 
+            this.comboroomdrop.FormattingEnabled = true;
+            this.comboroomdrop.Location = new System.Drawing.Point(393, 206);
+            this.comboroomdrop.Name = "comboroomdrop";
+            this.comboroomdrop.Size = new System.Drawing.Size(157, 21);
+            this.comboroomdrop.TabIndex = 20;
+            // 
+            // Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(226)))), ((int)(((byte)(225)))));
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.panelsetting);
-            this.Controls.Add(this.panelarrangement);
-            this.Controls.Add(this.panelstudent);
             this.Controls.Add(this.panalroom);
+            this.Controls.Add(this.panelstudent);
+            this.Controls.Add(this.panelarrangement);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel2);
+            this.Controls.Add(this.panelsetting);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "Dsasboard";
+            this.Name = "Dashboard";
             this.Text = "Dsasboard";
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -1171,7 +1226,6 @@
         private ns1.BunifuMaterialTextbox txtlname;
         private ns1.BunifuMaterialTextbox txtfname;
         private System.Windows.Forms.Panel panalroom;
-        private ns1.BunifuMaterialTextbox txtallowedseats;
         private System.Windows.Forms.Panel panel6;
         private Bunifu.Framework.UI.BunifuFlatButton btnsaverooms;
         private System.Windows.Forms.Panel panel7;
@@ -1203,5 +1257,8 @@
         private ns1.BunifuMaterialTextbox txtarrangement;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.ComboBox dropsheet;
+        private Bunifu.Framework.UI.BunifuFlatButton btnroomload;
+        private ns1.BunifuMaterialTextbox txtroompath;
+        private System.Windows.Forms.ComboBox comboroomdrop;
     }
 }
