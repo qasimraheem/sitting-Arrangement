@@ -261,7 +261,12 @@ namespace Project_1.Presentation_Layer
                     int val = dbcon2.ExNonQuery();
                 }
 
-                grideviewsheet.Rows.Clear();
+                datagridroom.DataSource = null;
+                comboroomdrop.DataSource = null;
+                txtroompath.Text = "";
+                comboroomdrop.Items.Clear();
+                datagridroom.Rows.Clear();
+                datagridroom.Refresh();
             }
             else
             {
@@ -274,17 +279,23 @@ namespace Project_1.Presentation_Layer
         {
             droparrangement.Items.Clear();
             DBConnection dbcon = new DBConnection();
-            dbcon.SqlQuery("SELECT * FROM ArrangementDetails where AdimnID=@adminID");
+            dbcon.SqlQuery("SELECT * FROM ArrangementDetails where AdminID=@adminID");
+            dbcon.cmd.Parameters.AddWithValue("@adminID",admin.id);
             if (dbcon.cmd.ExecuteScalar() == null)
             {
-
+                MessageBox.Show("not found");
             }
             else
             {
                 DataTable dt = new DataTable();
                 dt = dbcon.ExQuery();
-                DataRow dr = dbcon.dt.Rows[0];
-                droparrangement.Items.Add(dr["ArrangementName"].ToString());
+                MessageBox.Show(dt.Rows.Count.ToString());
+                foreach (DataRow dr in dt.Rows)
+                {
+                    droparrangement.Items.Add(dr["ArrangementName"].ToString());
+                }
+                
+                
                 
             }
         }
@@ -378,6 +389,32 @@ namespace Project_1.Presentation_Layer
             {
                 txtrow.Text = "Rows";
             }
+
+            int x = 0;
+            int y = 0;
+
+            if (Int32.TryParse(txtrow.Text, out x))
+            {
+                if (Int32.TryParse(txtcol.Text, out y))
+                {
+                    txttotal.Text = (x * y).ToString();
+                    // you know that the parsing attempt
+                    // was successful
+                }
+                else
+                {
+                    txttotal.Text = "";
+
+                }
+                // you know that the parsing attempt
+                // was successful
+            }
+            else
+            {
+                txttotal.Text = "";
+
+            }
+
         }
 
         private void txtcol_Enter(object sender, EventArgs e)
@@ -393,6 +430,32 @@ namespace Project_1.Presentation_Layer
             if (txtcol.Text == "")
             {
                 txtcol.Text = "Cols";
+            }
+
+
+            int x = 0;
+            int y = 0;
+
+            if (Int32.TryParse(txtrow.Text, out x))
+            {
+                if (Int32.TryParse(txtcol.Text, out y))
+                {
+                    txttotal.Text = (x * y).ToString();
+                    // you know that the parsing attempt
+                    // was successful
+                }
+                else
+                {
+                    txttotal.Text = "";
+
+                }
+                // you know that the parsing attempt
+                // was successful
+            }
+            else
+            {
+                txttotal.Text = "";
+
             }
         }
 
