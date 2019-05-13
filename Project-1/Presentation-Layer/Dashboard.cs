@@ -371,12 +371,12 @@ namespace Project_1.Presentation_Layer
                     int val = dbcon.ExNonQuery();
                 }
 
-                datagridroom.DataSource = null;
-                comboroomdrop.DataSource = null;
-                txtroompath.Text = "";
-                comboroomdrop.Items.Clear();
-                datagridroom.Rows.Clear();
-                datagridroom.Refresh();
+                grideviewsheet.DataSource = null;
+                
+                txtfilepath.Text = "";
+                droparrangement.Items.Clear();
+                grideviewsheet.Rows.Clear();
+                grideviewsheet.Refresh();
             }
         }
         private void btnArrange_Click(object sender, EventArgs e)
