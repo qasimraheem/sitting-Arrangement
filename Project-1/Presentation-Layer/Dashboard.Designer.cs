@@ -1272,9 +1272,9 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(226)))), ((int)(((byte)(225)))));
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.panelstudent);
+            this.Controls.Add(this.panalroom);
             this.Controls.Add(this.panelsetting);
             this.Controls.Add(this.panelarrangement);
-            this.Controls.Add(this.panalroom);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;

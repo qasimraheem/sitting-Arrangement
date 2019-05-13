@@ -355,12 +355,28 @@ namespace Project_1.Presentation_Layer
             student.subjectCode = txtsubjectcode.Text;
             student.classs = txtclasss.Text;
             student.arrangementName = droparrangement.selectedValue;
-            string[] clist = listroom.Items.OfType<string>().ToArray();
-            int index = 0;
-            foreach (string items in clist)
+           // string[] clist = listroom.Items.OfType<string>().ToArray();
+            if((grideviewsheet.Rows.Count > 0))
             {
-                // student.cms =
-                MessageBox.Show(items);
+                foreach (DataGridViewRow row in grideviewsheet.Rows)
+                {
+                    DBConnection dbcon = new DBConnection();
+                    dbcon.SqlQuery("INSERT INTO RawStudentsTable (Subject,SubjectCode,Classs,ArrangementName,AdminID,Cms) VALUES ( @subject, @subjectCode, @classs, @arrangementName, @adminID, @cms)");
+                    dbcon.cmd.Parameters.AddWithValue("@subject",student.subject);
+                    dbcon.cmd.Parameters.AddWithValue("@subjectCode", student.subjectCode);
+                    dbcon.cmd.Parameters.AddWithValue("@classs", student.classs);
+                    dbcon.cmd.Parameters.AddWithValue("@arrangementName", student.arrangementName);
+                    dbcon.cmd.Parameters.AddWithValue("@adminID", student.adminID);
+                    dbcon.cmd.Parameters.AddWithValue("@cms", row.Cells["Cms"].Value);
+                    int val = dbcon.ExNonQuery();
+                }
+
+                datagridroom.DataSource = null;
+                comboroomdrop.DataSource = null;
+                txtroompath.Text = "";
+                comboroomdrop.Items.Clear();
+                datagridroom.Rows.Clear();
+                datagridroom.Refresh();
             }
         }
         private void btnArrange_Click(object sender, EventArgs e)
