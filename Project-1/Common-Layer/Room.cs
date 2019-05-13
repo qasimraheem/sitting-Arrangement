@@ -13,7 +13,7 @@ namespace Project_1.Common_Layer
         public string roomNumber { get; set; }
         public int rows { get; set; }
         public int cols { get; set; }
-        public int allowedSeats{ get; set; }
+      
 
         public int totalSeats { get; set; }
         public int adminID { get; set; }
@@ -21,12 +21,11 @@ namespace Project_1.Common_Layer
         {
 
         }
-        public Room(int roomID, int rows, int cols,int allowedSeats, int totalSeats, int adminID,string roomNumber)
+        public Room(int roomID, int rows, int cols, int totalSeats, int adminID,string roomNumber)
         {
             this.roomID = roomID;
             this.rows = rows;
             this.cols = cols;
-            this.allowedSeats = allowedSeats;
             this.totalSeats = totalSeats;
             this.adminID = adminID;
             this.roomNumber = roomNumber;

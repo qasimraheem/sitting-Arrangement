@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Dashboard));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnstudent = new Bunifu.Framework.UI.BunifuFlatButton();
@@ -293,7 +293,7 @@
             this.panelarrangement.Controls.Add(this.btnselectroom);
             this.panelarrangement.Controls.Add(this.droproom);
             this.panelarrangement.Controls.Add(this.txtarrangement);
-            this.panelarrangement.Location = new System.Drawing.Point(441, 158);
+            this.panelarrangement.Location = new System.Drawing.Point(590, 133);
             this.panelarrangement.Name = "panelarrangement";
             this.panelarrangement.Padding = new System.Windows.Forms.Padding(50);
             this.panelarrangement.Size = new System.Drawing.Size(600, 420);
@@ -475,6 +475,8 @@
             this.txtarrangement.TabIndex = 5;
             this.txtarrangement.Text = "Arrangement / Event Name";
             this.txtarrangement.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.txtarrangement.Enter += new System.EventHandler(this.txtarrangement_Enter);
+            this.txtarrangement.Leave += new System.EventHandler(this.txtarrangement_Leave);
             // 
             // panelstudent
             // 
@@ -483,10 +485,11 @@
             this.panelstudent.Controls.Add(this.panel9);
             this.panelstudent.Controls.Add(this.panel10);
             this.panelstudent.Controls.Add(this.droparrangement);
-            this.panelstudent.Location = new System.Drawing.Point(206, 36);
+            this.panelstudent.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelstudent.Location = new System.Drawing.Point(196, 30);
             this.panelstudent.Name = "panelstudent";
             this.panelstudent.Padding = new System.Windows.Forms.Padding(50);
-            this.panelstudent.Size = new System.Drawing.Size(600, 420);
+            this.panelstudent.Size = new System.Drawing.Size(604, 420);
             this.panelstudent.TabIndex = 13;
             this.panelstudent.Visible = false;
             // 
@@ -501,15 +504,15 @@
             this.panel11.Location = new System.Drawing.Point(50, 150);
             this.panel11.Name = "panel11";
             this.panel11.Padding = new System.Windows.Forms.Padding(5);
-            this.panel11.Size = new System.Drawing.Size(500, 46);
+            this.panel11.Size = new System.Drawing.Size(504, 46);
             this.panel11.TabIndex = 20;
             // 
             // dropsheet
             // 
             this.dropsheet.FormattingEnabled = true;
-            this.dropsheet.Location = new System.Drawing.Point(338, 13);
+            this.dropsheet.Location = new System.Drawing.Point(353, 13);
             this.dropsheet.Name = "dropsheet";
-            this.dropsheet.Size = new System.Drawing.Size(157, 21);
+            this.dropsheet.Size = new System.Drawing.Size(136, 21);
             this.dropsheet.TabIndex = 9;
             this.dropsheet.SelectedIndexChanged += new System.EventHandler(this.dropsheet_SelectedIndexChanged);
             // 
@@ -521,7 +524,7 @@
             this.dropsheet2.Dock = System.Windows.Forms.DockStyle.Right;
             this.dropsheet2.ForeColor = System.Drawing.Color.White;
             this.dropsheet2.items = new string[0];
-            this.dropsheet2.Location = new System.Drawing.Point(338, 5);
+            this.dropsheet2.Location = new System.Drawing.Point(342, 5);
             this.dropsheet2.Name = "dropsheet2";
             this.dropsheet2.NomalColor = System.Drawing.Color.DarkOrange;
             this.dropsheet2.onHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(93)))), ((int)(((byte)(0)))));
@@ -533,6 +536,7 @@
             // 
             this.txtfilepath.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtfilepath.Dock = System.Windows.Forms.DockStyle.Left;
+            this.txtfilepath.Enabled = false;
             this.txtfilepath.Font = new System.Drawing.Font("Century Gothic", 9.75F);
             this.txtfilepath.ForeColor = System.Drawing.Color.White;
             this.txtfilepath.HintForeColor = System.Drawing.Color.Empty;
@@ -548,7 +552,7 @@
             this.txtfilepath.Padding = new System.Windows.Forms.Padding(10, 0, 0, 5);
             this.txtfilepath.Size = new System.Drawing.Size(224, 36);
             this.txtfilepath.TabIndex = 6;
-            this.txtfilepath.Text = "Subject Code";
+            this.txtfilepath.Text = "File Path";
             this.txtfilepath.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             // 
             // btnloadfile
@@ -596,7 +600,7 @@
             this.panel9.Location = new System.Drawing.Point(50, 150);
             this.panel9.Name = "panel9";
             this.panel9.Padding = new System.Windows.Forms.Padding(5);
-            this.panel9.Size = new System.Drawing.Size(500, 220);
+            this.panel9.Size = new System.Drawing.Size(504, 220);
             this.panel9.TabIndex = 14;
             // 
             // panel12
@@ -605,25 +609,25 @@
             this.panel12.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel12.Location = new System.Drawing.Point(5, 52);
             this.panel12.Name = "panel12";
-            this.panel12.Size = new System.Drawing.Size(490, 132);
+            this.panel12.Size = new System.Drawing.Size(494, 132);
             this.panel12.TabIndex = 12;
             // 
             // grideviewsheet
             // 
             this.grideviewsheet.AllowUserToAddRows = false;
-            dataGridViewCellStyle13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.grideviewsheet.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.grideviewsheet.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.grideviewsheet.BackgroundColor = System.Drawing.Color.Gainsboro;
             this.grideviewsheet.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.grideviewsheet.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle14.BackColor = System.Drawing.Color.DarkOrange;
-            dataGridViewCellStyle14.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(93)))), ((int)(((byte)(0)))));
-            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.grideviewsheet.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.DarkOrange;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(93)))), ((int)(((byte)(0)))));
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.grideviewsheet.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.grideviewsheet.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.grideviewsheet.Dock = System.Windows.Forms.DockStyle.Top;
             this.grideviewsheet.DoubleBuffered = true;
@@ -633,7 +637,7 @@
             this.grideviewsheet.Location = new System.Drawing.Point(0, 0);
             this.grideviewsheet.Name = "grideviewsheet";
             this.grideviewsheet.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.grideviewsheet.Size = new System.Drawing.Size(490, 126);
+            this.grideviewsheet.Size = new System.Drawing.Size(494, 126);
             this.grideviewsheet.TabIndex = 19;
             // 
             // btnsavestudents
@@ -667,7 +671,7 @@
             this.btnsavestudents.OnHoverTextColor = System.Drawing.Color.White;
             this.btnsavestudents.Padding = new System.Windows.Forms.Padding(200, 0, 0, 0);
             this.btnsavestudents.selected = false;
-            this.btnsavestudents.Size = new System.Drawing.Size(490, 31);
+            this.btnsavestudents.Size = new System.Drawing.Size(494, 31);
             this.btnsavestudents.TabIndex = 11;
             this.btnsavestudents.Text = "Save";
             this.btnsavestudents.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -685,7 +689,7 @@
             this.panel10.Location = new System.Drawing.Point(50, 85);
             this.panel10.Name = "panel10";
             this.panel10.Padding = new System.Windows.Forms.Padding(0, 0, 0, 10);
-            this.panel10.Size = new System.Drawing.Size(500, 65);
+            this.panel10.Size = new System.Drawing.Size(504, 65);
             this.panel10.TabIndex = 15;
             // 
             // txtclasss
@@ -701,7 +705,7 @@
             this.txtclasss.LineIdleColor = System.Drawing.Color.DarkOrange;
             this.txtclasss.LineMouseHoverColor = System.Drawing.Color.Blue;
             this.txtclasss.LineThickness = 3;
-            this.txtclasss.Location = new System.Drawing.Point(355, 0);
+            this.txtclasss.Location = new System.Drawing.Point(359, 0);
             this.txtclasss.Margin = new System.Windows.Forms.Padding(0);
             this.txtclasss.Name = "txtclasss";
             this.txtclasss.Padding = new System.Windows.Forms.Padding(10, 0, 10, 10);
@@ -709,6 +713,8 @@
             this.txtclasss.TabIndex = 7;
             this.txtclasss.Text = "Class";
             this.txtclasss.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.txtclasss.Enter += new System.EventHandler(this.txtclasss_Enter);
+            this.txtclasss.Leave += new System.EventHandler(this.txtclasss_Leave);
             // 
             // txtsubjectcode
             // 
@@ -731,6 +737,8 @@
             this.txtsubjectcode.TabIndex = 6;
             this.txtsubjectcode.Text = "Subject Code";
             this.txtsubjectcode.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.txtsubjectcode.Enter += new System.EventHandler(this.txtsubjectcode_Enter);
+            this.txtsubjectcode.Leave += new System.EventHandler(this.txtsubjectcode_Leave);
             // 
             // txtsubject
             // 
@@ -754,6 +762,8 @@
             this.txtsubject.TabIndex = 5;
             this.txtsubject.Text = "Subject";
             this.txtsubject.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.txtsubject.Enter += new System.EventHandler(this.txtsubject_Enter);
+            this.txtsubject.Leave += new System.EventHandler(this.txtsubject_Leave);
             // 
             // droparrangement
             // 
@@ -768,8 +778,9 @@
             this.droparrangement.NomalColor = System.Drawing.Color.DarkOrange;
             this.droparrangement.onHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(93)))), ((int)(((byte)(0)))));
             this.droparrangement.selectedIndex = -1;
-            this.droparrangement.Size = new System.Drawing.Size(500, 35);
+            this.droparrangement.Size = new System.Drawing.Size(504, 35);
             this.droparrangement.TabIndex = 18;
+            this.droparrangement.onItemSelected += new System.EventHandler(this.droparrangement_onItemSelected);
             this.droparrangement.Enter += new System.EventHandler(this.droparrangement_Enter);
             // 
             // panalroom
@@ -783,7 +794,7 @@
             this.panalroom.Controls.Add(this.panel6);
             this.panalroom.Controls.Add(this.panel7);
             this.panalroom.Controls.Add(this.txtroomnumber);
-            this.panalroom.Location = new System.Drawing.Point(652, 108);
+            this.panalroom.Location = new System.Drawing.Point(413, 230);
             this.panalroom.Name = "panalroom";
             this.panalroom.Padding = new System.Windows.Forms.Padding(50);
             this.panalroom.Size = new System.Drawing.Size(600, 420);
@@ -993,7 +1004,7 @@
             this.panelsetting.Controls.Add(this.txtemail);
             this.panelsetting.Controls.Add(this.txtlname);
             this.panelsetting.Controls.Add(this.txtfname);
-            this.panelsetting.Location = new System.Drawing.Point(217, 388);
+            this.panelsetting.Location = new System.Drawing.Point(219, 412);
             this.panelsetting.Name = "panelsetting";
             this.panelsetting.Padding = new System.Windows.Forms.Padding(50);
             this.panelsetting.Size = new System.Drawing.Size(604, 420);
@@ -1190,19 +1201,19 @@
             // datagridroom
             // 
             this.datagridroom.AllowUserToAddRows = false;
-            dataGridViewCellStyle15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.datagridroom.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.datagridroom.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
             this.datagridroom.BackgroundColor = System.Drawing.Color.Gainsboro;
             this.datagridroom.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.datagridroom.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle16.BackColor = System.Drawing.Color.DarkOrange;
-            dataGridViewCellStyle16.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(93)))), ((int)(((byte)(0)))));
-            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle16.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.datagridroom.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle16;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.DarkOrange;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(93)))), ((int)(((byte)(0)))));
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.datagridroom.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.datagridroom.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.datagridroom.Dock = System.Windows.Forms.DockStyle.Top;
             this.datagridroom.DoubleBuffered = true;
@@ -1214,6 +1225,7 @@
             this.datagridroom.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.datagridroom.Size = new System.Drawing.Size(500, 126);
             this.datagridroom.TabIndex = 20;
+            this.datagridroom.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.datagridroom_CellContentClick);
             // 
             // btnroomclear
             // 
@@ -1260,11 +1272,11 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(226)))), ((int)(((byte)(225)))));
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.panelstudent);
+            this.Controls.Add(this.panelsetting);
             this.Controls.Add(this.panelarrangement);
+            this.Controls.Add(this.panalroom);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel2);
-            this.Controls.Add(this.panelsetting);
-            this.Controls.Add(this.panalroom);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Dashboard";
             this.Text = "Dsasboard";

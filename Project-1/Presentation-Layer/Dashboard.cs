@@ -149,12 +149,14 @@ namespace Project_1.Presentation_Layer
             arrangement.arrangementName = txtarrangement.Text;
             arrangement.adminID = admin.id;
             string[] clist = listroom.Items.OfType<string>().ToArray();
+            int index = 0;
             foreach (string items in clist)
             {
                 DBConnection dbcon = new DBConnection();
-                dbcon.SqlQuery("SELECT * FROM RoomsTable WHERE  AdimnID=@adminID AND RoomNumber=@roomNumber");
-                dbcon.cmd.Parameters.AddWithValue("@email", admin.email);
-                dbcon.cmd.Parameters.AddWithValue("@roomNumber", clist[0]);
+                dbcon.SqlQuery("SELECT * FROM RoomsTable WHERE  AdminID=@adminID AND RoomNumber=@roomNumber");
+                dbcon.cmd.Parameters.AddWithValue("@adminID", admin.id);
+                dbcon.cmd.Parameters.AddWithValue("@roomNumber", clist[index]);
+                int val = dbcon.ExNonQuery();
                 if (dbcon.cmd.ExecuteScalar() == null)
                 {
 
@@ -170,7 +172,6 @@ namespace Project_1.Presentation_Layer
                     room.adminID = (int)dr["AdminID"];
                     room.rows = (int)dr["Rows"];
                     room.cols = (int)dr["Cols"];
-                    room.allowedSeats = (int)dr["AllowedSeats"];
                     room.totalSeats = (int)dr["TotalSeats"];
 
 
@@ -179,9 +180,11 @@ namespace Project_1.Presentation_Layer
                     dbcon2.cmd.Parameters.AddWithValue("@arrangementName", arrangement.arrangementName);
                     dbcon2.cmd.Parameters.AddWithValue("@adminID", admin.id);
                     dbcon2.cmd.Parameters.AddWithValue("@roomID", room.roomID);
-
+                    int val2 = dbcon2.ExNonQuery();
+                   // MessageBox.Show("Saved");
 
                 }
+                index++;
             }
            
 
@@ -206,12 +209,15 @@ namespace Project_1.Presentation_Layer
             {
                 DataTable dt = new DataTable();
                 dt = dbcon.ExQuery();
-                DataRow dr = dbcon.dt.Rows[0];
-                droproom.Items.Add(dr["RoomNumber"].ToString());
-
-
+               // MessageBox.Show(dt.Rows.Count.ToString());
+                foreach (DataRow dr in dt.Rows)
+                {
+                    droproom.Items.Add(dr["RoomNumber"].ToString());
+                }
+                
             }
-           
+            
+
         }
 
         private void btnselectroom_Click(object sender, EventArgs e)
@@ -279,7 +285,7 @@ namespace Project_1.Presentation_Layer
         {
             droparrangement.Items.Clear();
             DBConnection dbcon = new DBConnection();
-            dbcon.SqlQuery("SELECT * FROM ArrangementDetails where AdminID=@adminID");
+            dbcon.SqlQuery("SELECT DISTINCT ArrangementName FROM ArrangementDetails where AdminID=@adminID");
             dbcon.cmd.Parameters.AddWithValue("@adminID",admin.id);
             if (dbcon.cmd.ExecuteScalar() == null)
             {
@@ -289,14 +295,12 @@ namespace Project_1.Presentation_Layer
             {
                 DataTable dt = new DataTable();
                 dt = dbcon.ExQuery();
-                MessageBox.Show(dt.Rows.Count.ToString());
                 foreach (DataRow dr in dt.Rows)
                 {
                     droparrangement.Items.Add(dr["ArrangementName"].ToString());
+                   // MessageBox.Show(dr["ID"].ToString());
                 }
-                
-                
-                
+ 
             }
         }
 
@@ -329,7 +333,7 @@ namespace Project_1.Presentation_Layer
             {
                 string constr = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + txtfilepath.Text + ";Extended Properties = \"Excel 12.0; HDR=Yes;\" ; ";
                 OleDbConnection con = new OleDbConnection(constr);
-                OleDbDataAdapter sda = new OleDbDataAdapter("Select CMS,Subject_Name,Class from [" + dropsheet.SelectedValue + "]", con);
+                OleDbDataAdapter sda = new OleDbDataAdapter("Select CMS from [" + dropsheet.SelectedValue + "]", con);
                 DataTable dt = new DataTable();
                 sda.Fill(dt);
                 foreach (DataRow row in dt.Rows)
@@ -346,9 +350,19 @@ namespace Project_1.Presentation_Layer
         private void btnsavestudents_Click(object sender, EventArgs e)
         {
             Student student = new Student();
-            
+            student.adminID = admin.id;
+            student.subject = txtsubject.Text;
+            student.subjectCode = txtsubjectcode.Text;
+            student.classs = txtclasss.Text;
+            student.arrangementName = droparrangement.selectedValue;
+            string[] clist = listroom.Items.OfType<string>().ToArray();
+            int index = 0;
+            foreach (string items in clist)
+            {
+                // student.cms =
+                MessageBox.Show(items);
+            }
         }
-
         private void btnArrange_Click(object sender, EventArgs e)
         {
 
@@ -550,6 +564,80 @@ namespace Project_1.Presentation_Layer
             comboroomdrop.Items.Clear();
             datagridroom.Rows.Clear();
             datagridroom.Refresh();
+        }
+
+        private void droparrangement_onItemSelected(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtarrangement_Enter(object sender, EventArgs e)
+        {
+            if (txtarrangement.Text == "Arrangement / Event Name")
+            {
+                txtarrangement.Text = "";
+            }
+        }
+
+        private void txtarrangement_Leave(object sender, EventArgs e)
+        {
+            if (txtarrangement.Text == "")
+            {
+                txtarrangement.Text = "Arrangement / Event Name";
+            }
+        }
+
+        private void txtsubject_Enter(object sender, EventArgs e)
+        {
+            if (txtsubject.Text == "Subject")
+            {
+                txtsubject.Text = "";
+            }
+        }
+
+        private void txtsubject_Leave(object sender, EventArgs e)
+        {
+            if (txtsubject.Text == "")
+            {
+                txtsubject.Text = "Subject";
+            }
+        }
+
+        private void txtsubjectcode_Enter(object sender, EventArgs e)
+        {
+            if (txtsubjectcode.Text == "Subject Code")
+            {
+                txtsubjectcode.Text = "";
+            }
+        }
+
+        private void txtsubjectcode_Leave(object sender, EventArgs e)
+        {
+            if (txtsubjectcode.Text == "")
+            {
+                txtsubjectcode.Text = "Subject Code";
+            }
+        }
+
+        private void txtclasss_Enter(object sender, EventArgs e)
+        {
+            if (txtclasss.Text == "Class")
+            {
+                txtclasss.Text = "";
+            }
+        }
+
+        private void txtclasss_Leave(object sender, EventArgs e)
+        {
+            if (txtclasss.Text == "")
+            {
+                txtclasss.Text = "Class";
+            }
+        }
+
+        private void datagridroom_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }
