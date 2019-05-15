@@ -64,6 +64,7 @@
     <Compile Include="Business-Layer\Class1.cs" />
     <Compile Include="Common-Layer\Admin.cs" />
     <Compile Include="Common-Layer\Arrangement.cs" />
+    <Compile Include="Common-Layer\Matrix.cs" />
     <Compile Include="Common-Layer\Room.cs" />
     <Compile Include="Common-Layer\Student.cs" />
     <Compile Include="Data-Layer\Admin-Data.cs" />

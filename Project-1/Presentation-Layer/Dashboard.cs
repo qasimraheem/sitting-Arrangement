@@ -381,7 +381,66 @@ namespace Project_1.Presentation_Layer
         }
         private void btnArrange_Click(object sender, EventArgs e)
         {
+            Arrangement arrangement = new Arrangement();
+            arrangement.arrangementName = txtarrangement.Text;
+            arrangement.adminID = admin.id;
 
+            DBConnection dbcon = new DBConnection();
+            dbcon.SqlQuery("SELECT * FROM ArrangementDetails WHERE  AdminID=@adminID AND ArrangementName=@arrangementName");
+            dbcon.cmd.Parameters.AddWithValue("@adminID", admin.id);
+            dbcon.cmd.Parameters.AddWithValue("@arrangementName", arrangement.arrangementName);
+            int val = dbcon.ExNonQuery();
+            if (dbcon.cmd.ExecuteScalar() == null)
+            {
+
+            }
+            else
+            {
+                DataTable dt = new DataTable();
+                dt = dbcon.ExQuery();
+                Arrangement[] selectedArrangement = new Arrangement[dbcon.dt.Rows.Count];
+                Room[] selectedRooms = new Room[dbcon.dt.Rows.Count];
+                int index = 0;
+                foreach (DataRow dr in dbcon.dt.Rows) {
+                    selectedArrangement[index].id = (int)dr["ID"];
+                    selectedArrangement[index].arrangementName = dr["ArrangementName"].ToString();
+                    selectedArrangement[index].adminID= (int)dr["AdminID"];
+                    selectedArrangement[index].roomID= (int)dr["RoomID"];
+                    selectedArrangement[index].roomSaveFile= dr["RoomSavedFile"].ToString();
+                    index++;
+                }
+                //DataRow dr = dbcon.dt.Rows[0];
+                
+                int index2;
+                foreach (Arrangement tempArrangement in selectedArrangement)
+                {
+                    index2 = 0;
+                    DBConnection dbcon2 = new DBConnection();
+                    dbcon2.SqlQuery("SELECT * FROM RoomsTable WHERE  AdminID=@adminID AND RoomID=@roomID");
+                    dbcon2.cmd.Parameters.AddWithValue("@adminID", admin.id);
+                    dbcon2.cmd.Parameters.AddWithValue("@roomID", tempArrangement.roomID);
+                    int val2 = dbcon2.ExNonQuery();
+                    dt = dbcon2.ExQuery();
+                    if (dbcon.cmd.ExecuteScalar() == null)
+                    {
+
+                    }
+                    else
+                    {
+
+                        DataRow dr = dbcon.dt.Rows[0];
+                        selectedRooms[index2].roomID = (int)dr["RoomID"];
+                        selectedRooms[index2].roomNumber = dr["RoomNumber"].ToString();
+                        selectedRooms[index2].adminID = (int)dr["AdminID"];
+                        selectedRooms[index2].rows = (int)dr["Rows"];
+                        selectedRooms[index2].cols = (int)dr["Cols"];
+                        selectedRooms[index2].totalSeats = (int)dr["TotalSeats"];
+                    }
+                    index2++;
+                }
+               
+
+            }
         }
 
         private void txtroomnumber_OnValueChanged(object sender, EventArgs e)
