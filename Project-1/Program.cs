@@ -24,6 +24,31 @@ namespace Project_1
             admin.password = "Allahis1!";
             admin.id = 1;
             Application.Run(new Dashboard(admin));
+            //int[,] list = new int[8,8];
+
+            //string ou = "";
+            //for (int i = 0; i < 8; i++) {
+            //    for (int j = 0; j < 8; j++) {
+            //        list[i, j] = i+1;
+               
+            //    }
+               
+            //}
+         
+            ////string ou = "";
+            //for (int i = 0; i < 8; i++)
+            //{
+            //    for (int j = 0; j < 8; j++)
+            //    {
+            //        ou+=list[i,j];
+            //    }
+            //    ou += "\r\n";
+            //}
+            //MessageBox.Show(ou);
+            //Matrix matrix = new Matrix(9,8);
+            //matrix.arrange(list,8);
+            //matrix.print();
+           
         }
     }//here is me
 }

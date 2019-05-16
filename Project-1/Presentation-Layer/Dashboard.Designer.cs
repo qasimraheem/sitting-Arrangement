@@ -29,25 +29,17 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Dashboard));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Dashboard));
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btnstudent = new Bunifu.Framework.UI.BunifuFlatButton();
-            this.btnroom = new Bunifu.Framework.UI.BunifuFlatButton();
-            this.btnarrangement = new Bunifu.Framework.UI.BunifuFlatButton();
-            this.btnadmin = new Bunifu.Framework.UI.BunifuFlatButton();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panelarrangement = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.btnsavearrangement = new Bunifu.Framework.UI.BunifuFlatButton();
-            this.btnArrange = new Bunifu.Framework.UI.BunifuFlatButton();
             this.listroom = new System.Windows.Forms.ListBox();
-            this.btnselectroom = new Bunifu.Framework.UI.BunifuFlatButton();
             this.droproom = new Bunifu.Framework.UI.BunifuDropdown();
             this.txtarrangement = new ns1.BunifuMaterialTextbox();
             this.panelstudent = new System.Windows.Forms.Panel();
@@ -59,18 +51,14 @@
             this.panel9 = new System.Windows.Forms.Panel();
             this.panel12 = new System.Windows.Forms.Panel();
             this.grideviewsheet = new ns1.BunifuCustomDataGrid();
-            this.btnsavestudents = new Bunifu.Framework.UI.BunifuFlatButton();
             this.panel10 = new System.Windows.Forms.Panel();
             this.txtclasss = new ns1.BunifuMaterialTextbox();
             this.txtsubjectcode = new ns1.BunifuMaterialTextbox();
             this.txtsubject = new ns1.BunifuMaterialTextbox();
             this.droparrangement = new Bunifu.Framework.UI.BunifuDropdown();
             this.panalroom = new System.Windows.Forms.Panel();
-            this.btnroomclear = new Bunifu.Framework.UI.BunifuFlatButton();
-            this.btnsaverooms = new Bunifu.Framework.UI.BunifuFlatButton();
             this.comboroomdrop = new System.Windows.Forms.ComboBox();
             this.txtroompath = new ns1.BunifuMaterialTextbox();
-            this.btnroomload = new Bunifu.Framework.UI.BunifuFlatButton();
             this.panel6 = new System.Windows.Forms.Panel();
             this.datagridroom = new ns1.BunifuCustomDataGrid();
             this.panel7 = new System.Windows.Forms.Panel();
@@ -79,15 +67,26 @@
             this.txtrow = new ns1.BunifuMaterialTextbox();
             this.txtroomnumber = new ns1.BunifuMaterialTextbox();
             this.panelsetting = new System.Windows.Forms.Panel();
-            this.btnsaveadmin = new Bunifu.Framework.UI.BunifuFlatButton();
             this.txtconfpassword = new ns1.BunifuMaterialTextbox();
             this.txtpassword = new ns1.BunifuMaterialTextbox();
             this.txtemail = new ns1.BunifuMaterialTextbox();
             this.txtlname = new ns1.BunifuMaterialTextbox();
             this.txtfname = new ns1.BunifuMaterialTextbox();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.btnsavearrangement = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.btnArrange = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.btnselectroom = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.btnsavestudents = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.btnroomclear = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.btnsaverooms = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.btnroomload = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.btnsaveadmin = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.btnstudent = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.btnroom = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.btnarrangement = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.btnadmin = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panelarrangement.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panelstudent.SuspendLayout();
@@ -101,6 +100,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.datagridroom)).BeginInit();
             this.panel7.SuspendLayout();
             this.panelsetting.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // bunifuElipse1
@@ -121,160 +121,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(196, 420);
             this.panel1.TabIndex = 0;
-            // 
-            // btnstudent
-            // 
-            this.btnstudent.Active = false;
-            this.btnstudent.Activecolor = System.Drawing.Color.DarkOrange;
-            this.btnstudent.BackColor = System.Drawing.Color.Black;
-            this.btnstudent.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnstudent.BorderRadius = 1;
-            this.btnstudent.ButtonText = "Add Students";
-            this.btnstudent.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnstudent.DisabledColor = System.Drawing.Color.Gray;
-            this.btnstudent.Iconcolor = System.Drawing.Color.Transparent;
-            this.btnstudent.Iconimage = global::Project_1.Properties.Resources.student;
-            this.btnstudent.Iconimage_right = null;
-            this.btnstudent.Iconimage_right_Selected = null;
-            this.btnstudent.Iconimage_Selected = null;
-            this.btnstudent.IconMarginLeft = 0;
-            this.btnstudent.IconMarginRight = 0;
-            this.btnstudent.IconRightVisible = true;
-            this.btnstudent.IconRightZoom = 0D;
-            this.btnstudent.IconVisible = true;
-            this.btnstudent.IconZoom = 50D;
-            this.btnstudent.IsTab = false;
-            this.btnstudent.Location = new System.Drawing.Point(0, 224);
-            this.btnstudent.Name = "btnstudent";
-            this.btnstudent.Normalcolor = System.Drawing.Color.Black;
-            this.btnstudent.OnHovercolor = System.Drawing.Color.DarkOrange;
-            this.btnstudent.OnHoverTextColor = System.Drawing.Color.White;
-            this.btnstudent.selected = false;
-            this.btnstudent.Size = new System.Drawing.Size(200, 42);
-            this.btnstudent.TabIndex = 10;
-            this.btnstudent.Text = "Add Students";
-            this.btnstudent.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnstudent.Textcolor = System.Drawing.Color.White;
-            this.btnstudent.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnstudent.Click += new System.EventHandler(this.btnstudent_Click);
-            // 
-            // btnroom
-            // 
-            this.btnroom.Active = false;
-            this.btnroom.Activecolor = System.Drawing.Color.DarkOrange;
-            this.btnroom.BackColor = System.Drawing.Color.Black;
-            this.btnroom.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnroom.BorderRadius = 1;
-            this.btnroom.ButtonText = "Create Room / Hall";
-            this.btnroom.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnroom.DisabledColor = System.Drawing.Color.Gray;
-            this.btnroom.Iconcolor = System.Drawing.Color.Transparent;
-            this.btnroom.Iconimage = global::Project_1.Properties.Resources.room;
-            this.btnroom.Iconimage_right = null;
-            this.btnroom.Iconimage_right_Selected = null;
-            this.btnroom.Iconimage_Selected = null;
-            this.btnroom.IconMarginLeft = 0;
-            this.btnroom.IconMarginRight = 0;
-            this.btnroom.IconRightVisible = true;
-            this.btnroom.IconRightZoom = 0D;
-            this.btnroom.IconVisible = true;
-            this.btnroom.IconZoom = 50D;
-            this.btnroom.IsTab = false;
-            this.btnroom.Location = new System.Drawing.Point(0, 176);
-            this.btnroom.Name = "btnroom";
-            this.btnroom.Normalcolor = System.Drawing.Color.Black;
-            this.btnroom.OnHovercolor = System.Drawing.Color.DarkOrange;
-            this.btnroom.OnHoverTextColor = System.Drawing.Color.White;
-            this.btnroom.selected = false;
-            this.btnroom.Size = new System.Drawing.Size(200, 42);
-            this.btnroom.TabIndex = 9;
-            this.btnroom.Text = "Create Room / Hall";
-            this.btnroom.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnroom.Textcolor = System.Drawing.Color.White;
-            this.btnroom.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnroom.Click += new System.EventHandler(this.btnroom_Click);
-            // 
-            // btnarrangement
-            // 
-            this.btnarrangement.Active = false;
-            this.btnarrangement.Activecolor = System.Drawing.Color.DarkOrange;
-            this.btnarrangement.BackColor = System.Drawing.Color.Black;
-            this.btnarrangement.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnarrangement.BorderRadius = 1;
-            this.btnarrangement.ButtonText = "Create Arrangement / Event";
-            this.btnarrangement.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnarrangement.DisabledColor = System.Drawing.Color.Gray;
-            this.btnarrangement.Iconcolor = System.Drawing.Color.Transparent;
-            this.btnarrangement.Iconimage = global::Project_1.Properties.Resources._event;
-            this.btnarrangement.Iconimage_right = null;
-            this.btnarrangement.Iconimage_right_Selected = null;
-            this.btnarrangement.Iconimage_Selected = null;
-            this.btnarrangement.IconMarginLeft = 0;
-            this.btnarrangement.IconMarginRight = 0;
-            this.btnarrangement.IconRightVisible = true;
-            this.btnarrangement.IconRightZoom = 0D;
-            this.btnarrangement.IconVisible = true;
-            this.btnarrangement.IconZoom = 60D;
-            this.btnarrangement.IsTab = false;
-            this.btnarrangement.Location = new System.Drawing.Point(0, 128);
-            this.btnarrangement.Name = "btnarrangement";
-            this.btnarrangement.Normalcolor = System.Drawing.Color.Black;
-            this.btnarrangement.OnHovercolor = System.Drawing.Color.DarkOrange;
-            this.btnarrangement.OnHoverTextColor = System.Drawing.Color.White;
-            this.btnarrangement.selected = false;
-            this.btnarrangement.Size = new System.Drawing.Size(200, 42);
-            this.btnarrangement.TabIndex = 8;
-            this.btnarrangement.Text = "Create Arrangement / Event";
-            this.btnarrangement.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnarrangement.Textcolor = System.Drawing.Color.White;
-            this.btnarrangement.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnarrangement.Click += new System.EventHandler(this.btnarrangement_Click);
-            // 
-            // btnadmin
-            // 
-            this.btnadmin.Active = false;
-            this.btnadmin.Activecolor = System.Drawing.Color.DarkOrange;
-            this.btnadmin.BackColor = System.Drawing.Color.Black;
-            this.btnadmin.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnadmin.BorderRadius = 1;
-            this.btnadmin.ButtonText = "User Setting ";
-            this.btnadmin.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnadmin.DisabledColor = System.Drawing.Color.Gray;
-            this.btnadmin.Iconcolor = System.Drawing.Color.Transparent;
-            this.btnadmin.Iconimage = ((System.Drawing.Image)(resources.GetObject("btnadmin.Iconimage")));
-            this.btnadmin.Iconimage_right = null;
-            this.btnadmin.Iconimage_right_Selected = null;
-            this.btnadmin.Iconimage_Selected = null;
-            this.btnadmin.IconMarginLeft = 0;
-            this.btnadmin.IconMarginRight = 0;
-            this.btnadmin.IconRightVisible = true;
-            this.btnadmin.IconRightZoom = 0D;
-            this.btnadmin.IconVisible = true;
-            this.btnadmin.IconZoom = 50D;
-            this.btnadmin.IsTab = false;
-            this.btnadmin.Location = new System.Drawing.Point(0, 80);
-            this.btnadmin.Name = "btnadmin";
-            this.btnadmin.Normalcolor = System.Drawing.Color.Black;
-            this.btnadmin.OnHovercolor = System.Drawing.Color.DarkOrange;
-            this.btnadmin.OnHoverTextColor = System.Drawing.Color.White;
-            this.btnadmin.selected = false;
-            this.btnadmin.Size = new System.Drawing.Size(200, 42);
-            this.btnadmin.TabIndex = 7;
-            this.btnadmin.Text = "User Setting ";
-            this.btnadmin.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnadmin.Textcolor = System.Drawing.Color.White;
-            this.btnadmin.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnadmin.Click += new System.EventHandler(this.btnadmin_Click);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::Project_1.Properties.Resources.logo;
-            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(197, 74);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
             // 
             // panel2
             // 
@@ -311,84 +157,6 @@
             this.panel4.Size = new System.Drawing.Size(504, 53);
             this.panel4.TabIndex = 14;
             // 
-            // btnsavearrangement
-            // 
-            this.btnsavearrangement.Active = false;
-            this.btnsavearrangement.Activecolor = System.Drawing.Color.DarkOrange;
-            this.btnsavearrangement.BackColor = System.Drawing.Color.DarkOrange;
-            this.btnsavearrangement.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnsavearrangement.BorderRadius = 0;
-            this.btnsavearrangement.ButtonText = "Save";
-            this.btnsavearrangement.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnsavearrangement.DisabledColor = System.Drawing.Color.Goldenrod;
-            this.btnsavearrangement.Dock = System.Windows.Forms.DockStyle.Left;
-            this.btnsavearrangement.Iconcolor = System.Drawing.Color.Transparent;
-            this.btnsavearrangement.Iconimage = ((System.Drawing.Image)(resources.GetObject("btnsavearrangement.Iconimage")));
-            this.btnsavearrangement.Iconimage_right = null;
-            this.btnsavearrangement.Iconimage_right_Selected = null;
-            this.btnsavearrangement.Iconimage_Selected = null;
-            this.btnsavearrangement.IconMarginLeft = 0;
-            this.btnsavearrangement.IconMarginRight = 0;
-            this.btnsavearrangement.IconRightVisible = true;
-            this.btnsavearrangement.IconRightZoom = 0D;
-            this.btnsavearrangement.IconVisible = true;
-            this.btnsavearrangement.IconZoom = 90D;
-            this.btnsavearrangement.IsTab = false;
-            this.btnsavearrangement.Location = new System.Drawing.Point(0, 0);
-            this.btnsavearrangement.Margin = new System.Windows.Forms.Padding(30, 3, 3, 3);
-            this.btnsavearrangement.Name = "btnsavearrangement";
-            this.btnsavearrangement.Normalcolor = System.Drawing.Color.DarkOrange;
-            this.btnsavearrangement.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(93)))), ((int)(((byte)(0)))));
-            this.btnsavearrangement.OnHoverTextColor = System.Drawing.Color.White;
-            this.btnsavearrangement.Padding = new System.Windows.Forms.Padding(200, 0, 0, 0);
-            this.btnsavearrangement.selected = false;
-            this.btnsavearrangement.Size = new System.Drawing.Size(236, 53);
-            this.btnsavearrangement.TabIndex = 11;
-            this.btnsavearrangement.Text = "Save";
-            this.btnsavearrangement.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnsavearrangement.Textcolor = System.Drawing.Color.White;
-            this.btnsavearrangement.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnsavearrangement.Click += new System.EventHandler(this.btnsavearrangement_Click);
-            // 
-            // btnArrange
-            // 
-            this.btnArrange.Active = false;
-            this.btnArrange.Activecolor = System.Drawing.Color.DarkOrange;
-            this.btnArrange.BackColor = System.Drawing.Color.DarkOrange;
-            this.btnArrange.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnArrange.BorderRadius = 0;
-            this.btnArrange.ButtonText = "Arrange";
-            this.btnArrange.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnArrange.DisabledColor = System.Drawing.Color.Goldenrod;
-            this.btnArrange.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnArrange.Iconcolor = System.Drawing.Color.Transparent;
-            this.btnArrange.Iconimage = ((System.Drawing.Image)(resources.GetObject("btnArrange.Iconimage")));
-            this.btnArrange.Iconimage_right = null;
-            this.btnArrange.Iconimage_right_Selected = null;
-            this.btnArrange.Iconimage_Selected = null;
-            this.btnArrange.IconMarginLeft = 0;
-            this.btnArrange.IconMarginRight = 0;
-            this.btnArrange.IconRightVisible = true;
-            this.btnArrange.IconRightZoom = 0D;
-            this.btnArrange.IconVisible = true;
-            this.btnArrange.IconZoom = 90D;
-            this.btnArrange.IsTab = false;
-            this.btnArrange.Location = new System.Drawing.Point(257, 0);
-            this.btnArrange.Margin = new System.Windows.Forms.Padding(30, 3, 3, 3);
-            this.btnArrange.Name = "btnArrange";
-            this.btnArrange.Normalcolor = System.Drawing.Color.DarkOrange;
-            this.btnArrange.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(93)))), ((int)(((byte)(0)))));
-            this.btnArrange.OnHoverTextColor = System.Drawing.Color.White;
-            this.btnArrange.Padding = new System.Windows.Forms.Padding(200, 0, 0, 0);
-            this.btnArrange.selected = false;
-            this.btnArrange.Size = new System.Drawing.Size(247, 53);
-            this.btnArrange.TabIndex = 10;
-            this.btnArrange.Text = "Arrange";
-            this.btnArrange.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnArrange.Textcolor = System.Drawing.Color.White;
-            this.btnArrange.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnArrange.Click += new System.EventHandler(this.btnArrange_Click);
-            // 
             // listroom
             // 
             this.listroom.Dock = System.Windows.Forms.DockStyle.Top;
@@ -397,44 +165,6 @@
             this.listroom.Name = "listroom";
             this.listroom.Size = new System.Drawing.Size(504, 134);
             this.listroom.TabIndex = 13;
-            // 
-            // btnselectroom
-            // 
-            this.btnselectroom.Active = false;
-            this.btnselectroom.Activecolor = System.Drawing.Color.DarkOrange;
-            this.btnselectroom.BackColor = System.Drawing.Color.DarkOrange;
-            this.btnselectroom.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnselectroom.BorderRadius = 0;
-            this.btnselectroom.ButtonText = "Select Room";
-            this.btnselectroom.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnselectroom.DisabledColor = System.Drawing.Color.Gray;
-            this.btnselectroom.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnselectroom.Iconcolor = System.Drawing.Color.Transparent;
-            this.btnselectroom.Iconimage = ((System.Drawing.Image)(resources.GetObject("btnselectroom.Iconimage")));
-            this.btnselectroom.Iconimage_right = null;
-            this.btnselectroom.Iconimage_right_Selected = null;
-            this.btnselectroom.Iconimage_Selected = null;
-            this.btnselectroom.IconMarginLeft = 0;
-            this.btnselectroom.IconMarginRight = 0;
-            this.btnselectroom.IconRightVisible = true;
-            this.btnselectroom.IconRightZoom = 0D;
-            this.btnselectroom.IconVisible = true;
-            this.btnselectroom.IconZoom = 90D;
-            this.btnselectroom.IsTab = false;
-            this.btnselectroom.Location = new System.Drawing.Point(50, 154);
-            this.btnselectroom.Name = "btnselectroom";
-            this.btnselectroom.Normalcolor = System.Drawing.Color.DarkOrange;
-            this.btnselectroom.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(93)))), ((int)(((byte)(0)))));
-            this.btnselectroom.OnHoverTextColor = System.Drawing.Color.White;
-            this.btnselectroom.Padding = new System.Windows.Forms.Padding(20);
-            this.btnselectroom.selected = false;
-            this.btnselectroom.Size = new System.Drawing.Size(504, 23);
-            this.btnselectroom.TabIndex = 12;
-            this.btnselectroom.Text = "Select Room";
-            this.btnselectroom.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnselectroom.Textcolor = System.Drawing.Color.White;
-            this.btnselectroom.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnselectroom.Click += new System.EventHandler(this.btnselectroom_Click);
             // 
             // droproom
             // 
@@ -476,6 +206,7 @@
             this.txtarrangement.TabIndex = 5;
             this.txtarrangement.Text = "Arrangement / Event Name";
             this.txtarrangement.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.txtarrangement.OnValueChanged += new System.EventHandler(this.txtarrangement_OnValueChanged);
             this.txtarrangement.Enter += new System.EventHandler(this.txtarrangement_Enter);
             this.txtarrangement.Leave += new System.EventHandler(this.txtarrangement_Leave);
             // 
@@ -640,45 +371,6 @@
             this.grideviewsheet.Size = new System.Drawing.Size(494, 126);
             this.grideviewsheet.TabIndex = 19;
             // 
-            // btnsavestudents
-            // 
-            this.btnsavestudents.Active = false;
-            this.btnsavestudents.Activecolor = System.Drawing.Color.DarkOrange;
-            this.btnsavestudents.BackColor = System.Drawing.Color.DarkOrange;
-            this.btnsavestudents.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnsavestudents.BorderRadius = 0;
-            this.btnsavestudents.ButtonText = "Save";
-            this.btnsavestudents.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnsavestudents.DisabledColor = System.Drawing.Color.Goldenrod;
-            this.btnsavestudents.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.btnsavestudents.Iconcolor = System.Drawing.Color.Transparent;
-            this.btnsavestudents.Iconimage = ((System.Drawing.Image)(resources.GetObject("btnsavestudents.Iconimage")));
-            this.btnsavestudents.Iconimage_right = null;
-            this.btnsavestudents.Iconimage_right_Selected = null;
-            this.btnsavestudents.Iconimage_Selected = null;
-            this.btnsavestudents.IconMarginLeft = 0;
-            this.btnsavestudents.IconMarginRight = 0;
-            this.btnsavestudents.IconRightVisible = true;
-            this.btnsavestudents.IconRightZoom = 0D;
-            this.btnsavestudents.IconVisible = true;
-            this.btnsavestudents.IconZoom = 90D;
-            this.btnsavestudents.IsTab = false;
-            this.btnsavestudents.Location = new System.Drawing.Point(5, 184);
-            this.btnsavestudents.Margin = new System.Windows.Forms.Padding(30, 3, 3, 3);
-            this.btnsavestudents.Name = "btnsavestudents";
-            this.btnsavestudents.Normalcolor = System.Drawing.Color.DarkOrange;
-            this.btnsavestudents.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(93)))), ((int)(((byte)(0)))));
-            this.btnsavestudents.OnHoverTextColor = System.Drawing.Color.White;
-            this.btnsavestudents.Padding = new System.Windows.Forms.Padding(200, 0, 0, 0);
-            this.btnsavestudents.selected = false;
-            this.btnsavestudents.Size = new System.Drawing.Size(494, 31);
-            this.btnsavestudents.TabIndex = 11;
-            this.btnsavestudents.Text = "Save";
-            this.btnsavestudents.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnsavestudents.Textcolor = System.Drawing.Color.White;
-            this.btnsavestudents.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnsavestudents.Click += new System.EventHandler(this.btnsavestudents_Click);
-            // 
             // panel10
             // 
             this.panel10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(61)))), ((int)(((byte)(69)))));
@@ -801,82 +493,6 @@
             this.panalroom.TabIndex = 12;
             this.panalroom.Visible = false;
             // 
-            // btnroomclear
-            // 
-            this.btnroomclear.Active = false;
-            this.btnroomclear.Activecolor = System.Drawing.Color.DarkOrange;
-            this.btnroomclear.BackColor = System.Drawing.Color.DarkOrange;
-            this.btnroomclear.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnroomclear.BorderRadius = 0;
-            this.btnroomclear.ButtonText = "Clear";
-            this.btnroomclear.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnroomclear.DisabledColor = System.Drawing.Color.Goldenrod;
-            this.btnroomclear.Iconcolor = System.Drawing.Color.Transparent;
-            this.btnroomclear.Iconimage = ((System.Drawing.Image)(resources.GetObject("btnroomclear.Iconimage")));
-            this.btnroomclear.Iconimage_right = null;
-            this.btnroomclear.Iconimage_right_Selected = null;
-            this.btnroomclear.Iconimage_Selected = null;
-            this.btnroomclear.IconMarginLeft = 0;
-            this.btnroomclear.IconMarginRight = 0;
-            this.btnroomclear.IconRightVisible = true;
-            this.btnroomclear.IconRightZoom = 0D;
-            this.btnroomclear.IconVisible = true;
-            this.btnroomclear.IconZoom = 90D;
-            this.btnroomclear.IsTab = false;
-            this.btnroomclear.Location = new System.Drawing.Point(50, 372);
-            this.btnroomclear.Margin = new System.Windows.Forms.Padding(30, 3, 3, 3);
-            this.btnroomclear.Name = "btnroomclear";
-            this.btnroomclear.Normalcolor = System.Drawing.Color.DarkOrange;
-            this.btnroomclear.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(93)))), ((int)(((byte)(0)))));
-            this.btnroomclear.OnHoverTextColor = System.Drawing.Color.White;
-            this.btnroomclear.Padding = new System.Windows.Forms.Padding(200, 0, 0, 0);
-            this.btnroomclear.selected = false;
-            this.btnroomclear.Size = new System.Drawing.Size(134, 30);
-            this.btnroomclear.TabIndex = 21;
-            this.btnroomclear.Text = "Clear";
-            this.btnroomclear.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnroomclear.Textcolor = System.Drawing.Color.White;
-            this.btnroomclear.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnroomclear.Click += new System.EventHandler(this.btnroomclear_Click);
-            // 
-            // btnsaverooms
-            // 
-            this.btnsaverooms.Active = false;
-            this.btnsaverooms.Activecolor = System.Drawing.Color.DarkOrange;
-            this.btnsaverooms.BackColor = System.Drawing.Color.DarkOrange;
-            this.btnsaverooms.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnsaverooms.BorderRadius = 0;
-            this.btnsaverooms.ButtonText = "Save";
-            this.btnsaverooms.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnsaverooms.DisabledColor = System.Drawing.Color.Goldenrod;
-            this.btnsaverooms.Iconcolor = System.Drawing.Color.Transparent;
-            this.btnsaverooms.Iconimage = ((System.Drawing.Image)(resources.GetObject("btnsaverooms.Iconimage")));
-            this.btnsaverooms.Iconimage_right = null;
-            this.btnsaverooms.Iconimage_right_Selected = null;
-            this.btnsaverooms.Iconimage_Selected = null;
-            this.btnsaverooms.IconMarginLeft = 0;
-            this.btnsaverooms.IconMarginRight = 0;
-            this.btnsaverooms.IconRightVisible = true;
-            this.btnsaverooms.IconRightZoom = 0D;
-            this.btnsaverooms.IconVisible = true;
-            this.btnsaverooms.IconZoom = 90D;
-            this.btnsaverooms.IsTab = false;
-            this.btnsaverooms.Location = new System.Drawing.Point(416, 372);
-            this.btnsaverooms.Margin = new System.Windows.Forms.Padding(30, 3, 3, 3);
-            this.btnsaverooms.Name = "btnsaverooms";
-            this.btnsaverooms.Normalcolor = System.Drawing.Color.DarkOrange;
-            this.btnsaverooms.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(93)))), ((int)(((byte)(0)))));
-            this.btnsaverooms.OnHoverTextColor = System.Drawing.Color.White;
-            this.btnsaverooms.Padding = new System.Windows.Forms.Padding(200, 0, 0, 0);
-            this.btnsaverooms.selected = false;
-            this.btnsaverooms.Size = new System.Drawing.Size(134, 30);
-            this.btnsaverooms.TabIndex = 11;
-            this.btnsaverooms.Text = "Save";
-            this.btnsaverooms.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnsaverooms.Textcolor = System.Drawing.Color.White;
-            this.btnsaverooms.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnsaverooms.Click += new System.EventHandler(this.btnsaverooms_Click);
-            // 
             // comboroomdrop
             // 
             this.comboroomdrop.FormattingEnabled = true;
@@ -909,42 +525,6 @@
             this.txtroompath.TabIndex = 19;
             this.txtroompath.Text = "File Path";
             this.txtroompath.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            // 
-            // btnroomload
-            // 
-            this.btnroomload.Active = false;
-            this.btnroomload.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
-            this.btnroomload.BackColor = System.Drawing.Color.DarkOrange;
-            this.btnroomload.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnroomload.BorderRadius = 0;
-            this.btnroomload.ButtonText = "Load from Sheet";
-            this.btnroomload.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnroomload.DisabledColor = System.Drawing.Color.Gray;
-            this.btnroomload.Iconcolor = System.Drawing.Color.Transparent;
-            this.btnroomload.Iconimage = ((System.Drawing.Image)(resources.GetObject("btnroomload.Iconimage")));
-            this.btnroomload.Iconimage_right = null;
-            this.btnroomload.Iconimage_right_Selected = null;
-            this.btnroomload.Iconimage_Selected = null;
-            this.btnroomload.IconMarginLeft = 0;
-            this.btnroomload.IconMarginRight = 0;
-            this.btnroomload.IconRightVisible = true;
-            this.btnroomload.IconRightZoom = 0D;
-            this.btnroomload.IconVisible = true;
-            this.btnroomload.IconZoom = 90D;
-            this.btnroomload.IsTab = false;
-            this.btnroomload.Location = new System.Drawing.Point(50, 196);
-            this.btnroomload.Name = "btnroomload";
-            this.btnroomload.Normalcolor = System.Drawing.Color.DarkOrange;
-            this.btnroomload.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(93)))), ((int)(((byte)(0)))));
-            this.btnroomload.OnHoverTextColor = System.Drawing.Color.White;
-            this.btnroomload.selected = false;
-            this.btnroomload.Size = new System.Drawing.Size(144, 31);
-            this.btnroomload.TabIndex = 18;
-            this.btnroomload.Text = "Load from Sheet";
-            this.btnroomload.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnroomload.Textcolor = System.Drawing.Color.White;
-            this.btnroomload.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnroomload.Click += new System.EventHandler(this.btnroomload_Click);
             // 
             // panel6
             // 
@@ -1110,45 +690,6 @@
             this.panelsetting.Size = new System.Drawing.Size(604, 420);
             this.panelsetting.TabIndex = 0;
             // 
-            // btnsaveadmin
-            // 
-            this.btnsaveadmin.Active = false;
-            this.btnsaveadmin.Activecolor = System.Drawing.Color.DarkOrange;
-            this.btnsaveadmin.BackColor = System.Drawing.Color.DarkOrange;
-            this.btnsaveadmin.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnsaveadmin.BorderRadius = 0;
-            this.btnsaveadmin.ButtonText = "Save";
-            this.btnsaveadmin.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnsaveadmin.DisabledColor = System.Drawing.Color.Goldenrod;
-            this.btnsaveadmin.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnsaveadmin.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnsaveadmin.Iconcolor = System.Drawing.Color.Transparent;
-            this.btnsaveadmin.Iconimage = ((System.Drawing.Image)(resources.GetObject("btnsaveadmin.Iconimage")));
-            this.btnsaveadmin.Iconimage_right = null;
-            this.btnsaveadmin.Iconimage_right_Selected = null;
-            this.btnsaveadmin.Iconimage_Selected = null;
-            this.btnsaveadmin.IconMarginLeft = 0;
-            this.btnsaveadmin.IconMarginRight = 0;
-            this.btnsaveadmin.IconRightVisible = true;
-            this.btnsaveadmin.IconRightZoom = 0D;
-            this.btnsaveadmin.IconVisible = true;
-            this.btnsaveadmin.IconZoom = 90D;
-            this.btnsaveadmin.IsTab = false;
-            this.btnsaveadmin.Location = new System.Drawing.Point(313, 325);
-            this.btnsaveadmin.Margin = new System.Windows.Forms.Padding(0);
-            this.btnsaveadmin.Name = "btnsaveadmin";
-            this.btnsaveadmin.Normalcolor = System.Drawing.Color.DarkOrange;
-            this.btnsaveadmin.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(93)))), ((int)(((byte)(0)))));
-            this.btnsaveadmin.OnHoverTextColor = System.Drawing.Color.White;
-            this.btnsaveadmin.selected = false;
-            this.btnsaveadmin.Size = new System.Drawing.Size(241, 45);
-            this.btnsaveadmin.TabIndex = 10;
-            this.btnsaveadmin.Text = "Save";
-            this.btnsaveadmin.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnsaveadmin.Textcolor = System.Drawing.Color.White;
-            this.btnsaveadmin.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnsaveadmin.Click += new System.EventHandler(this.btnsaveadmin_Click);
-            // 
             // txtconfpassword
             // 
             this.txtconfpassword.Cursor = System.Windows.Forms.Cursors.IBeam;
@@ -1265,6 +806,466 @@
             this.txtfname.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.txtfname.OnValueChanged += new System.EventHandler(this.txtfname_OnValueChanged_1);
             // 
+            // btnsavearrangement
+            // 
+            this.btnsavearrangement.Active = false;
+            this.btnsavearrangement.Activecolor = System.Drawing.Color.DarkOrange;
+            this.btnsavearrangement.BackColor = System.Drawing.Color.DarkOrange;
+            this.btnsavearrangement.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnsavearrangement.BorderRadius = 0;
+            this.btnsavearrangement.ButtonText = "Save";
+            this.btnsavearrangement.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnsavearrangement.DisabledColor = System.Drawing.Color.Goldenrod;
+            this.btnsavearrangement.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnsavearrangement.Iconcolor = System.Drawing.Color.Transparent;
+            this.btnsavearrangement.Iconimage = ((System.Drawing.Image)(resources.GetObject("btnsavearrangement.Iconimage")));
+            this.btnsavearrangement.Iconimage_right = null;
+            this.btnsavearrangement.Iconimage_right_Selected = null;
+            this.btnsavearrangement.Iconimage_Selected = null;
+            this.btnsavearrangement.IconMarginLeft = 0;
+            this.btnsavearrangement.IconMarginRight = 0;
+            this.btnsavearrangement.IconRightVisible = true;
+            this.btnsavearrangement.IconRightZoom = 0D;
+            this.btnsavearrangement.IconVisible = true;
+            this.btnsavearrangement.IconZoom = 90D;
+            this.btnsavearrangement.IsTab = false;
+            this.btnsavearrangement.Location = new System.Drawing.Point(0, 0);
+            this.btnsavearrangement.Margin = new System.Windows.Forms.Padding(30, 3, 3, 3);
+            this.btnsavearrangement.Name = "btnsavearrangement";
+            this.btnsavearrangement.Normalcolor = System.Drawing.Color.DarkOrange;
+            this.btnsavearrangement.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(93)))), ((int)(((byte)(0)))));
+            this.btnsavearrangement.OnHoverTextColor = System.Drawing.Color.White;
+            this.btnsavearrangement.Padding = new System.Windows.Forms.Padding(200, 0, 0, 0);
+            this.btnsavearrangement.selected = false;
+            this.btnsavearrangement.Size = new System.Drawing.Size(236, 53);
+            this.btnsavearrangement.TabIndex = 11;
+            this.btnsavearrangement.Text = "Save";
+            this.btnsavearrangement.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnsavearrangement.Textcolor = System.Drawing.Color.White;
+            this.btnsavearrangement.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnsavearrangement.Click += new System.EventHandler(this.btnsavearrangement_Click);
+            // 
+            // btnArrange
+            // 
+            this.btnArrange.Active = false;
+            this.btnArrange.Activecolor = System.Drawing.Color.DarkOrange;
+            this.btnArrange.BackColor = System.Drawing.Color.DarkOrange;
+            this.btnArrange.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnArrange.BorderRadius = 0;
+            this.btnArrange.ButtonText = "Arrange";
+            this.btnArrange.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnArrange.DisabledColor = System.Drawing.Color.Goldenrod;
+            this.btnArrange.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnArrange.Iconcolor = System.Drawing.Color.Transparent;
+            this.btnArrange.Iconimage = ((System.Drawing.Image)(resources.GetObject("btnArrange.Iconimage")));
+            this.btnArrange.Iconimage_right = null;
+            this.btnArrange.Iconimage_right_Selected = null;
+            this.btnArrange.Iconimage_Selected = null;
+            this.btnArrange.IconMarginLeft = 0;
+            this.btnArrange.IconMarginRight = 0;
+            this.btnArrange.IconRightVisible = true;
+            this.btnArrange.IconRightZoom = 0D;
+            this.btnArrange.IconVisible = true;
+            this.btnArrange.IconZoom = 90D;
+            this.btnArrange.IsTab = false;
+            this.btnArrange.Location = new System.Drawing.Point(257, 0);
+            this.btnArrange.Margin = new System.Windows.Forms.Padding(30, 3, 3, 3);
+            this.btnArrange.Name = "btnArrange";
+            this.btnArrange.Normalcolor = System.Drawing.Color.DarkOrange;
+            this.btnArrange.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(93)))), ((int)(((byte)(0)))));
+            this.btnArrange.OnHoverTextColor = System.Drawing.Color.White;
+            this.btnArrange.Padding = new System.Windows.Forms.Padding(200, 0, 0, 0);
+            this.btnArrange.selected = false;
+            this.btnArrange.Size = new System.Drawing.Size(247, 53);
+            this.btnArrange.TabIndex = 10;
+            this.btnArrange.Text = "Arrange";
+            this.btnArrange.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnArrange.Textcolor = System.Drawing.Color.White;
+            this.btnArrange.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnArrange.Click += new System.EventHandler(this.btnArrange_Click);
+            // 
+            // btnselectroom
+            // 
+            this.btnselectroom.Active = false;
+            this.btnselectroom.Activecolor = System.Drawing.Color.DarkOrange;
+            this.btnselectroom.BackColor = System.Drawing.Color.DarkOrange;
+            this.btnselectroom.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnselectroom.BorderRadius = 0;
+            this.btnselectroom.ButtonText = "Select Room";
+            this.btnselectroom.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnselectroom.DisabledColor = System.Drawing.Color.Gray;
+            this.btnselectroom.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnselectroom.Iconcolor = System.Drawing.Color.Transparent;
+            this.btnselectroom.Iconimage = ((System.Drawing.Image)(resources.GetObject("btnselectroom.Iconimage")));
+            this.btnselectroom.Iconimage_right = null;
+            this.btnselectroom.Iconimage_right_Selected = null;
+            this.btnselectroom.Iconimage_Selected = null;
+            this.btnselectroom.IconMarginLeft = 0;
+            this.btnselectroom.IconMarginRight = 0;
+            this.btnselectroom.IconRightVisible = true;
+            this.btnselectroom.IconRightZoom = 0D;
+            this.btnselectroom.IconVisible = true;
+            this.btnselectroom.IconZoom = 90D;
+            this.btnselectroom.IsTab = false;
+            this.btnselectroom.Location = new System.Drawing.Point(50, 154);
+            this.btnselectroom.Name = "btnselectroom";
+            this.btnselectroom.Normalcolor = System.Drawing.Color.DarkOrange;
+            this.btnselectroom.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(93)))), ((int)(((byte)(0)))));
+            this.btnselectroom.OnHoverTextColor = System.Drawing.Color.White;
+            this.btnselectroom.Padding = new System.Windows.Forms.Padding(20);
+            this.btnselectroom.selected = false;
+            this.btnselectroom.Size = new System.Drawing.Size(504, 23);
+            this.btnselectroom.TabIndex = 12;
+            this.btnselectroom.Text = "Select Room";
+            this.btnselectroom.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnselectroom.Textcolor = System.Drawing.Color.White;
+            this.btnselectroom.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnselectroom.Click += new System.EventHandler(this.btnselectroom_Click);
+            // 
+            // btnsavestudents
+            // 
+            this.btnsavestudents.Active = false;
+            this.btnsavestudents.Activecolor = System.Drawing.Color.DarkOrange;
+            this.btnsavestudents.BackColor = System.Drawing.Color.DarkOrange;
+            this.btnsavestudents.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnsavestudents.BorderRadius = 0;
+            this.btnsavestudents.ButtonText = "Save";
+            this.btnsavestudents.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnsavestudents.DisabledColor = System.Drawing.Color.Goldenrod;
+            this.btnsavestudents.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.btnsavestudents.Iconcolor = System.Drawing.Color.Transparent;
+            this.btnsavestudents.Iconimage = ((System.Drawing.Image)(resources.GetObject("btnsavestudents.Iconimage")));
+            this.btnsavestudents.Iconimage_right = null;
+            this.btnsavestudents.Iconimage_right_Selected = null;
+            this.btnsavestudents.Iconimage_Selected = null;
+            this.btnsavestudents.IconMarginLeft = 0;
+            this.btnsavestudents.IconMarginRight = 0;
+            this.btnsavestudents.IconRightVisible = true;
+            this.btnsavestudents.IconRightZoom = 0D;
+            this.btnsavestudents.IconVisible = true;
+            this.btnsavestudents.IconZoom = 90D;
+            this.btnsavestudents.IsTab = false;
+            this.btnsavestudents.Location = new System.Drawing.Point(5, 184);
+            this.btnsavestudents.Margin = new System.Windows.Forms.Padding(30, 3, 3, 3);
+            this.btnsavestudents.Name = "btnsavestudents";
+            this.btnsavestudents.Normalcolor = System.Drawing.Color.DarkOrange;
+            this.btnsavestudents.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(93)))), ((int)(((byte)(0)))));
+            this.btnsavestudents.OnHoverTextColor = System.Drawing.Color.White;
+            this.btnsavestudents.Padding = new System.Windows.Forms.Padding(200, 0, 0, 0);
+            this.btnsavestudents.selected = false;
+            this.btnsavestudents.Size = new System.Drawing.Size(494, 31);
+            this.btnsavestudents.TabIndex = 11;
+            this.btnsavestudents.Text = "Save";
+            this.btnsavestudents.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnsavestudents.Textcolor = System.Drawing.Color.White;
+            this.btnsavestudents.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnsavestudents.Click += new System.EventHandler(this.btnsavestudents_Click);
+            // 
+            // btnroomclear
+            // 
+            this.btnroomclear.Active = false;
+            this.btnroomclear.Activecolor = System.Drawing.Color.DarkOrange;
+            this.btnroomclear.BackColor = System.Drawing.Color.DarkOrange;
+            this.btnroomclear.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnroomclear.BorderRadius = 0;
+            this.btnroomclear.ButtonText = "Clear";
+            this.btnroomclear.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnroomclear.DisabledColor = System.Drawing.Color.Goldenrod;
+            this.btnroomclear.Iconcolor = System.Drawing.Color.Transparent;
+            this.btnroomclear.Iconimage = ((System.Drawing.Image)(resources.GetObject("btnroomclear.Iconimage")));
+            this.btnroomclear.Iconimage_right = null;
+            this.btnroomclear.Iconimage_right_Selected = null;
+            this.btnroomclear.Iconimage_Selected = null;
+            this.btnroomclear.IconMarginLeft = 0;
+            this.btnroomclear.IconMarginRight = 0;
+            this.btnroomclear.IconRightVisible = true;
+            this.btnroomclear.IconRightZoom = 0D;
+            this.btnroomclear.IconVisible = true;
+            this.btnroomclear.IconZoom = 90D;
+            this.btnroomclear.IsTab = false;
+            this.btnroomclear.Location = new System.Drawing.Point(50, 372);
+            this.btnroomclear.Margin = new System.Windows.Forms.Padding(30, 3, 3, 3);
+            this.btnroomclear.Name = "btnroomclear";
+            this.btnroomclear.Normalcolor = System.Drawing.Color.DarkOrange;
+            this.btnroomclear.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(93)))), ((int)(((byte)(0)))));
+            this.btnroomclear.OnHoverTextColor = System.Drawing.Color.White;
+            this.btnroomclear.Padding = new System.Windows.Forms.Padding(200, 0, 0, 0);
+            this.btnroomclear.selected = false;
+            this.btnroomclear.Size = new System.Drawing.Size(134, 30);
+            this.btnroomclear.TabIndex = 21;
+            this.btnroomclear.Text = "Clear";
+            this.btnroomclear.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnroomclear.Textcolor = System.Drawing.Color.White;
+            this.btnroomclear.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnroomclear.Click += new System.EventHandler(this.btnroomclear_Click);
+            // 
+            // btnsaverooms
+            // 
+            this.btnsaverooms.Active = false;
+            this.btnsaverooms.Activecolor = System.Drawing.Color.DarkOrange;
+            this.btnsaverooms.BackColor = System.Drawing.Color.DarkOrange;
+            this.btnsaverooms.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnsaverooms.BorderRadius = 0;
+            this.btnsaverooms.ButtonText = "Save";
+            this.btnsaverooms.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnsaverooms.DisabledColor = System.Drawing.Color.Goldenrod;
+            this.btnsaverooms.Iconcolor = System.Drawing.Color.Transparent;
+            this.btnsaverooms.Iconimage = ((System.Drawing.Image)(resources.GetObject("btnsaverooms.Iconimage")));
+            this.btnsaverooms.Iconimage_right = null;
+            this.btnsaverooms.Iconimage_right_Selected = null;
+            this.btnsaverooms.Iconimage_Selected = null;
+            this.btnsaverooms.IconMarginLeft = 0;
+            this.btnsaverooms.IconMarginRight = 0;
+            this.btnsaverooms.IconRightVisible = true;
+            this.btnsaverooms.IconRightZoom = 0D;
+            this.btnsaverooms.IconVisible = true;
+            this.btnsaverooms.IconZoom = 90D;
+            this.btnsaverooms.IsTab = false;
+            this.btnsaverooms.Location = new System.Drawing.Point(416, 372);
+            this.btnsaverooms.Margin = new System.Windows.Forms.Padding(30, 3, 3, 3);
+            this.btnsaverooms.Name = "btnsaverooms";
+            this.btnsaverooms.Normalcolor = System.Drawing.Color.DarkOrange;
+            this.btnsaverooms.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(93)))), ((int)(((byte)(0)))));
+            this.btnsaverooms.OnHoverTextColor = System.Drawing.Color.White;
+            this.btnsaverooms.Padding = new System.Windows.Forms.Padding(200, 0, 0, 0);
+            this.btnsaverooms.selected = false;
+            this.btnsaverooms.Size = new System.Drawing.Size(134, 30);
+            this.btnsaverooms.TabIndex = 11;
+            this.btnsaverooms.Text = "Save";
+            this.btnsaverooms.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnsaverooms.Textcolor = System.Drawing.Color.White;
+            this.btnsaverooms.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnsaverooms.Click += new System.EventHandler(this.btnsaverooms_Click);
+            // 
+            // btnroomload
+            // 
+            this.btnroomload.Active = false;
+            this.btnroomload.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
+            this.btnroomload.BackColor = System.Drawing.Color.DarkOrange;
+            this.btnroomload.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnroomload.BorderRadius = 0;
+            this.btnroomload.ButtonText = "Load from Sheet";
+            this.btnroomload.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnroomload.DisabledColor = System.Drawing.Color.Gray;
+            this.btnroomload.Iconcolor = System.Drawing.Color.Transparent;
+            this.btnroomload.Iconimage = ((System.Drawing.Image)(resources.GetObject("btnroomload.Iconimage")));
+            this.btnroomload.Iconimage_right = null;
+            this.btnroomload.Iconimage_right_Selected = null;
+            this.btnroomload.Iconimage_Selected = null;
+            this.btnroomload.IconMarginLeft = 0;
+            this.btnroomload.IconMarginRight = 0;
+            this.btnroomload.IconRightVisible = true;
+            this.btnroomload.IconRightZoom = 0D;
+            this.btnroomload.IconVisible = true;
+            this.btnroomload.IconZoom = 90D;
+            this.btnroomload.IsTab = false;
+            this.btnroomload.Location = new System.Drawing.Point(50, 196);
+            this.btnroomload.Name = "btnroomload";
+            this.btnroomload.Normalcolor = System.Drawing.Color.DarkOrange;
+            this.btnroomload.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(93)))), ((int)(((byte)(0)))));
+            this.btnroomload.OnHoverTextColor = System.Drawing.Color.White;
+            this.btnroomload.selected = false;
+            this.btnroomload.Size = new System.Drawing.Size(144, 31);
+            this.btnroomload.TabIndex = 18;
+            this.btnroomload.Text = "Load from Sheet";
+            this.btnroomload.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnroomload.Textcolor = System.Drawing.Color.White;
+            this.btnroomload.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnroomload.Click += new System.EventHandler(this.btnroomload_Click);
+            // 
+            // btnsaveadmin
+            // 
+            this.btnsaveadmin.Active = false;
+            this.btnsaveadmin.Activecolor = System.Drawing.Color.DarkOrange;
+            this.btnsaveadmin.BackColor = System.Drawing.Color.DarkOrange;
+            this.btnsaveadmin.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnsaveadmin.BorderRadius = 0;
+            this.btnsaveadmin.ButtonText = "Save";
+            this.btnsaveadmin.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnsaveadmin.DisabledColor = System.Drawing.Color.Goldenrod;
+            this.btnsaveadmin.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnsaveadmin.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnsaveadmin.Iconcolor = System.Drawing.Color.Transparent;
+            this.btnsaveadmin.Iconimage = ((System.Drawing.Image)(resources.GetObject("btnsaveadmin.Iconimage")));
+            this.btnsaveadmin.Iconimage_right = null;
+            this.btnsaveadmin.Iconimage_right_Selected = null;
+            this.btnsaveadmin.Iconimage_Selected = null;
+            this.btnsaveadmin.IconMarginLeft = 0;
+            this.btnsaveadmin.IconMarginRight = 0;
+            this.btnsaveadmin.IconRightVisible = true;
+            this.btnsaveadmin.IconRightZoom = 0D;
+            this.btnsaveadmin.IconVisible = true;
+            this.btnsaveadmin.IconZoom = 90D;
+            this.btnsaveadmin.IsTab = false;
+            this.btnsaveadmin.Location = new System.Drawing.Point(313, 325);
+            this.btnsaveadmin.Margin = new System.Windows.Forms.Padding(0);
+            this.btnsaveadmin.Name = "btnsaveadmin";
+            this.btnsaveadmin.Normalcolor = System.Drawing.Color.DarkOrange;
+            this.btnsaveadmin.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(93)))), ((int)(((byte)(0)))));
+            this.btnsaveadmin.OnHoverTextColor = System.Drawing.Color.White;
+            this.btnsaveadmin.selected = false;
+            this.btnsaveadmin.Size = new System.Drawing.Size(241, 45);
+            this.btnsaveadmin.TabIndex = 10;
+            this.btnsaveadmin.Text = "Save";
+            this.btnsaveadmin.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnsaveadmin.Textcolor = System.Drawing.Color.White;
+            this.btnsaveadmin.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnsaveadmin.Click += new System.EventHandler(this.btnsaveadmin_Click);
+            // 
+            // btnstudent
+            // 
+            this.btnstudent.Active = false;
+            this.btnstudent.Activecolor = System.Drawing.Color.DarkOrange;
+            this.btnstudent.BackColor = System.Drawing.Color.Black;
+            this.btnstudent.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnstudent.BorderRadius = 1;
+            this.btnstudent.ButtonText = "Add Students";
+            this.btnstudent.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnstudent.DisabledColor = System.Drawing.Color.Gray;
+            this.btnstudent.Iconcolor = System.Drawing.Color.Transparent;
+            this.btnstudent.Iconimage = global::Project_1.Properties.Resources.student;
+            this.btnstudent.Iconimage_right = null;
+            this.btnstudent.Iconimage_right_Selected = null;
+            this.btnstudent.Iconimage_Selected = null;
+            this.btnstudent.IconMarginLeft = 0;
+            this.btnstudent.IconMarginRight = 0;
+            this.btnstudent.IconRightVisible = true;
+            this.btnstudent.IconRightZoom = 0D;
+            this.btnstudent.IconVisible = true;
+            this.btnstudent.IconZoom = 50D;
+            this.btnstudent.IsTab = false;
+            this.btnstudent.Location = new System.Drawing.Point(0, 224);
+            this.btnstudent.Name = "btnstudent";
+            this.btnstudent.Normalcolor = System.Drawing.Color.Black;
+            this.btnstudent.OnHovercolor = System.Drawing.Color.DarkOrange;
+            this.btnstudent.OnHoverTextColor = System.Drawing.Color.White;
+            this.btnstudent.selected = false;
+            this.btnstudent.Size = new System.Drawing.Size(200, 42);
+            this.btnstudent.TabIndex = 10;
+            this.btnstudent.Text = "Add Students";
+            this.btnstudent.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnstudent.Textcolor = System.Drawing.Color.White;
+            this.btnstudent.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnstudent.Click += new System.EventHandler(this.btnstudent_Click);
+            // 
+            // btnroom
+            // 
+            this.btnroom.Active = false;
+            this.btnroom.Activecolor = System.Drawing.Color.DarkOrange;
+            this.btnroom.BackColor = System.Drawing.Color.Black;
+            this.btnroom.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnroom.BorderRadius = 1;
+            this.btnroom.ButtonText = "Create Room / Hall";
+            this.btnroom.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnroom.DisabledColor = System.Drawing.Color.Gray;
+            this.btnroom.Iconcolor = System.Drawing.Color.Transparent;
+            this.btnroom.Iconimage = global::Project_1.Properties.Resources.room;
+            this.btnroom.Iconimage_right = null;
+            this.btnroom.Iconimage_right_Selected = null;
+            this.btnroom.Iconimage_Selected = null;
+            this.btnroom.IconMarginLeft = 0;
+            this.btnroom.IconMarginRight = 0;
+            this.btnroom.IconRightVisible = true;
+            this.btnroom.IconRightZoom = 0D;
+            this.btnroom.IconVisible = true;
+            this.btnroom.IconZoom = 50D;
+            this.btnroom.IsTab = false;
+            this.btnroom.Location = new System.Drawing.Point(0, 176);
+            this.btnroom.Name = "btnroom";
+            this.btnroom.Normalcolor = System.Drawing.Color.Black;
+            this.btnroom.OnHovercolor = System.Drawing.Color.DarkOrange;
+            this.btnroom.OnHoverTextColor = System.Drawing.Color.White;
+            this.btnroom.selected = false;
+            this.btnroom.Size = new System.Drawing.Size(200, 42);
+            this.btnroom.TabIndex = 9;
+            this.btnroom.Text = "Create Room / Hall";
+            this.btnroom.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnroom.Textcolor = System.Drawing.Color.White;
+            this.btnroom.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnroom.Click += new System.EventHandler(this.btnroom_Click);
+            // 
+            // btnarrangement
+            // 
+            this.btnarrangement.Active = false;
+            this.btnarrangement.Activecolor = System.Drawing.Color.DarkOrange;
+            this.btnarrangement.BackColor = System.Drawing.Color.Black;
+            this.btnarrangement.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnarrangement.BorderRadius = 1;
+            this.btnarrangement.ButtonText = "Create Arrangement / Event";
+            this.btnarrangement.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnarrangement.DisabledColor = System.Drawing.Color.Gray;
+            this.btnarrangement.Iconcolor = System.Drawing.Color.Transparent;
+            this.btnarrangement.Iconimage = global::Project_1.Properties.Resources._event;
+            this.btnarrangement.Iconimage_right = null;
+            this.btnarrangement.Iconimage_right_Selected = null;
+            this.btnarrangement.Iconimage_Selected = null;
+            this.btnarrangement.IconMarginLeft = 0;
+            this.btnarrangement.IconMarginRight = 0;
+            this.btnarrangement.IconRightVisible = true;
+            this.btnarrangement.IconRightZoom = 0D;
+            this.btnarrangement.IconVisible = true;
+            this.btnarrangement.IconZoom = 60D;
+            this.btnarrangement.IsTab = false;
+            this.btnarrangement.Location = new System.Drawing.Point(0, 128);
+            this.btnarrangement.Name = "btnarrangement";
+            this.btnarrangement.Normalcolor = System.Drawing.Color.Black;
+            this.btnarrangement.OnHovercolor = System.Drawing.Color.DarkOrange;
+            this.btnarrangement.OnHoverTextColor = System.Drawing.Color.White;
+            this.btnarrangement.selected = false;
+            this.btnarrangement.Size = new System.Drawing.Size(200, 42);
+            this.btnarrangement.TabIndex = 8;
+            this.btnarrangement.Text = "Create Arrangement / Event";
+            this.btnarrangement.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnarrangement.Textcolor = System.Drawing.Color.White;
+            this.btnarrangement.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnarrangement.Click += new System.EventHandler(this.btnarrangement_Click);
+            // 
+            // btnadmin
+            // 
+            this.btnadmin.Active = false;
+            this.btnadmin.Activecolor = System.Drawing.Color.DarkOrange;
+            this.btnadmin.BackColor = System.Drawing.Color.Black;
+            this.btnadmin.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnadmin.BorderRadius = 1;
+            this.btnadmin.ButtonText = "User Setting ";
+            this.btnadmin.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnadmin.DisabledColor = System.Drawing.Color.Gray;
+            this.btnadmin.Iconcolor = System.Drawing.Color.Transparent;
+            this.btnadmin.Iconimage = ((System.Drawing.Image)(resources.GetObject("btnadmin.Iconimage")));
+            this.btnadmin.Iconimage_right = null;
+            this.btnadmin.Iconimage_right_Selected = null;
+            this.btnadmin.Iconimage_Selected = null;
+            this.btnadmin.IconMarginLeft = 0;
+            this.btnadmin.IconMarginRight = 0;
+            this.btnadmin.IconRightVisible = true;
+            this.btnadmin.IconRightZoom = 0D;
+            this.btnadmin.IconVisible = true;
+            this.btnadmin.IconZoom = 50D;
+            this.btnadmin.IsTab = false;
+            this.btnadmin.Location = new System.Drawing.Point(0, 80);
+            this.btnadmin.Name = "btnadmin";
+            this.btnadmin.Normalcolor = System.Drawing.Color.Black;
+            this.btnadmin.OnHovercolor = System.Drawing.Color.DarkOrange;
+            this.btnadmin.OnHoverTextColor = System.Drawing.Color.White;
+            this.btnadmin.selected = false;
+            this.btnadmin.Size = new System.Drawing.Size(200, 42);
+            this.btnadmin.TabIndex = 7;
+            this.btnadmin.Text = "User Setting ";
+            this.btnadmin.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnadmin.Textcolor = System.Drawing.Color.White;
+            this.btnadmin.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnadmin.Click += new System.EventHandler(this.btnadmin_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::Project_1.Properties.Resources.logo;
+            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(197, 74);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            // 
             // Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1281,7 +1282,6 @@
             this.Name = "Dashboard";
             this.Text = "Dsasboard";
             this.panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panelarrangement.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.panelstudent.ResumeLayout(false);
@@ -1295,6 +1295,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.datagridroom)).EndInit();
             this.panel7.ResumeLayout(false);
             this.panelsetting.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }

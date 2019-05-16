@@ -15,7 +15,7 @@ namespace Project_1.Common_Layer
         public string roomSaveFile { get; set; }
         public Arrangement()
         {
-
+           
         }
         public Arrangement(int id, string arrangementName, int adminID, int roomID,string roomSaveFile)
         {
