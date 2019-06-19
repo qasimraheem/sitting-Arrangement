@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
+
 
 namespace Project_1.Common_Layer
 {
-    class Arrangement
+    public class Arrangement
     {
         public int id { get; set; }
         public int eventID { get; set; }
@@ -15,7 +17,7 @@ namespace Project_1.Common_Layer
         public string roomSaveFile { get; set; }
         public Arrangement()
         {
-           
+            this.eventID = -1;
         }
         public Arrangement(int id, int eventID, int adminID, int roomID,string roomSaveFile)
         {
@@ -24,6 +26,18 @@ namespace Project_1.Common_Layer
             this.adminID = adminID;
             this.roomID = roomID;
             this.roomSaveFile = roomSaveFile;
+        }
+
+        public void print() {
+            string output = "";
+            output += "ID:" + id.ToString() + "\n";
+            output += "eventID:" + eventID + "\n";
+            output += "adminID:" + adminID + "\n";
+            output += "roomID:" + roomID + "\n";
+            output += "roomSaveFile:" + roomSaveFile + "\n";
+
+
+            MessageBox.Show(output);
         }
     }
     

@@ -76,5 +76,5 @@ C:\Users\qasim\Desktop\sitting-Arrangement\Project-1\obj\Debug\Project-1.csproj.
 C:\Users\qasim\Desktop\sitting-Arrangement\Project-1\obj\Debug\Project-1.csproj.CopyComplete
 C:\Users\qasim\Desktop\sitting-Arrangement\Project-1\obj\Debug\Project-1.exe
 C:\Users\qasim\Desktop\sitting-Arrangement\Project-1\obj\Debug\Project-1.pdb
-C:\Users\qasim\Desktop\sitting-Arrangement\Project-1\obj\Debug\Project_1.Presentation_Layer.Dashboard.resources
 C:\Users\qasim\Desktop\sitting-Arrangement\Project-1\obj\Debug\Project_1.Presentation_Layer.SavedGrid.resources
+C:\Users\qasim\Desktop\sitting-Arrangement\Project-1\obj\Debug\Project_1.Presentation_Layer.Dashboard.resources

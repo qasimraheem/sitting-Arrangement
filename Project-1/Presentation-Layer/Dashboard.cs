@@ -17,24 +17,35 @@ using System.Security.Cryptography;
 
 namespace Project_1.Presentation_Layer
 {
+   
     public partial class Dashboard : Form
     {
+        
+        
         Admin admin = new Admin();
+        Arrangement[] currentarrangement;
+        int currentarrangementcount;
+        Room[] selectedRooms;
+        Student[] selectedStudents;
+        int[,] remaininglists;
+        
+
         public Dashboard(Admin currentAdmin)
         {
             this.admin = currentAdmin;
             InitializeComponent();
-            panelsetting.Dock = DockStyle.Fill;
-            panelsetting.TabIndex = 0;
+            panelstudent.Dock = DockStyle.Fill;
+            panelstudent.TabIndex = 0;
             panelsetting.Visible = false;
-            panelstudent.Visible = false;
+            panelstudent.Visible = true;
             panalroom.Visible = false;
             panelarrangement.Visible = false;
+            panel3.Visible = false;
             txtfname.Text = admin.first_name;
             txtlname.Text = admin.last_name;
             txtemail.Text = admin.email;
 
-            panel3.Visible = true;
+            
 
             starttime.Format = DateTimePickerFormat.Custom;
             starttime.CustomFormat = "dd-MM-yy hh:mm tt";
@@ -150,53 +161,7 @@ namespace Project_1.Presentation_Layer
 
         }
 
-        private void btnsavearrangement_Click(object sender, EventArgs e)
-        {
-            Arrangement arrangement = new Arrangement();
-            // arrangement.arrangementName = txtarrangement.Text;
-            arrangement.adminID = admin.id;
-            string[] clist = listroom.Items.OfType<string>().ToArray();
-            int index = 0;
-            foreach (string items in clist)
-            {
-                DBConnection dbcon = new DBConnection();
-                dbcon.SqlQuery("SELECT * FROM RoomsTable WHERE  AdminID=@adminID AND RoomNumber=@roomNumber");
-                dbcon.cmd.Parameters.AddWithValue("@adminID", admin.id);
-                dbcon.cmd.Parameters.AddWithValue("@roomNumber", clist[index]);
-                int val = dbcon.ExNonQuery();
-                if (dbcon.cmd.ExecuteScalar() == null)
-                {
-
-                }
-                else
-                {
-                    DataTable dt = new DataTable();
-                    dt = dbcon.ExQuery();
-                    DataRow dr = dbcon.dt.Rows[0];
-                    Room room = new Room();
-                    room.roomID = (int)dr["RoomID"];
-                    room.roomNumber = dr["RoomNumber"].ToString();
-                    room.adminID = (int)dr["AdminID"];
-                    room.rows = (int)dr["Rows"];
-                    room.cols = (int)dr["Cols"];
-                    room.totalSeats = (int)dr["TotalSeats"];
-
-
-                    DBConnection dbcon2 = new DBConnection();
-                    dbcon2.SqlQuery("INSERT INTO ArrangementDetails (ArrangementName,AdminID,RoomID) VALUES ( @arrangementName, @adminID, @roomID)");
-                    //  dbcon2.cmd.Parameters.AddWithValue("@arrangementName", arrangement.arrangementName);
-                    dbcon2.cmd.Parameters.AddWithValue("@adminID", admin.id);
-                    dbcon2.cmd.Parameters.AddWithValue("@roomID", room.roomID);
-                    int val2 = dbcon2.ExNonQuery();
-                    // MessageBox.Show("Saved");
-
-                }
-                index++;
-            }
-
-
-
-        }
+       
 
         private void droproom_onItemSelected(object sender, EventArgs e)
         {
@@ -390,8 +355,7 @@ namespace Project_1.Presentation_Layer
         {
 
 
-            Room[] selectedRooms;
-            Student[] selectedStudents;
+            
 
             int studentsCount = 0;
 
@@ -575,7 +539,7 @@ namespace Project_1.Presentation_Layer
                     MessageBox.Show(output);
 
 
-                    int[,] remaininglists = studentsCms;
+                    remaininglists = studentsCms;
 
                     Matrix[] matrixarray = new Matrix[selectedRooms.Length];
                     for (int i = 0; i < selectedRooms.Length; i++) {
@@ -656,6 +620,9 @@ namespace Project_1.Presentation_Layer
                         }
                     }
                     index = 0;
+                    
+                    currentarrangement = new Arrangement[matrixarray.Length];
+                  
                     foreach (Matrix matrix in matrixarray) {
 
                         Microsoft.Office.Interop.Excel.Application oXL;
@@ -683,7 +650,11 @@ namespace Project_1.Presentation_Layer
                             oXL.UserControl = false;
                             string outputFile = "Room_" + matrix.room.roomNumber + ".xlsx";
                             string savingPath = "C:\\Users\\qasim\\Desktop\\sitting-Arrangement\\" + outputFile;
-                           
+                            Arrangement arrangement = new Arrangement();
+                            arrangement.roomID = matrix.room.roomID;
+                            arrangement.roomSaveFile = savingPath;
+
+                            currentarrangement[index] = arrangement;
                             //+ DateTime.Now.ToString("yyyyMMddHHmmss")
                             oWB.SaveAs( savingPath, Microsoft.Office.Interop.Excel.XlFileFormat.xlWorkbookDefault, Type.Missing, Type.Missing,
                                 false, false, Microsoft.Office.Interop.Excel.XlSaveAsAccessMode.xlNoChange,
@@ -698,11 +669,21 @@ namespace Project_1.Presentation_Layer
                             //...
                         }
                     }
+  
 
                 }
 
             }
 
+
+            panel3.Visible = true;
+            panel3.Dock = DockStyle.Fill;
+            panelsetting.Visible = false;
+            panelstudent.Visible = false;
+            panalroom.Visible = false;
+            panelarrangement.Visible = false;
+
+            
 
         }
 
@@ -1031,11 +1012,17 @@ namespace Project_1.Presentation_Layer
             endtime.MinDate = starttime.Value;
         }
 
+     
+
         private void bunifuFlatButton3_Click(object sender, EventArgs e)
         {
+
+
+            DBConnection dbcon = new DBConnection();
+
+           
             EventType eventType = new EventType();
             eventType.eventType = droptype.selectedValue;
-            DBConnection dbcon = new DBConnection();
             dbcon.SqlQuery("SELECT * FROM EventType WHERE EventType=@eventType");
             dbcon.cmd.Parameters.AddWithValue("@eventType", eventType.eventType);
             if (dbcon.cmd.ExecuteScalar() == null)
@@ -1052,12 +1039,121 @@ namespace Project_1.Presentation_Layer
                eventType.id = (int)dr["ID"];
 
             }
+            int val = dbcon.ExNonQuery();
+
             Event_Arrange event_Arrange = new Event_Arrange();
             event_Arrange.name = txteventname.Text;
             event_Arrange.typeID = eventType.id;
             event_Arrange.eventStartDateTime = starttime.Value.ToString();
             event_Arrange.eventEndDateTime = endtime.Value.ToString();
-            event_Arrange.print();
+           // event_Arrange.print();
+
+            dbcon.SqlQuery("INSERT INTO Event (Name,TypeID,EventStartDateTime,EventEndDateTime) VALUES ( @name, @typeID, @eventStart, @eventEnd)");
+            //  dbcon2.cmd.Parameters.AddWithValue("@arrangementName", arrangement.arrangementName);
+            dbcon.cmd.Parameters.AddWithValue("@name", event_Arrange.name);
+            dbcon.cmd.Parameters.AddWithValue("@typeID", event_Arrange.typeID);
+            dbcon.cmd.Parameters.AddWithValue("@eventStart", event_Arrange.eventStartDateTime);
+            dbcon.cmd.Parameters.AddWithValue("@eventEnd", event_Arrange.eventEndDateTime);
+
+             val = dbcon.ExNonQuery();
+
+            dbcon.SqlQuery("SELECT * FROM Event WHERE Name=@name AND TypeID=@typeID AND  EventStartDateTime=@eventStart AND EventEndDateTime=@eventEnd");
+            dbcon.cmd.Parameters.AddWithValue("@name", event_Arrange.name);
+            dbcon.cmd.Parameters.AddWithValue("@typeID", event_Arrange.typeID);
+            dbcon.cmd.Parameters.AddWithValue("@eventStart", event_Arrange.eventStartDateTime);
+            dbcon.cmd.Parameters.AddWithValue("@eventEnd", event_Arrange.eventEndDateTime);
+             val = dbcon.ExNonQuery();
+
+            if (dbcon.cmd.ExecuteScalar() == null)
+            {
+
+            }
+            else
+            {
+                DataTable dt = new DataTable();
+                dt = dbcon.ExQuery();
+                // MessageBox.Show(dt.Rows.Count.ToString());
+
+                DataRow dr = dt.Rows[0];
+                event_Arrange.id = (int)dr["ID"];
+
+            }
+            
+
+            //[matrixarray.Length];
+             int index=0;
+
+            MessageBox.Show(currentarrangement.Length.ToString());
+            for (int i = 0; i < currentarrangement.Length; i++)
+            {
+                MessageBox.Show("index:" + i + " id:" + event_Arrange.id);
+                currentarrangement[i].eventID = event_Arrange.id;
+                currentarrangement[i].adminID = admin.id;
+
+                dbcon.SqlQuery("INSERT INTO ArrangementDetails (EventID,AdminID,RoomID,RoomSavedFile) VALUES ( @eventID, @adminID, @roomID, @roomSavedFile)");
+                //  dbcon2.cmd.Parameters.AddWithValue("@arrangementName", arrangement.arrangementName);
+                dbcon.cmd.Parameters.AddWithValue("@eventID", currentarrangement[i].eventID);
+                dbcon.cmd.Parameters.AddWithValue("@adminID", currentarrangement[i].adminID);
+                dbcon.cmd.Parameters.AddWithValue("@roomID", currentarrangement[i].roomID);
+                dbcon.cmd.Parameters.AddWithValue("@roomSavedFile", currentarrangement[i].roomSaveFile);
+                val = dbcon.ExNonQuery();
+            }
+
+
+
+            if (selectedStudents.Length > 0)
+            {
+                ArrangedStudents[] arrangedStudentsarray = new ArrangedStudents[selectedStudents.Length];
+                index = 0;
+                foreach (ArrangedStudents arrangedStudents in arrangedStudentsarray)
+                {
+                    string name=selectedStudents[0].subjectCode;
+                    ArrangedStudents temp = new ArrangedStudents();
+                    temp.student(selectedStudents[index]);
+                    temp.eventID = event_Arrange.id;
+                    arrangedStudentsarray[index] = temp;
+                    index++;
+                }
+
+
+                int rowCount = remaininglists.GetLength(0);
+                int columnCount = remaininglists.GetLength(1);
+
+                foreach (ArrangedStudents arrangedStudents in arrangedStudentsarray)
+                {
+                    bool found = false;
+                    for (int i = 0; i < rowCount; i++)
+                    {
+                        for (int j = 0; j < columnCount; j++)
+                        {
+                            if (remaininglists[i, j] == arrangedStudents.cms)
+                            {
+                                found = true;
+                                break;
+                            }
+                        }
+                        if (found == true)
+                        {
+                            break;
+                        }
+                    }
+
+                    if (found == false)
+                    {
+                        dbcon.SqlQuery("INSERT INTO ArrangedStudents (Subject,SubjectCode,Classs,AdminID,Cms,EventID) VALUES ( @subject, @subjectCode, @classs,  @adminID, @cms, @eventID)");
+                        dbcon.cmd.Parameters.AddWithValue("@subject", arrangedStudents.subject);
+                        dbcon.cmd.Parameters.AddWithValue("@subjectCode", arrangedStudents.subjectCode);
+                        dbcon.cmd.Parameters.AddWithValue("@classs", arrangedStudents.classs);
+                        dbcon.cmd.Parameters.AddWithValue("@adminID", arrangedStudents.adminID);
+                        dbcon.cmd.Parameters.AddWithValue("@eventID", arrangedStudents.eventID);
+                        dbcon.cmd.Parameters.AddWithValue("@cms", arrangedStudents.cms);
+                        val = dbcon.ExNonQuery();
+                    }
+                }
+
+
+            }
+
 
         }
     }

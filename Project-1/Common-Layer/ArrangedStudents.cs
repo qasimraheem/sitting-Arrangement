@@ -30,5 +30,13 @@ namespace Project_1.Common_Layer
             this.cms = cms;
             this.adminID = adminID;
         }
+        public void student(Student student)
+        {
+            this.classs = student.classs;
+            this.subject = student.subject;
+            this.subjectCode = student.subjectCode;
+            this.cms = student.cms;
+            this.adminID = student.adminID;
+        }
     }
 }
