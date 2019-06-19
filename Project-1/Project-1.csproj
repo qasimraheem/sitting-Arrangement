@@ -61,9 +61,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Business-Layer\Class1.cs" />
     <Compile Include="Common-Layer\Admin.cs" />
+    <Compile Include="Common-Layer\ArrangedStudents.cs" />
     <Compile Include="Common-Layer\Arrangement.cs" />
+    <Compile Include="Common-Layer\Event_Arrange.cs" />
+    <Compile Include="Common-Layer\EventType.cs" />
+    <Compile Include="Common-Layer\Group.cs" />
     <Compile Include="Common-Layer\Matrix.cs" />
     <Compile Include="Common-Layer\Room.cs" />
     <Compile Include="Common-Layer\Student.cs" />
@@ -226,6 +229,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\student.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Business-Layer\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

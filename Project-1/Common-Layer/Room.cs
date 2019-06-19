@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Project_1.Common_Layer
 {
-    class Room
+    public class Room
     {
 
         public int roomID { get; set; }

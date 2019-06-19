@@ -23,7 +23,7 @@ namespace Project_1
             admin.first_name = "qasim";
             admin.password = "Allahis1!";
             admin.id = 1;
-            Application.Run(new Dashboard(admin));
+            Application.Run(new Login());
             //int[,] list = new int[8,8];
 
             //string ou = "";

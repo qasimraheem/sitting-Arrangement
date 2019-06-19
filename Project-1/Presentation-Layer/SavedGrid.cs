@@ -18,7 +18,8 @@ namespace Project_1.Presentation_Layer
         {
             InitializeComponent();
             this.matrix = matrix;
-
+            //MessageBox.Show(matrix.room.roomNumber);
+            this.Text = matrix.room.roomNumber;
            
         }
 
@@ -35,7 +36,7 @@ namespace Project_1.Presentation_Layer
 
             this.savedgrideviewsheet.ColumnCount = width;
 
-               for(int i = 0; i < this.matrix.row; i++)// array rows
+            for(int i = 0; i < this.matrix.row; i++)// array rows
             {
                 string[] row = new string[this.matrix.col];
 

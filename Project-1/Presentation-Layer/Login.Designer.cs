@@ -179,7 +179,7 @@
             this.txtid.Name = "txtid";
             this.txtid.Size = new System.Drawing.Size(297, 44);
             this.txtid.TabIndex = 7;
-            this.txtid.Text = "Email ID";
+            this.txtid.Text = "qasimmehmood13936@gmail.com";
             this.txtid.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.txtid.OnValueChanged += new System.EventHandler(this.txtid_OnValueChanged);
             this.txtid.Enter += new System.EventHandler(this.txtid_Enter);
@@ -203,7 +203,7 @@
             this.txtpassword.Name = "txtpassword";
             this.txtpassword.Size = new System.Drawing.Size(297, 44);
             this.txtpassword.TabIndex = 8;
-            this.txtpassword.Text = "Password";
+            this.txtpassword.Text = "Allahis1!";
             this.txtpassword.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.txtpassword.OnValueChanged += new System.EventHandler(this.txtpassword_OnValueChanged);
             this.txtpassword.Enter += new System.EventHandler(this.txtpassword_Enter);

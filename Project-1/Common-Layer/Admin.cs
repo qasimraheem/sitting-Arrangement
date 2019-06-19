@@ -26,16 +26,19 @@ namespace Project_1.Common_Layer
         public string last_name { get; set; }
         public string password { get; set; }
         public string email { get; set; }
+        public Image image { get; set; }
+
         public Admin()
         {
 
         }
-        public Admin(string fn,string ls,string em,string p)
+        public Admin(string fn,string ls,string em,string p,Image image)
         {
             first_name = fn;
             last_name = ls;
             password = p;
             email = em;
+            this.image = image;
         }
         public bool validateAll(){
            if(this.validateEmail(this.email)&&this.validateUsername(this.first_name) && this.validateUsername(this.last_name)&&this.validatePassword(this.password))

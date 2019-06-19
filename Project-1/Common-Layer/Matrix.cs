@@ -23,6 +23,8 @@ namespace Project_1.Common_Layer
         public int row;
         public int col;
         public int[,] data;
+        public int[,] lists;
+        public Room room;
 
         int rawcol = 0;
         int rawrow = 0;
@@ -37,6 +39,13 @@ namespace Project_1.Common_Layer
             this.col = col;
             this.row = row;
             this.data = new int [row,col];
+        }
+        public Matrix(int row, int col,Room room)
+        {
+            this.col = col;
+            this.row = row;
+            this.data = new int[row, col];
+            this.room = room;
         }
         public bool validate(int row,int col, int cms)
         {
@@ -147,8 +156,9 @@ namespace Project_1.Common_Layer
 
         //jhnjdcjza
 
-        public void arrange(int[,] lists, int classes)
+        public void arrange(int[,] list, int classes)
         {
+            lists = list;
             rawrow = lists.GetUpperBound(0) - lists.GetLowerBound(0) + 1;
             rawcol = lists.GetUpperBound(1) - lists.GetLowerBound(1) + 1;
             rawdata = new int[rawrow, rawcol];
@@ -420,6 +430,7 @@ namespace Project_1.Common_Layer
 
         public void print() {
             string output="";
+            MessageBox.Show(this.room.roomNumber);
             for (int i = 0; i < row; i++)
             {
                 for (int j = 0; j < col; j++)
@@ -434,12 +445,12 @@ namespace Project_1.Common_Layer
 
 
         public void store() {
-            Matrix matrix = new Matrix(row, col);
+            Matrix matrix = new Matrix(row, col,room);
             matrix.data = this.data;
             SavedGrid savedGrid = new SavedGrid(matrix);
-            
             savedGrid.Show();
         }
+       
 
 
     }

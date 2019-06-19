@@ -26,19 +26,26 @@ namespace Project_1.Presentation_Layer
             InitializeComponent();
             panelsetting.Dock = DockStyle.Fill;
             panelsetting.TabIndex = 0;
-            panelsetting.Visible = true;
+            panelsetting.Visible = false;
             panelstudent.Visible = false;
             panalroom.Visible = false;
             panelarrangement.Visible = false;
             txtfname.Text = admin.first_name;
             txtlname.Text = admin.last_name;
             txtemail.Text = admin.email;
+
+            panel3.Visible = true;
+
+            starttime.Format = DateTimePickerFormat.Custom;
+            starttime.CustomFormat = "dd-MM-yy hh:mm tt";
+            endtime.Format = DateTimePickerFormat.Custom;
+            endtime.CustomFormat = "dd-MM-yy hh:mm tt";
         }
         //public void setAdmin(Admin admin) {
 
         //}
 
-   
+
 
         private void btnadmin_Click(object sender, EventArgs e)
         {
@@ -79,32 +86,32 @@ namespace Project_1.Presentation_Layer
 
         private void btnsaveadmin_Click(object sender, EventArgs e)
         {
-            
-           
-                Admin tempadmin = new Admin();
-                tempadmin.email = txtemail.Text;
-                tempadmin.first_name = txtfname.Text;
-                tempadmin.last_name = txtlname.Text;
-                tempadmin.password = txtpassword.Text;
-                if (tempadmin.validateConfPassword(tempadmin.password, txtconfpassword.Text))
+
+
+            Admin tempadmin = new Admin();
+            tempadmin.email = txtemail.Text;
+            tempadmin.first_name = txtfname.Text;
+            tempadmin.last_name = txtlname.Text;
+            tempadmin.password = txtpassword.Text;
+            if (tempadmin.validateConfPassword(tempadmin.password, txtconfpassword.Text))
+            {
+                if (tempadmin.validateAll())
                 {
-                    if (tempadmin.validateAll())
-                    {
-                        Admin_Data data = new Admin_Data();
-                        data.editadmin(tempadmin);
-                      
-                    }
-                    else
-                    {
-                        //MessageBox.Show("email is not valid!");
-                    }
+                    Admin_Data data = new Admin_Data();
+                    data.editadmin(tempadmin);
+
                 }
                 else
                 {
-                    MessageBox.Show("Password does not match!");
+                    //MessageBox.Show("email is not valid!");
                 }
+            }
+            else
+            {
+                MessageBox.Show("Password does not match!");
+            }
 
-           
+
 
         }
 
@@ -120,7 +127,7 @@ namespace Project_1.Presentation_Layer
 
         private void txtfname_OnValueChanged_1(object sender, EventArgs e)
         {
-            
+
         }
 
         private void txtlname_OnValueChanged_1(object sender, EventArgs e)
@@ -146,7 +153,7 @@ namespace Project_1.Presentation_Layer
         private void btnsavearrangement_Click(object sender, EventArgs e)
         {
             Arrangement arrangement = new Arrangement();
-            arrangement.arrangementName = txtarrangement.Text;
+            // arrangement.arrangementName = txtarrangement.Text;
             arrangement.adminID = admin.id;
             string[] clist = listroom.Items.OfType<string>().ToArray();
             int index = 0;
@@ -177,29 +184,29 @@ namespace Project_1.Presentation_Layer
 
                     DBConnection dbcon2 = new DBConnection();
                     dbcon2.SqlQuery("INSERT INTO ArrangementDetails (ArrangementName,AdminID,RoomID) VALUES ( @arrangementName, @adminID, @roomID)");
-                    dbcon2.cmd.Parameters.AddWithValue("@arrangementName", arrangement.arrangementName);
+                    //  dbcon2.cmd.Parameters.AddWithValue("@arrangementName", arrangement.arrangementName);
                     dbcon2.cmd.Parameters.AddWithValue("@adminID", admin.id);
                     dbcon2.cmd.Parameters.AddWithValue("@roomID", room.roomID);
                     int val2 = dbcon2.ExNonQuery();
-                   // MessageBox.Show("Saved");
+                    // MessageBox.Show("Saved");
 
                 }
                 index++;
             }
-           
+
 
 
         }
 
         private void droproom_onItemSelected(object sender, EventArgs e)
         {
-            
+
         }
 
         private void droproom_Enter(object sender, EventArgs e)
         {
             droproom.Items.Clear();
-           DBConnection dbcon = new DBConnection();
+            DBConnection dbcon = new DBConnection();
             dbcon.SqlQuery("SELECT * FROM RoomsTable");
             if (dbcon.cmd.ExecuteScalar() == null)
             {
@@ -209,14 +216,14 @@ namespace Project_1.Presentation_Layer
             {
                 DataTable dt = new DataTable();
                 dt = dbcon.ExQuery();
-               // MessageBox.Show(dt.Rows.Count.ToString());
+                // MessageBox.Show(dt.Rows.Count.ToString());
                 foreach (DataRow dr in dt.Rows)
                 {
                     droproom.Items.Add(dr["RoomNumber"].ToString());
                 }
-                
+
             }
-            
+
 
         }
 
@@ -224,6 +231,7 @@ namespace Project_1.Presentation_Layer
         {
             var item = this.droproom.selectedValue;
             listroom.Items.Add(item);
+            //hello
 
         }
 
@@ -278,31 +286,31 @@ namespace Project_1.Presentation_Layer
             {
                 MessageBox.Show("Data not set");
             }
-            
+
         }
 
-        private void droparrangement_Enter(object sender, EventArgs e)
-        {
-            droparrangement.Items.Clear();
-            DBConnection dbcon = new DBConnection();
-            dbcon.SqlQuery("SELECT DISTINCT ArrangementName FROM ArrangementDetails where AdminID=@adminID");
-            dbcon.cmd.Parameters.AddWithValue("@adminID",admin.id);
-            if (dbcon.cmd.ExecuteScalar() == null)
-            {
-                MessageBox.Show("not found");
-            }
-            else
-            {
-                DataTable dt = new DataTable();
-                dt = dbcon.ExQuery();
-                foreach (DataRow dr in dt.Rows)
-                {
-                    droparrangement.Items.Add(dr["ArrangementName"].ToString());
-                   // MessageBox.Show(dr["ID"].ToString());
-                }
- 
-            }
-        }
+        //private void droparrangement_Enter(object sender, EventArgs e)
+        //{
+        //    droparrangement.Items.Clear();
+        //    DBConnection dbcon = new DBConnection();
+        //    dbcon.SqlQuery("SELECT DISTINCT ArrangementName FROM ArrangementDetails where AdminID=@adminID");
+        //    dbcon.cmd.Parameters.AddWithValue("@adminID",admin.id);
+        //    if (dbcon.cmd.ExecuteScalar() == null)
+        //    {
+        //        MessageBox.Show("not found");
+        //    }
+        //    else
+        //    {
+        //        DataTable dt = new DataTable();
+        //        dt = dbcon.ExQuery();
+        //        foreach (DataRow dr in dt.Rows)
+        //        {
+        //            droparrangement.Items.Add(dr["ArrangementName"].ToString());
+        //           // MessageBox.Show(dr["ID"].ToString());
+        //        }
+
+        //    }
+        //}
 
         private void btnloadfile_Click(object sender, EventArgs e)
         {
@@ -354,271 +362,353 @@ namespace Project_1.Presentation_Layer
             student.subject = txtsubject.Text;
             student.subjectCode = txtsubjectcode.Text;
             student.classs = txtclasss.Text;
-            student.arrangementName = droparrangement.selectedValue;
-           // string[] clist = listroom.Items.OfType<string>().ToArray();
-            if((grideviewsheet.Rows.Count > 0))
+
+            // string[] clist = listroom.Items.OfType<string>().ToArray();
+            if ((grideviewsheet.Rows.Count > 0))
             {
                 foreach (DataGridViewRow row in grideviewsheet.Rows)
                 {
                     DBConnection dbcon = new DBConnection();
-                    dbcon.SqlQuery("INSERT INTO RawStudentsTable (Subject,SubjectCode,Classs,ArrangementName,AdminID,Cms) VALUES ( @subject, @subjectCode, @classs, @arrangementName, @adminID, @cms)");
-                    dbcon.cmd.Parameters.AddWithValue("@subject",student.subject);
+                    dbcon.SqlQuery("INSERT INTO RawStudentsTable (Subject,SubjectCode,Classs,AdminID,Cms) VALUES ( @subject, @subjectCode, @classs,  @adminID, @cms)");
+                    dbcon.cmd.Parameters.AddWithValue("@subject", student.subject);
                     dbcon.cmd.Parameters.AddWithValue("@subjectCode", student.subjectCode);
                     dbcon.cmd.Parameters.AddWithValue("@classs", student.classs);
-                    dbcon.cmd.Parameters.AddWithValue("@arrangementName", student.arrangementName);
                     dbcon.cmd.Parameters.AddWithValue("@adminID", student.adminID);
                     dbcon.cmd.Parameters.AddWithValue("@cms", row.Cells["Cms"].Value);
                     int val = dbcon.ExNonQuery();
                 }
 
                 grideviewsheet.DataSource = null;
-                
+
                 txtfilepath.Text = "";
-                droparrangement.Items.Clear();
+                // droparrangement.Items.Clear();
                 grideviewsheet.Rows.Clear();
                 grideviewsheet.Refresh();
             }
         }
         private void btnArrange_Click(object sender, EventArgs e)
         {
-            Arrangement arrangement = new Arrangement();
-            arrangement.arrangementName = txtarrangement.Text;
-            arrangement.adminID = admin.id;
 
-            Arrangement[] selectedArrangement;
+
             Room[] selectedRooms;
             Student[] selectedStudents;
 
             int studentsCount = 0;
 
+            string[] clist = listroom.Items.OfType<string>().ToArray();
+            int index = 0;
+            selectedRooms = new Room[clist.Length];
             DBConnection dbcon = new DBConnection();
-            dbcon.SqlQuery("SELECT * FROM ArrangementDetails WHERE  AdminID=@adminID AND ArrangementName=@arrangementName");
-            dbcon.cmd.Parameters.AddWithValue("@adminID", admin.id);
-            dbcon.cmd.Parameters.AddWithValue("@arrangementName", arrangement.arrangementName);
-            int val = dbcon.ExNonQuery();
-            if (dbcon.cmd.ExecuteScalar() == null)
+            DataTable dt = new DataTable();
+
+            foreach (string items in clist)
             {
 
-            }
-            else
-            {
-                DataTable dt = new DataTable();
-                dt = dbcon.ExQuery();
-                selectedArrangement = new Arrangement[dbcon.dt.Rows.Count];
-                selectedRooms = new Room[dbcon.dt.Rows.Count];
-
-                int index = 0;
-                foreach (DataRow dr in dbcon.dt.Rows)
-                {
-                   // MessageBox.Show(selectedArrangement.Length.ToString());
-                    Arrangement currentArrangement = new Arrangement();
-                    currentArrangement.id = (int)dr["ID"];
-                    currentArrangement.arrangementName = dr["ArrangementName"].ToString();
-                    currentArrangement.adminID = (int)dr["AdminID"];
-                    currentArrangement.roomID = (int)dr["RoomID"];
-                    currentArrangement.roomSaveFile = dr["RoomSavedFile"].ToString();
-                    selectedArrangement[index] = currentArrangement;
-                    index++;
-                }
-
-                //foreach (Arrangement arr in selectedArrangement) {
-                //    MessageBox.Show(arr.roomID.ToString());
-                //}
-
-
-                
-
-                int index2=0;
-                foreach (Arrangement tempArrangement in selectedArrangement)
-                {
-                    
-                    DBConnection dbcon2 = new DBConnection();
-                    dbcon2.SqlQuery("SELECT * FROM RoomsTable WHERE  AdminID=@adminID AND RoomID=@roomID");
-                    dbcon2.cmd.Parameters.AddWithValue("@adminID", admin.id);
-                    dbcon2.cmd.Parameters.AddWithValue("@roomID", tempArrangement.roomID);
-                    int val3 = dbcon2.ExNonQuery();
-                    dt = dbcon2.ExQuery();
-                    if (dbcon2.cmd.ExecuteScalar() == null)
-                    {
-
-                    }
-                    else
-                    {
-
-                        DataRow dr = dbcon2.dt.Rows[0];
-                        Room room = new Room();
-                        room.roomID = (int)dr["RoomID"];
-                        room.adminID = (int)dr["AdminID"];
-                        room.rows = (int)dr["Rows"];
-                        room.cols = (int)dr["Cols"];
-                        room.totalSeats = (int)dr["TotalSeats"];
-                        room.roomNumber = dr["RoomNumber"].ToString();
-
-                        selectedRooms[index2] = room;
-                    }
-                    index2++;
-                }
-
-                foreach (Room room in selectedRooms)
-                {
-                   // MessageBox.Show(room.totalSeats.ToString());
-                }
-
-                dbcon.SqlQuery("SELECT * FROM RawStudentsTable WHERE  AdminID=@adminID AND ArrangementName=@arrangementName");
+                dbcon.SqlQuery("SELECT * FROM RoomsTable WHERE  AdminID=@adminID AND RoomNumber=@roomNumber");
                 dbcon.cmd.Parameters.AddWithValue("@adminID", admin.id);
-                dbcon.cmd.Parameters.AddWithValue("@arrangementName", arrangement.arrangementName);
-                int val2 = dbcon.ExNonQuery();
-
+                dbcon.cmd.Parameters.AddWithValue("@roomNumber", clist[index]);
+                int val = dbcon.ExNonQuery();
                 if (dbcon.cmd.ExecuteScalar() == null)
                 {
 
                 }
                 else
                 {
-
-
                     // DataTable dt = new DataTable();
                     dt = dbcon.ExQuery();
-                    selectedStudents = new Student[dbcon.dt.Rows.Count];
+                    DataRow dr = dbcon.dt.Rows[0];
+                    Room room = new Room();
+                    room.roomID = (int)dr["RoomID"];
+                    room.roomNumber = dr["RoomNumber"].ToString();
+                    room.adminID = (int)dr["AdminID"];
+                    room.rows = (int)dr["Rows"];
+                    room.cols = (int)dr["Cols"];
+                    room.totalSeats = (int)dr["TotalSeats"];
+
+                    selectedRooms[index] = room;
+                }
+                index++;
+            }
 
 
-                    int index3 = 0;
-                    foreach (DataRow dr in dbcon.dt.Rows)
-                    {
-                        Student student = new Student();
-                        student.id = (int)dr["ID"];
-                        student.arrangementName = dr["ArrangementName"].ToString();
-                        student.adminID = (int)dr["AdminID"];
-                        student.subject = dr["Subject"].ToString();
-                        student.subjectCode = dr["SubjectCode"].ToString();
-                        student.classs = dr["Classs"].ToString();
-                        student.cms= (int)dr["Cms"];
 
-                        selectedStudents[index3] = student;
-                        index3++;
-                    }
+            foreach (Room room in selectedRooms)
+            {
+                // MessageBox.Show(room.totalSeats.ToString());
+            }
+
+            dbcon.SqlQuery("SELECT * FROM RawStudentsTable WHERE  AdminID=@adminID");
+            dbcon.cmd.Parameters.AddWithValue("@adminID", admin.id);
+            // dbcon.cmd.Parameters.AddWithValue("@arrangementName", arrangement.arrangementName);
+            int val2 = dbcon.ExNonQuery();
+
+            if (dbcon.cmd.ExecuteScalar() == null)
+            {
+
+            }
+            else
+            {
+
+
+                // 
+                dt = dbcon.ExQuery();
+                selectedStudents = new Student[dbcon.dt.Rows.Count];
+
+
+                int index3 = 0;
+                foreach (DataRow dr in dbcon.dt.Rows)
+                {
+                    Student student = new Student();
+                    student.id = (int)dr["ID"];
+                    //        student.arrangementName = dr["ArrangementName"].ToString();
+                    student.adminID = (int)dr["AdminID"];
+                    student.subject = dr["Subject"].ToString();
+                    student.subjectCode = dr["SubjectCode"].ToString();
+                    student.classs = dr["Classs"].ToString();
+                    student.cms = (int)dr["Cms"];
+
+                    selectedStudents[index3] = student;
+                    index3++;
+                }
+                foreach (Student student in selectedStudents)
+                {
+                    studentsCount++;
+                    //MessageBox.Show(student.subjectCode.ToString()+" "+student.cms.ToString());
+                }
+
+
+
+                if (studentsCount > 0)
+                {
+
+                    List<string> subjectCodeList = new List<string>();
+
+
                     foreach (Student student in selectedStudents)
                     {
-                        studentsCount++;
-                        //MessageBox.Show(student.subjectCode.ToString()+" "+student.cms.ToString());
+                        bool found = false;
+                        int index4 = 0;
+
+                        foreach (string subjectCode in subjectCodeList)
+                        {
+                            if (student.subjectCode == subjectCode)
+                            {
+                                found = true;
+                                break;
+                            }
+                            index4++;
+                        }
+                        if (found == false)
+                        {
+                            subjectCodeList.Add(student.subjectCode);
+                        }
+
+
+                    }
+                    int[] highestSubjectStudents = new int[subjectCodeList.Count];
+                    foreach (Student student in selectedStudents)
+                    {
+                        bool found = false;
+                        int index4 = 0;
+
+                        foreach (string subjectCode in subjectCodeList)
+                        {
+                            if (student.subjectCode == subjectCode)
+                            {
+                                highestSubjectStudents[index4] += 1;
+                            }
+                            index4++;
+                        }
+                    }
+
+                    int highestCount = 0;
+                    foreach (int count in highestSubjectStudents)
+                    {
+                        if (highestCount < count)
+                        {
+                            highestCount = count;
+                        }
                     }
 
 
+                    int[,] studentsCms = new int[highestSubjectStudents.Length, highestCount];
 
-                    if (studentsCount > 0)
+                    int rawrow = studentsCms.GetUpperBound(0) - studentsCms.GetLowerBound(0) + 1;
+                    int rawcol = studentsCms.GetUpperBound(1) - studentsCms.GetLowerBound(1) + 1;
+                    //MessageBox.Show(rawrow.ToString() + " and " + rawcol);
+                    foreach (Student student in selectedStudents)
                     {
 
-                        List<string> subjectCodeList = new List<string>();
-
-
-                        foreach (Student student in selectedStudents)
+                        int index4 = 0;
+                        foreach (string subject in subjectCodeList)
                         {
-                            bool found = false;
-                            int index4 = 0;
 
-                            foreach (string subjectCode in subjectCodeList)
+                            if (student.subjectCode == subject)
                             {
-                                if (student.subjectCode == subjectCode)
+                                //MessageBox.Show(rawrow.ToString() + " and " + rawcol);
+
+                                for (int i = 0; i < highestCount; i++)
                                 {
-                                    found = true;
-                                    break;
-                                }
-                                index4++;
-                            }
-                            if (found == false)
-                            {
-                                subjectCodeList.Add(student.subjectCode);
-                            }
-
-
-                        }
-                        int[] highestSubjectStudents = new int[subjectCodeList.Count];
-                        foreach (Student student in selectedStudents)
-                        {
-                            bool found = false;
-                            int index4 = 0;
-
-                            foreach (string subjectCode in subjectCodeList)
-                            {
-                                if (student.subjectCode == subjectCode)
-                                {
-                                    highestSubjectStudents[index4] += 1;
-                                }
-                                index4++;
-                            }
-                        }
-
-                        int highestCount = 0;
-                        foreach (int count in highestSubjectStudents)
-                        {
-                            if (highestCount < count)
-                            {
-                                highestCount = count;
-                            }
-                        }
-
-
-                        int[,] studentsCms = new int[highestSubjectStudents.Length, highestCount];
-
-                        int rawrow = studentsCms.GetUpperBound(0) - studentsCms.GetLowerBound(0) + 1;
-                        int rawcol = studentsCms.GetUpperBound(1) - studentsCms.GetLowerBound(1) + 1;
-                        //MessageBox.Show(rawrow.ToString() + " and " + rawcol);
-                        foreach (Student student in selectedStudents)
-                        {
-                           
-                            int index4 = 0;
-                            foreach (string subject in subjectCodeList)
-                            {
-                                
-                                if (student.subjectCode == subject)
-                                {
-                                    //MessageBox.Show(rawrow.ToString() + " and " + rawcol);
-
-                                    for (int i = 0; i < highestCount; i++)
+                                    if (studentsCms[index4, i] == 0)
                                     {
-                                        if (studentsCms[index4, i] == 0)
-                                        {
-                                            studentsCms[index4, i] = student.cms;
-                                           // MessageBox.Show(student.subjectCode.ToString() + " " + student.cms.ToString());
-                                            break;
-                                        }
-
+                                        studentsCms[index4, i] = student.cms;
+                                        // MessageBox.Show(student.subjectCode.ToString() + " " + student.cms.ToString());
+                                        break;
                                     }
-                                    
+
                                 }
-                                index4++;
-                            }
-                        }
 
-                        string output = "";
-                        for (int i = 0; i < rawrow; i++)
+                            }
+                            index4++;
+                        }
+                    }
+
+                    string output = "";
+                    for (int i = 0; i < rawrow; i++)
+                    {
+                        for (int j = 0; j < rawcol; j++)
                         {
-                            for (int j = 0; j < rawcol; j++)
-                            {
-                                output += (studentsCms[i, j]).ToString();
-                            }
-                            output += "\r\n";
+                            output += (studentsCms[i, j]).ToString();
                         }
-                        MessageBox.Show(output);
+                        output += "\r\n";
+                    }
+                    MessageBox.Show(output);
 
-                        Matrix matrix = new Matrix(10,10);
-                        matrix.arrange(studentsCms,studentsCms.Length);
+
+                    int[,] remaininglists = studentsCms;
+
+                    Matrix[] matrixarray = new Matrix[selectedRooms.Length];
+                    for (int i = 0; i < selectedRooms.Length; i++) {
+                        Matrix matrix = new Matrix(selectedRooms[i].rows, selectedRooms[i].cols,selectedRooms[i]);
+                        MessageBox.Show("length"+studentsCms.Length);
+                        if (i == 0)
+                        {
+                            matrix.arrange(studentsCms, rawrow);
+                        }
+                        else {
+                            matrix.arrange(remaininglists, rawrow);
+                        }
                         matrix.print();
                         matrix.store();
+                        matrixarray[i] = matrix;
+                        remaininglists = matrix.lists;
+                    }
+                    {
+                        Microsoft.Office.Interop.Excel.Application oXL;
+                        Microsoft.Office.Interop.Excel._Workbook oWB;
+                        Microsoft.Office.Interop.Excel._Worksheet  oSheet;
+                        try
+                        {
+                            //Start Excel and get Application object.
+                            oXL = new Microsoft.Office.Interop.Excel.Application();
+                            oXL.Visible = true;
 
+                            oWB = (Microsoft.Office.Interop.Excel._Workbook)(oXL.Workbooks.Add(""));
+                            oSheet = (Microsoft.Office.Interop.Excel._Worksheet)oWB.ActiveSheet;
+                            oSheet.Name = "Sheet0";
+                            Microsoft.Office.Interop.Excel.Range chartRange;
+
+                            int rowCount = remaininglists.GetLength(0);
+                            int columnCount = remaininglists.GetLength(1);
+                            chartRange = (Microsoft.Office.Interop.Excel.Range)oSheet.Cells[1, 1]; //I have header info on row 1, so start row 2
+                            chartRange = chartRange.get_Resize(rowCount, columnCount);
+                            chartRange.set_Value(Microsoft.Office.Interop.Excel.XlRangeValueDataType.xlRangeValueDefault, remaininglists);
+
+                            for(int i=0;i<remaininglists.GetLength(0);i++) {
+
+                                oSheet = (Microsoft.Office.Interop.Excel._Worksheet)oWB.Sheets.Add(oSheet) ;
+                                oSheet.Name = "Sheet" + (i+1);
+                                int[,] list= new int[remaininglists.GetLength(1), remaininglists.GetLength(0)];
+
+                                for (int j = 0; j < remaininglists.GetLength(1); j++) {
+                                    if (remaininglists[i, j] != 0) {
+                                        list[j, 0] = remaininglists[i, j];
+                                    }
+                                }
+
+                                rowCount = remaininglists.GetLength(1);
+                                columnCount = remaininglists.GetLength(0);
+                                chartRange = (Microsoft.Office.Interop.Excel.Range)oSheet.Cells[1, 1];
+                                chartRange.Cells.Value2 = "cms";
+                                chartRange = (Microsoft.Office.Interop.Excel.Range)oSheet.Cells[2, 1]; //I have header info on row 1, so start row 2
+                                chartRange = chartRange.get_Resize(rowCount, 1);
+                                chartRange.set_Value(Microsoft.Office.Interop.Excel.XlRangeValueDataType.xlRangeValueDefault, list);
+
+
+                            }
+
+
+                            oXL.Visible = false;
+                            oXL.UserControl = false;
+                            string outputFile = "Remaining_Students" + index + ".xlsx";
+                            string savingPath = "C:\\Users\\qasim\\Desktop\\sitting-Arrangement\\" + outputFile;
                         
+                            //+ DateTime.Now.ToString("yyyyMMddHHmmss")
+                            oWB.SaveAs(savingPath, Microsoft.Office.Interop.Excel.XlFileFormat.xlWorkbookDefault, Type.Missing, Type.Missing,
+                                false, false, Microsoft.Office.Interop.Excel.XlSaveAsAccessMode.xlNoChange,
+                                Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing);
+
+                            oWB.Close();
+                        }
+                        catch (Exception ex)
+                        {
+                            //...
+                        }
+                    }
+                    index = 0;
+                    foreach (Matrix matrix in matrixarray) {
+
+                        Microsoft.Office.Interop.Excel.Application oXL;
+                        Microsoft.Office.Interop.Excel._Workbook oWB;
+                        Microsoft.Office.Interop.Excel._Worksheet oSheet;
+                        try
+                        {
+                            //Start Excel and get Application object.
+                            oXL = new Microsoft.Office.Interop.Excel.Application();
+                            oXL.Visible = true;
+
+                            oWB = (Microsoft.Office.Interop.Excel._Workbook)(oXL.Workbooks.Add(""));
+                            oSheet = (Microsoft.Office.Interop.Excel._Worksheet)oWB.ActiveSheet;
+
+                            Microsoft.Office.Interop.Excel.Range chartRange;
+
+                            int rowCount = matrix.data.GetLength(0);
+                            int columnCount = matrix.data.GetLength(1);
+                            chartRange = (Microsoft.Office.Interop.Excel.Range)oSheet.Cells[1, 1]; //I have header info on row 1, so start row 2
+                            chartRange = chartRange.get_Resize(rowCount, columnCount);
+                            chartRange.set_Value(Microsoft.Office.Interop.Excel.XlRangeValueDataType.xlRangeValueDefault, matrix.data);
+
+
+                            oXL.Visible = false;
+                            oXL.UserControl = false;
+                            string outputFile = "Room_" + matrix.room.roomNumber + ".xlsx";
+                            string savingPath = "C:\\Users\\qasim\\Desktop\\sitting-Arrangement\\" + outputFile;
+                           
+                            //+ DateTime.Now.ToString("yyyyMMddHHmmss")
+                            oWB.SaveAs( savingPath, Microsoft.Office.Interop.Excel.XlFileFormat.xlWorkbookDefault, Type.Missing, Type.Missing,
+                                false, false, Microsoft.Office.Interop.Excel.XlSaveAsAccessMode.xlNoChange,
+                                Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing);
+
+                            oWB.Close();
+                            index++;
+
+                        }
+                        catch (Exception ex)
+                        {
+                            //...
+                        }
                     }
 
                 }
 
-
-                
             }
 
-            //arrangeing code
-            
 
         }
+
+        //arrangeing code
+
+
 
         private void txtroomnumber_OnValueChanged(object sender, EventArgs e)
         {
@@ -823,21 +913,7 @@ namespace Project_1.Presentation_Layer
 
         }
 
-        private void txtarrangement_Enter(object sender, EventArgs e)
-        {
-            if (txtarrangement.Text == "Arrangement / Event Name")
-            {
-                txtarrangement.Text = "";
-            }
-        }
-
-        private void txtarrangement_Leave(object sender, EventArgs e)
-        {
-            if (txtarrangement.Text == "")
-            {
-                txtarrangement.Text = "Arrangement / Event Name";
-            }
-        }
+        
 
         private void txtsubject_Enter(object sender, EventArgs e)
         {
@@ -894,6 +970,94 @@ namespace Project_1.Presentation_Layer
 
         private void txtarrangement_OnValueChanged(object sender, EventArgs e)
         {
+
+        }
+
+        private void bunifuFlatButton1_Click(object sender, EventArgs e)
+        {
+            listroom.Items.Remove(listroom.SelectedItem);
+        }
+
+        private void txteventname_Enter(object sender, EventArgs e)
+        {
+            if (txteventname.Text == "Event Name")
+            {
+                txteventname.Text = "";
+            }
+        }
+
+        private void txteventname_Leave(object sender, EventArgs e)
+        {
+            if (txteventname.Text == "")
+            {
+                txteventname.Text = "Event Name";
+            }
+        }
+
+        private void droptype_Enter(object sender, EventArgs e)
+        {
+            droptype.Items.Clear();
+            DBConnection dbcon = new DBConnection();
+            dbcon.SqlQuery("SELECT * FROM EventType");
+            if (dbcon.cmd.ExecuteScalar() == null)
+            {
+
+            }
+            else
+            {
+                DataTable dt = new DataTable();
+                dt = dbcon.ExQuery();
+                // MessageBox.Show(dt.Rows.Count.ToString());
+                foreach (DataRow dr in dt.Rows)
+                {
+                    droptype.Items.Add(dr["EventType"].ToString());
+                }
+
+            }
+        }
+
+        private void starttime_Enter(object sender, EventArgs e)
+        {
+            starttime.MinDate= DateTime.Now.AddDays(0);
+        }
+
+        private void endtime_Enter(object sender, EventArgs e)
+        {
+            endtime.MinDate = starttime.Value;
+        }
+
+        private void starttime_Leave(object sender, EventArgs e)
+        {
+            endtime.MinDate = starttime.Value;
+        }
+
+        private void bunifuFlatButton3_Click(object sender, EventArgs e)
+        {
+            EventType eventType = new EventType();
+            eventType.eventType = droptype.selectedValue;
+            DBConnection dbcon = new DBConnection();
+            dbcon.SqlQuery("SELECT * FROM EventType WHERE EventType=@eventType");
+            dbcon.cmd.Parameters.AddWithValue("@eventType", eventType.eventType);
+            if (dbcon.cmd.ExecuteScalar() == null)
+            {
+
+            }
+            else
+            {
+                DataTable dt = new DataTable();
+                dt = dbcon.ExQuery();
+                // MessageBox.Show(dt.Rows.Count.ToString());
+
+                DataRow dr = dt.Rows[0];
+               eventType.id = (int)dr["ID"];
+
+            }
+            Event_Arrange event_Arrange = new Event_Arrange();
+            event_Arrange.name = txteventname.Text;
+            event_Arrange.typeID = eventType.id;
+            event_Arrange.eventStartDateTime = starttime.Value.ToString();
+            event_Arrange.eventEndDateTime = endtime.Value.ToString();
+            event_Arrange.print();
 
         }
     }

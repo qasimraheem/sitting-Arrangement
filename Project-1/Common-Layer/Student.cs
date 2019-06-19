@@ -14,21 +14,18 @@ namespace Project_1.Common_Layer
         public string subject { get; set; }
         public string subjectCode { get; set; }
         public string classs { get; set; }
-
-        public string arrangementName { get; set; }
         public int adminID { get; set; }
         public Student()
         {
 
         }
-        public Student(int id,int cms, string subject, string subjectCode, string classs, string arrangementName,int adminID)
+        public Student(int id,int cms, string subject, string subjectCode, string classs, int adminID)
         {
             this.classs = classs;
             this.subject = subject;
             this.subjectCode = subjectCode;
             this.id = id;
             this.cms = cms;
-            this.arrangementName = arrangementName;
             this.adminID = adminID;
         }
 
