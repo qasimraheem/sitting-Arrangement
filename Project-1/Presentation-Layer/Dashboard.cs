@@ -66,6 +66,7 @@ namespace Project_1.Presentation_Layer
             panelstudent.Visible = false;
             panalroom.Visible = false;
             panelarrangement.Visible = false;
+            panel3.Visible = false;
         }
 
         private void btnarrangement_Click(object sender, EventArgs e)
@@ -75,6 +76,8 @@ namespace Project_1.Presentation_Layer
             panelstudent.Visible = false;
             panalroom.Visible = false;
             panelarrangement.Visible = true;
+            panel3.Visible = false;
+
         }
 
         private void btnroom_Click(object sender, EventArgs e)
@@ -84,6 +87,8 @@ namespace Project_1.Presentation_Layer
             panelstudent.Visible = false;
             panalroom.Visible = true;
             panelarrangement.Visible = false;
+            panel3.Visible = false;
+
         }
 
         private void btnstudent_Click(object sender, EventArgs e)
@@ -93,6 +98,8 @@ namespace Project_1.Presentation_Layer
             panelstudent.Visible = true;
             panalroom.Visible = false;
             panelarrangement.Visible = false;
+            panel3.Visible = false;
+
         }
 
         private void btnsaveadmin_Click(object sender, EventArgs e)
@@ -1155,6 +1162,171 @@ namespace Project_1.Presentation_Layer
             }
 
 
+        }
+
+        private void btnevent_Click(object sender, EventArgs e)
+        {
+            panelEvents.Dock = DockStyle.Fill;
+            panelsetting.Visible = false;
+            panelstudent.Visible = false;
+            panalroom.Visible = false;
+            panelarrangement.Visible = false;
+            panel3.Visible = false;
+            panelEvents.Visible = true;
+
+            {
+                DBConnection dbcon = new DBConnection();
+
+                dbcon.SqlQuery("SELECT * FROM Event");
+                
+                int val = dbcon.ExNonQuery();
+
+                if (dbcon.cmd.ExecuteScalar() == null)
+                {
+
+                }
+                else
+                {
+                    DataTable dt = new DataTable();
+                    dt = dbcon.ExQuery();
+                    // MessageBox.Show(dt.Rows.Count.ToString());
+
+                    eventtable.DataSource = dt;
+                    
+                }
+            }
+        }
+
+        private void eventtable_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void dropeventTypes_Enter(object sender, EventArgs e)
+        {
+            dropeventTypes.Items.Clear();
+            DBConnection dbcon = new DBConnection();
+            dbcon.SqlQuery("SELECT * FROM EventType");
+            if (dbcon.cmd.ExecuteScalar() == null)
+            {
+
+            }
+            else
+            {
+                DataTable dt = new DataTable();
+                dt = dbcon.ExQuery();
+                // MessageBox.Show(dt.Rows.Count.ToString());
+                foreach (DataRow dr in dt.Rows)
+                {
+                    dropeventTypes.Items.Add(dr["EventType"].ToString());
+                }
+
+            }
+        }
+
+        private void btnnewtype_Click(object sender, EventArgs e)
+        {
+            txteventtype.Visible = true;
+            btnaddtype.Visible = true;
+        }
+
+        private void btnaddtype_Click(object sender, EventArgs e)
+        {
+            if (btnnewtype.Text != "") {
+
+                DBConnection dbcon = new DBConnection();
+
+                dbcon.SqlQuery("INSERT INTO EventType (EventType) VALUES ( @eventType)");
+                dbcon.cmd.Parameters.AddWithValue("@eventType", txteventtype.Text);
+                int val = dbcon.ExNonQuery();
+                
+            }
+        }
+
+        private void btndeleteevent_Click(object sender, EventArgs e)
+        {
+            int selectedrowindex = eventtable.SelectedCells[0].RowIndex;
+            DataGridViewRow selectedRow = eventtable.SelectedRows[0];
+            Event_Arrange event_Arrange = new Event_Arrange();
+            event_Arrange.name=selectedRow.Cells["Name"].Value.ToString();
+            event_Arrange.id = (int)selectedRow.Cells["ID"].Value;
+            event_Arrange.print();
+            if (event_Arrange.id>-1) {
+                DBConnection dbcon = new DBConnection();
+
+                dbcon.SqlQuery("DELETE FROM Event WHERE ID=@id");
+                dbcon.cmd.Parameters.AddWithValue("@id", event_Arrange.id);
+                int val = dbcon.ExNonQuery();
+            }
+
+        }
+
+        private void txteventtype_OnValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void eventtable_Click(object sender, EventArgs e)
+        {
+            int selectedrowindex = eventtable.SelectedCells[0].RowIndex;
+
+            DataGridViewRow selectedRow = eventtable.SelectedRows[0];
+            Event_Arrange event_Arrange = new Event_Arrange();
+            event_Arrange.name = selectedRow.Cells["Name"].Value.ToString();
+            event_Arrange.id = (int)selectedRow.Cells["ID"].Value;
+            event_Arrange.typeID = (int)selectedRow.Cells["TypeID"].Value;
+            event_Arrange.eventStartDateTime = selectedRow.Cells["EventStartDateTime"].Value.ToString();
+            event_Arrange.eventEndDateTime = selectedRow.Cells["EventEndDateTime"].Value.ToString();
+            txteventname2.Text = event_Arrange.name;
+
+        }
+
+        private void btneditevent_Click(object sender, EventArgs e)
+        {
+            int selectedrowindex = eventtable.SelectedCells[0].RowIndex;
+            DataGridViewRow selectedRow = eventtable.SelectedRows[0];
+            Event_Arrange event_Arrange = new Event_Arrange();
+            event_Arrange.name = selectedRow.Cells["Name"].Value.ToString();
+            event_Arrange.id = (int)selectedRow.Cells["ID"].Value;
+            event_Arrange.typeID = (int)selectedRow.Cells["TypeID"].Value;
+            event_Arrange.eventStartDateTime = selectedRow.Cells["EventStartDateTime"].Value.ToString();
+            event_Arrange.eventEndDateTime = selectedRow.Cells["EventEndDateTime"].Value.ToString();
+
+            if (event_Arrange.id > -1)
+            {
+                DBConnection dbcon = new DBConnection();
+                EventType eventType = new EventType();
+                dbcon.SqlQuery("SELECT * FROM EventType WHERE EventType=@eventType");
+                dbcon.cmd.Parameters.AddWithValue("@eventType", dropeventTypes.selectedValue);
+                if (dbcon.cmd.ExecuteScalar() == null)
+                {
+
+                }
+                else
+                {
+                    DataTable dt = new DataTable();
+                    dt = dbcon.ExQuery();
+                    // MessageBox.Show(dt.Rows.Count.ToString());
+                    DataRow dr = dt.Rows[0];
+                    eventType.id = (int)dr["ID"];
+
+                }
+                int val = dbcon.ExNonQuery();
+
+                dbcon.SqlQuery("UPDATE Event SET Name=@name, TypeID=@newid WHERE ID=@id");
+                dbcon.cmd.Parameters.AddWithValue("@name", txteventname2.Text);
+                dbcon.cmd.Parameters.AddWithValue("@newid", eventType.id);
+                dbcon.cmd.Parameters.AddWithValue("@id", event_Arrange.id);
+               
+                val = dbcon.ExNonQuery();
+            }
+        }
+
+        private void eventtable_SelectionChanged(object sender, EventArgs e)
+        {
+           
+
+            
         }
     }
 }

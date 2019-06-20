@@ -34,6 +34,8 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnopenexcels = new Bunifu.Framework.UI.BunifuFlatButton();
             this.btngroups = new Bunifu.Framework.UI.BunifuFlatButton();
@@ -96,6 +98,17 @@
             this.bunifuFlatButton3 = new Bunifu.Framework.UI.BunifuFlatButton();
             this.droptype = new Bunifu.Framework.UI.BunifuDropdown();
             this.txteventname = new ns1.BunifuMaterialTextbox();
+            this.panelEvents = new System.Windows.Forms.Panel();
+            this.panel13 = new System.Windows.Forms.Panel();
+            this.btndeleteevent = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.btneditevent = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.eventtable = new ns1.BunifuCustomDataGrid();
+            this.txteventname2 = new ns1.BunifuMaterialTextbox();
+            this.dropeventTypes = new Bunifu.Framework.UI.BunifuDropdown();
+            this.bunifuLabel1 = new Bunifu.UI.WinForms.BunifuLabel();
+            this.btnnewtype = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.txteventtype = new ns1.BunifuMaterialTextbox();
+            this.btnaddtype = new Bunifu.Framework.UI.BunifuFlatButton();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panelarrangement.SuspendLayout();
@@ -113,6 +126,9 @@
             this.panelsetting.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel5.SuspendLayout();
+            this.panelEvents.SuspendLayout();
+            this.panel13.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.eventtable)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -236,6 +252,7 @@
             this.btnevent.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnevent.Textcolor = System.Drawing.Color.White;
             this.btnevent.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnevent.Click += new System.EventHandler(this.btnevent_Click);
             // 
             // btnstudent
             // 
@@ -406,8 +423,7 @@
             this.panelarrangement.Controls.Add(this.listroom);
             this.panelarrangement.Controls.Add(this.btnselectroom);
             this.panelarrangement.Controls.Add(this.droproom);
-            this.panelarrangement.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelarrangement.Location = new System.Drawing.Point(196, 30);
+            this.panelarrangement.Location = new System.Drawing.Point(362, 383);
             this.panelarrangement.Name = "panelarrangement";
             this.panelarrangement.Padding = new System.Windows.Forms.Padding(50);
             this.panelarrangement.Size = new System.Drawing.Size(732, 598);
@@ -862,7 +878,7 @@
             this.panalroom.Controls.Add(this.panel6);
             this.panalroom.Controls.Add(this.panel7);
             this.panalroom.Controls.Add(this.txtroomnumber);
-            this.panalroom.Location = new System.Drawing.Point(285, 454);
+            this.panalroom.Location = new System.Drawing.Point(264, 453);
             this.panalroom.Name = "panalroom";
             this.panalroom.Padding = new System.Windows.Forms.Padding(50);
             this.panalroom.Size = new System.Drawing.Size(735, 599);
@@ -1485,19 +1501,314 @@
             this.txteventname.Enter += new System.EventHandler(this.txteventname_Enter);
             this.txteventname.Leave += new System.EventHandler(this.txteventname_Leave);
             // 
+            // panelEvents
+            // 
+            this.panelEvents.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(61)))), ((int)(((byte)(69)))));
+            this.panelEvents.Controls.Add(this.btnaddtype);
+            this.panelEvents.Controls.Add(this.txteventtype);
+            this.panelEvents.Controls.Add(this.btnnewtype);
+            this.panelEvents.Controls.Add(this.bunifuLabel1);
+            this.panelEvents.Controls.Add(this.dropeventTypes);
+            this.panelEvents.Controls.Add(this.txteventname2);
+            this.panelEvents.Controls.Add(this.eventtable);
+            this.panelEvents.Controls.Add(this.panel13);
+            this.panelEvents.Location = new System.Drawing.Point(240, 55);
+            this.panelEvents.Name = "panelEvents";
+            this.panelEvents.Padding = new System.Windows.Forms.Padding(50);
+            this.panelEvents.Size = new System.Drawing.Size(732, 598);
+            this.panelEvents.TabIndex = 15;
+            this.panelEvents.Visible = false;
+            // 
+            // panel13
+            // 
+            this.panel13.Controls.Add(this.btndeleteevent);
+            this.panel13.Controls.Add(this.btneditevent);
+            this.panel13.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel13.Location = new System.Drawing.Point(50, 495);
+            this.panel13.Name = "panel13";
+            this.panel13.Size = new System.Drawing.Size(632, 53);
+            this.panel13.TabIndex = 14;
+            // 
+            // btndeleteevent
+            // 
+            this.btndeleteevent.Active = false;
+            this.btndeleteevent.Activecolor = System.Drawing.Color.DarkOrange;
+            this.btndeleteevent.BackColor = System.Drawing.Color.DarkOrange;
+            this.btndeleteevent.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btndeleteevent.BorderRadius = 0;
+            this.btndeleteevent.ButtonText = "Delete";
+            this.btndeleteevent.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btndeleteevent.DisabledColor = System.Drawing.Color.Goldenrod;
+            this.btndeleteevent.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btndeleteevent.Iconcolor = System.Drawing.Color.Transparent;
+            this.btndeleteevent.Iconimage = ((System.Drawing.Image)(resources.GetObject("btndeleteevent.Iconimage")));
+            this.btndeleteevent.Iconimage_right = null;
+            this.btndeleteevent.Iconimage_right_Selected = null;
+            this.btndeleteevent.Iconimage_Selected = null;
+            this.btndeleteevent.IconMarginLeft = 0;
+            this.btndeleteevent.IconMarginRight = 0;
+            this.btndeleteevent.IconRightVisible = true;
+            this.btndeleteevent.IconRightZoom = 0D;
+            this.btndeleteevent.IconVisible = true;
+            this.btndeleteevent.IconZoom = 90D;
+            this.btndeleteevent.IsTab = false;
+            this.btndeleteevent.Location = new System.Drawing.Point(0, 0);
+            this.btndeleteevent.Margin = new System.Windows.Forms.Padding(30, 3, 3, 3);
+            this.btndeleteevent.Name = "btndeleteevent";
+            this.btndeleteevent.Normalcolor = System.Drawing.Color.DarkOrange;
+            this.btndeleteevent.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(93)))), ((int)(((byte)(0)))));
+            this.btndeleteevent.OnHoverTextColor = System.Drawing.Color.White;
+            this.btndeleteevent.Padding = new System.Windows.Forms.Padding(200, 0, 0, 0);
+            this.btndeleteevent.selected = false;
+            this.btndeleteevent.Size = new System.Drawing.Size(199, 53);
+            this.btndeleteevent.TabIndex = 12;
+            this.btndeleteevent.Text = "Delete";
+            this.btndeleteevent.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btndeleteevent.Textcolor = System.Drawing.Color.White;
+            this.btndeleteevent.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btndeleteevent.Click += new System.EventHandler(this.btndeleteevent_Click);
+            // 
+            // btneditevent
+            // 
+            this.btneditevent.Active = false;
+            this.btneditevent.Activecolor = System.Drawing.Color.DarkOrange;
+            this.btneditevent.BackColor = System.Drawing.Color.DarkOrange;
+            this.btneditevent.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btneditevent.BorderRadius = 0;
+            this.btneditevent.ButtonText = "Edit";
+            this.btneditevent.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btneditevent.DisabledColor = System.Drawing.Color.Goldenrod;
+            this.btneditevent.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btneditevent.Iconcolor = System.Drawing.Color.Transparent;
+            this.btneditevent.Iconimage = ((System.Drawing.Image)(resources.GetObject("btneditevent.Iconimage")));
+            this.btneditevent.Iconimage_right = null;
+            this.btneditevent.Iconimage_right_Selected = null;
+            this.btneditevent.Iconimage_Selected = null;
+            this.btneditevent.IconMarginLeft = 0;
+            this.btneditevent.IconMarginRight = 0;
+            this.btneditevent.IconRightVisible = true;
+            this.btneditevent.IconRightZoom = 0D;
+            this.btneditevent.IconVisible = true;
+            this.btneditevent.IconZoom = 90D;
+            this.btneditevent.IsTab = false;
+            this.btneditevent.Location = new System.Drawing.Point(398, 0);
+            this.btneditevent.Margin = new System.Windows.Forms.Padding(30, 3, 3, 3);
+            this.btneditevent.Name = "btneditevent";
+            this.btneditevent.Normalcolor = System.Drawing.Color.DarkOrange;
+            this.btneditevent.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(93)))), ((int)(((byte)(0)))));
+            this.btneditevent.OnHoverTextColor = System.Drawing.Color.White;
+            this.btneditevent.Padding = new System.Windows.Forms.Padding(200, 0, 0, 0);
+            this.btneditevent.selected = false;
+            this.btneditevent.Size = new System.Drawing.Size(234, 53);
+            this.btneditevent.TabIndex = 10;
+            this.btneditevent.Text = "Edit";
+            this.btneditevent.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btneditevent.Textcolor = System.Drawing.Color.White;
+            this.btneditevent.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btneditevent.Click += new System.EventHandler(this.btneditevent_Click);
+            // 
+            // eventtable
+            // 
+            this.eventtable.AllowUserToAddRows = false;
+            this.eventtable.AllowUserToResizeRows = false;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.eventtable.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
+            this.eventtable.BackgroundColor = System.Drawing.Color.Gainsboro;
+            this.eventtable.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.eventtable.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.SeaGreen;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.SeaGreen;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.eventtable.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            this.eventtable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.eventtable.Dock = System.Windows.Forms.DockStyle.Top;
+            this.eventtable.DoubleBuffered = true;
+            this.eventtable.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+            this.eventtable.EnableHeadersVisualStyles = false;
+            this.eventtable.HeaderBgColor = System.Drawing.Color.SeaGreen;
+            this.eventtable.HeaderForeColor = System.Drawing.Color.SeaGreen;
+            this.eventtable.Location = new System.Drawing.Point(50, 50);
+            this.eventtable.Name = "eventtable";
+            this.eventtable.ReadOnly = true;
+            this.eventtable.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.eventtable.Size = new System.Drawing.Size(632, 267);
+            this.eventtable.TabIndex = 15;
+            this.eventtable.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.eventtable_CellContentClick);
+            this.eventtable.SelectionChanged += new System.EventHandler(this.eventtable_SelectionChanged);
+            this.eventtable.Click += new System.EventHandler(this.eventtable_Click);
+            // 
+            // txteventname2
+            // 
+            this.txteventname2.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txteventname2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.txteventname2.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            this.txteventname2.ForeColor = System.Drawing.Color.White;
+            this.txteventname2.HintForeColor = System.Drawing.Color.Empty;
+            this.txteventname2.HintText = "";
+            this.txteventname2.isPassword = false;
+            this.txteventname2.LineFocusedColor = System.Drawing.Color.Blue;
+            this.txteventname2.LineIdleColor = System.Drawing.Color.DarkOrange;
+            this.txteventname2.LineMouseHoverColor = System.Drawing.Color.Blue;
+            this.txteventname2.LineThickness = 3;
+            this.txteventname2.Location = new System.Drawing.Point(50, 317);
+            this.txteventname2.Margin = new System.Windows.Forms.Padding(0);
+            this.txteventname2.Name = "txteventname2";
+            this.txteventname2.Padding = new System.Windows.Forms.Padding(0, 0, 0, 10);
+            this.txteventname2.Size = new System.Drawing.Size(632, 55);
+            this.txteventname2.TabIndex = 18;
+            this.txteventname2.Text = "Event Name";
+            this.txteventname2.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            // 
+            // dropeventTypes
+            // 
+            this.dropeventTypes.BackColor = System.Drawing.Color.Transparent;
+            this.dropeventTypes.BorderRadius = 3;
+            this.dropeventTypes.DisabledColor = System.Drawing.Color.Gray;
+            this.dropeventTypes.ForeColor = System.Drawing.Color.White;
+            this.dropeventTypes.items = new string[0];
+            this.dropeventTypes.Location = new System.Drawing.Point(50, 401);
+            this.dropeventTypes.Name = "dropeventTypes";
+            this.dropeventTypes.NomalColor = System.Drawing.Color.DarkOrange;
+            this.dropeventTypes.onHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(93)))), ((int)(((byte)(0)))));
+            this.dropeventTypes.Padding = new System.Windows.Forms.Padding(0, 0, 0, 20);
+            this.dropeventTypes.selectedIndex = -1;
+            this.dropeventTypes.Size = new System.Drawing.Size(483, 49);
+            this.dropeventTypes.TabIndex = 19;
+            this.dropeventTypes.Enter += new System.EventHandler(this.dropeventTypes_Enter);
+            // 
+            // bunifuLabel1
+            // 
+            this.bunifuLabel1.AutoEllipsis = false;
+            this.bunifuLabel1.CursorType = null;
+            this.bunifuLabel1.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            this.bunifuLabel1.ForeColor = System.Drawing.Color.White;
+            this.bunifuLabel1.Location = new System.Drawing.Point(57, 379);
+            this.bunifuLabel1.Name = "bunifuLabel1";
+            this.bunifuLabel1.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.bunifuLabel1.Size = new System.Drawing.Size(71, 19);
+            this.bunifuLabel1.TabIndex = 20;
+            this.bunifuLabel1.Text = "Event Type";
+            this.bunifuLabel1.TextAlignment = System.Drawing.ContentAlignment.TopLeft;
+            this.bunifuLabel1.TextFormat = Bunifu.UI.WinForms.BunifuLabel.TextFormattingOptions.Default;
+            // 
+            // btnnewtype
+            // 
+            this.btnnewtype.Active = false;
+            this.btnnewtype.Activecolor = System.Drawing.Color.DarkOrange;
+            this.btnnewtype.BackColor = System.Drawing.Color.DarkOrange;
+            this.btnnewtype.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnnewtype.BorderRadius = 0;
+            this.btnnewtype.ButtonText = "New Type";
+            this.btnnewtype.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnnewtype.DisabledColor = System.Drawing.Color.Goldenrod;
+            this.btnnewtype.Iconcolor = System.Drawing.Color.Transparent;
+            this.btnnewtype.Iconimage = ((System.Drawing.Image)(resources.GetObject("btnnewtype.Iconimage")));
+            this.btnnewtype.Iconimage_right = null;
+            this.btnnewtype.Iconimage_right_Selected = null;
+            this.btnnewtype.Iconimage_Selected = null;
+            this.btnnewtype.IconMarginLeft = 0;
+            this.btnnewtype.IconMarginRight = 0;
+            this.btnnewtype.IconRightVisible = true;
+            this.btnnewtype.IconRightZoom = 0D;
+            this.btnnewtype.IconVisible = true;
+            this.btnnewtype.IconZoom = 90D;
+            this.btnnewtype.IsTab = false;
+            this.btnnewtype.Location = new System.Drawing.Point(556, 401);
+            this.btnnewtype.Margin = new System.Windows.Forms.Padding(30, 3, 3, 3);
+            this.btnnewtype.Name = "btnnewtype";
+            this.btnnewtype.Normalcolor = System.Drawing.Color.DarkOrange;
+            this.btnnewtype.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(93)))), ((int)(((byte)(0)))));
+            this.btnnewtype.OnHoverTextColor = System.Drawing.Color.White;
+            this.btnnewtype.Padding = new System.Windows.Forms.Padding(200, 0, 0, 0);
+            this.btnnewtype.selected = false;
+            this.btnnewtype.Size = new System.Drawing.Size(126, 29);
+            this.btnnewtype.TabIndex = 21;
+            this.btnnewtype.Text = "New Type";
+            this.btnnewtype.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnnewtype.Textcolor = System.Drawing.Color.White;
+            this.btnnewtype.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnnewtype.Click += new System.EventHandler(this.btnnewtype_Click);
+            // 
+            // txteventtype
+            // 
+            this.txteventtype.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txteventtype.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            this.txteventtype.ForeColor = System.Drawing.Color.White;
+            this.txteventtype.HintForeColor = System.Drawing.Color.Empty;
+            this.txteventtype.HintText = "";
+            this.txteventtype.isPassword = false;
+            this.txteventtype.LineFocusedColor = System.Drawing.Color.Blue;
+            this.txteventtype.LineIdleColor = System.Drawing.Color.DarkOrange;
+            this.txteventtype.LineMouseHoverColor = System.Drawing.Color.Blue;
+            this.txteventtype.LineThickness = 3;
+            this.txteventtype.Location = new System.Drawing.Point(50, 430);
+            this.txteventtype.Margin = new System.Windows.Forms.Padding(0);
+            this.txteventtype.Name = "txteventtype";
+            this.txteventtype.Padding = new System.Windows.Forms.Padding(0, 0, 0, 10);
+            this.txteventtype.Size = new System.Drawing.Size(483, 55);
+            this.txteventtype.TabIndex = 22;
+            this.txteventtype.Text = "Event Type";
+            this.txteventtype.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.txteventtype.Visible = false;
+            this.txteventtype.OnValueChanged += new System.EventHandler(this.txteventtype_OnValueChanged);
+            // 
+            // btnaddtype
+            // 
+            this.btnaddtype.Active = false;
+            this.btnaddtype.Activecolor = System.Drawing.Color.DarkOrange;
+            this.btnaddtype.BackColor = System.Drawing.Color.DarkOrange;
+            this.btnaddtype.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnaddtype.BorderRadius = 0;
+            this.btnaddtype.ButtonText = "Add Type";
+            this.btnaddtype.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnaddtype.DisabledColor = System.Drawing.Color.Goldenrod;
+            this.btnaddtype.Iconcolor = System.Drawing.Color.Transparent;
+            this.btnaddtype.Iconimage = ((System.Drawing.Image)(resources.GetObject("btnaddtype.Iconimage")));
+            this.btnaddtype.Iconimage_right = null;
+            this.btnaddtype.Iconimage_right_Selected = null;
+            this.btnaddtype.Iconimage_Selected = null;
+            this.btnaddtype.IconMarginLeft = 0;
+            this.btnaddtype.IconMarginRight = 0;
+            this.btnaddtype.IconRightVisible = true;
+            this.btnaddtype.IconRightZoom = 0D;
+            this.btnaddtype.IconVisible = true;
+            this.btnaddtype.IconZoom = 90D;
+            this.btnaddtype.IsTab = false;
+            this.btnaddtype.Location = new System.Drawing.Point(556, 444);
+            this.btnaddtype.Margin = new System.Windows.Forms.Padding(30, 3, 3, 3);
+            this.btnaddtype.Name = "btnaddtype";
+            this.btnaddtype.Normalcolor = System.Drawing.Color.DarkOrange;
+            this.btnaddtype.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(93)))), ((int)(((byte)(0)))));
+            this.btnaddtype.OnHoverTextColor = System.Drawing.Color.White;
+            this.btnaddtype.Padding = new System.Windows.Forms.Padding(200, 0, 0, 0);
+            this.btnaddtype.selected = false;
+            this.btnaddtype.Size = new System.Drawing.Size(126, 29);
+            this.btnaddtype.TabIndex = 23;
+            this.btnaddtype.Text = "Add Type";
+            this.btnaddtype.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnaddtype.Textcolor = System.Drawing.Color.White;
+            this.btnaddtype.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnaddtype.Visible = false;
+            this.btnaddtype.Click += new System.EventHandler(this.btnaddtype_Click);
+            // 
             // Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(226)))), ((int)(((byte)(225)))));
             this.ClientSize = new System.Drawing.Size(928, 628);
+            this.Controls.Add(this.panelEvents);
             this.Controls.Add(this.panelarrangement);
             this.Controls.Add(this.panel3);
-            this.Controls.Add(this.panalroom);
             this.Controls.Add(this.panelsetting);
             this.Controls.Add(this.panelstudent);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel2);
+            this.Controls.Add(this.panalroom);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Dashboard";
             this.Text = "Dsasboard";
@@ -1519,6 +1830,10 @@
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.panel5.ResumeLayout(false);
+            this.panelEvents.ResumeLayout(false);
+            this.panelEvents.PerformLayout();
+            this.panel13.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.eventtable)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1586,5 +1901,16 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DateTimePicker endtime;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Panel panelEvents;
+        private System.Windows.Forms.Panel panel13;
+        private Bunifu.Framework.UI.BunifuFlatButton btndeleteevent;
+        private Bunifu.Framework.UI.BunifuFlatButton btneditevent;
+        private Bunifu.Framework.UI.BunifuFlatButton btnnewtype;
+        private Bunifu.UI.WinForms.BunifuLabel bunifuLabel1;
+        private Bunifu.Framework.UI.BunifuDropdown dropeventTypes;
+        private ns1.BunifuMaterialTextbox txteventname2;
+        private ns1.BunifuCustomDataGrid eventtable;
+        private Bunifu.Framework.UI.BunifuFlatButton btnaddtype;
+        private ns1.BunifuMaterialTextbox txteventtype;
     }
 }
